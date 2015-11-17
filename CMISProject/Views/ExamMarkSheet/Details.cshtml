@@ -1,0 +1,82 @@
+﻿@model CMISProject.Models.ExamMarkSheet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ExamMarkSheet</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Marks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExamType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExamType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullMarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullMarks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassMarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassMarks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExamDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExamDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubjectRank)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubjectRank)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Semester)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Semester)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SGPA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SGPA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ExamMarkSheetId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,50 @@
+﻿@model CMISProject.Models.Resource
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Resource</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Rtype)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rtype)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Filename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Filename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UploadedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UploadedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ResourceId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

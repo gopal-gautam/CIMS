@@ -1,0 +1,58 @@
+﻿@model CMISProject.Models.Subject
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Subject</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SubName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreditHrs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreditHrs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriBook)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriBook)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RefBook1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefBook1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RefBook2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefBook2)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SubjectId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

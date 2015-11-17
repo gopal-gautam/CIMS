@@ -22,7 +22,7 @@ namespace CMISProject.Models
         public string Psswd { get; set; }
         
         [Required]
-        [Display(Name="Name")]
+        [Display(Name="Group Name")]
         [StringLength(30, MinimumLength= 2, ErrorMessage= "Group name must be between 2 and 30 characters")]
         public string GroupName { get; set; }
 
