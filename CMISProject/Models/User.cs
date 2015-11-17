@@ -15,16 +15,16 @@ namespace CMISProject.Models
     {
         Male, Female, Other
     }
-    public class User
+    public class User : ApplicationUser
     {
         [Required]
         [ScaffoldColumn(false)]
         public int UserId { get; set; }
 
-        [Required]
-        [Display (Name="Password")]
-        [StringLength(30, MinimumLength = 8, ErrorMessage = "Password should be more than 8 character and less than 30 characters")]
-        public string Psswd { get; set; }
+        //[Required]
+        //[Display (Name="Password")]
+        //[StringLength(30, MinimumLength = 8, ErrorMessage = "Password should be more than 8 character and less than 30 characters")]
+        //public string Psswd { get; set; }
 
         [Required]
         [StringLength(20, MinimumLength = 2, ErrorMessage = "UserName must be between 2 and 30 characters")]
