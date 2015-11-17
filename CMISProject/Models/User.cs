@@ -63,5 +63,11 @@ namespace CMISProject.Models
         [Required]
         public string Nationality { get; set; }
 
+        public string ImageFile { get; set; }
+
+        public string BloodGroup { get; set; }
+
+        public string CitizenShipNumber { get; set; }
+
     }
 }
