@@ -15,7 +15,7 @@ namespace CMISProject.Models
     {
         Male, Female, Other
     }
-    public class User : ApplicationUser
+    public class User
     {
         [Required]
         [ScaffoldColumn(false)]
