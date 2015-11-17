@@ -14,7 +14,7 @@ namespace CMISProject.Models
         public int SubjectId { get; set; }
 
         [Required]
-        [Display(Name = "SubjectName")]
+        [Display(Name = "Subject Name")]
         public string SubName { get; set; }
 
         [Required]
@@ -22,23 +22,24 @@ namespace CMISProject.Models
         [Column("GroupId")]
         public virtual Group Group { get; set; }
 
-        [Required]
-        // [ForeignKey("UserId")]
-        [Display(Name="SubjectTeacher")]
+        [Display(Name="Subject Teacher")]
+        public int? SubTeacherId { get; set; }
+
+        [ForeignKey("SubTeacherId")]
         public virtual User SubTeacher { get; set; }
 
         [Required]
-        [Display(Name = "CreditHours")]
+        [Display(Name = "Credit Hours")]
         public int CreditHrs { get; set; }
 
         [Required]
-        [Display(Name = "PrimaryBook")]
+        [Display(Name = "Primary Book")]
         public string PriBook { get; set; } 
 
-        [Display(Name= "ReferenceBook1")]
+        [Display(Name= "Reference Book1")]
         public string RefBook1 { get; set;}
 
-        [Display(Name= "ReferenceBook2")]
+        [Display(Name= "Reference Book2")]
         public string RefBook2 { get; set;}
 
     }
