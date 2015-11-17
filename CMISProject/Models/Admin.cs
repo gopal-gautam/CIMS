@@ -28,11 +28,11 @@ namespace CMISProject.Models
         [Required]
         [Display(Name = "Password")]
         [StringLength(30, MinimumLength = 8, ErrorMessage = "Password should be more than 8 character and less than 30 characters")]
-        public string Psswd { get; set; }
+        public string Password { get; set; }
 
         [Required]
         [Display(Name = "DateOfEstablishment")]
-        public string DOE { get; set; }
+        public string DateOfEstablishment { get; set; }
 
         [Required]
         public string Email { get; set; }
@@ -52,9 +52,15 @@ namespace CMISProject.Models
 
         [Required]
         [Display (Name = "P.O.BoxNumber")]
-        public string POBN { get; set; }
+        public string POBoxNumber { get; set; }
 
         public string FaxNumber { get; set; }
+
+        public string PanNo { get; set; }
+
+        public string VatNo { get; set; }
+
+        public string LogoFile { get; set; }
                             
     }
 }
