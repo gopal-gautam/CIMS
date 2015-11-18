@@ -43,7 +43,7 @@ namespace CMISProject.Models
         public int Marks { get; set; }
 
         [Required]
-        public string ExamType { get; set; }
+        public ExamType ExamType { get; set; }
 
         [Required]
         public int FullMarks { get; set; }
@@ -52,16 +52,17 @@ namespace CMISProject.Models
         public int PassMarks { get; set; }
 
         [Required]
+        [DataType(DataType.DateTime)]
         public DateTime ExamDate { get; set; }
 
         [Required]
+        [ScaffoldColumn(false)]
         public int SubjectRank { get; set; }
 
         [Required]
         public Semester Semester { get; set; }
 
         public SemesterGradePointAverage SemesterGradePointAverage { get; set; }
-
 
     }
 }

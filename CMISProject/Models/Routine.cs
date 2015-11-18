@@ -18,10 +18,12 @@ namespace CMISProject.Models
         public int RoutineId { get; set; }
 
         [Required]
-        public DateTime StartTime { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode=true, DataFormatString="HH:mm")]
+        public TimeSpan StartTime { get; set; }
 
         [Required]
-        public DateTime EndTime { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "HH:mm")]
+        public TimeSpan EndTime { get; set; }
 
         [Required]
         public int GroupId { get; set; }
@@ -38,6 +40,7 @@ namespace CMISProject.Models
         [Required]
         public DayOfWeek Day { get; set; }
         
+        [DataType(DataType.MultilineText)]
         public Mode BreakRemark { get; set; }
 
     }

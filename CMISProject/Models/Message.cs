@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel;
 
 namespace CMISProject.Models
 {
@@ -33,17 +34,23 @@ namespace CMISProject.Models
 
         [Required]
         [Display(Name="Message")]
+        [UIHint("Enter Message")]
+        [DataType(DataType.MultilineText)]
         public string  Msg { get; set; }
 
         [Required]
         public int UserId { get; set; }
 
         [ForeignKey("UserId")]
+        [ScaffoldColumn(false)]
         public virtual User CreatedBy { get; set; }
 
         [Required]
+        [DataType(DataType.DateTime)]
+        [ReadOnly(true)]
         public DateTime CreatedDate { get; set;}
 
+        [DataType(DataType.Upload)]
         public string Attachment { get; set; }
 
         /*
@@ -60,5 +67,9 @@ namespace CMISProject.Models
         [Required]
         public MessageMode Mode { get; set; }
 
+        public Message()
+        {
+            CreatedDate = DateTime.Now;
+        }
     }
 }

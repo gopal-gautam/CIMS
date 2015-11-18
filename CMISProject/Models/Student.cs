@@ -18,15 +18,20 @@ namespace CMISProject.Models
         public Semester Semester { get; set; }
 
         [Required]
-        public string GuardianName1 { get; set; }
+        [Display(Name= "Primary Guardian Name")]
+        public string Guardian1Name { get; set; }
 
         [Required]
-        public string GuardianAddress1 { get; set; }
+        [Display(Name = "Primary Guardian Phone Number")]
+        [DataType(DataType.PhoneNumber)]
+        public long Guardian1PhoneNumber { get; set; }
 
-        public string GuardianName2 { get; set; }
+        [Display(Name = "Secondary Guardian Name")]
+        public string Guardian2Name { get; set; }
 
-        public string GuardianAddress2 { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Secondary Guardian Phone Number")]
+        public string Guardian2PhoneNumber { get; set; }
 
-        
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -26,15 +27,18 @@ namespace CMISProject.Models
         public string ResourceName { get; set; }
 
         [Required]
+        [DataType(DataType.Upload)]
         public string Filename { get; set; }
 
         [Required]
+        [DataType(DataType.DateTime)]
         public DateTime UploadedDate { get; set; }
 
         [Required]
         public int UserId { get; set; }
 
         [ForeignKey("UserId")]
+        [ReadOnly(true)]
         public virtual User UploadedBy { get; set; }
 
         [Required]
@@ -43,6 +47,9 @@ namespace CMISProject.Models
         [ForeignKey("SubjectId")]
         public virtual Subject Subject { get; set; }
 
-
+        public Resource()
+        {
+            UploadedDate = DateTime.Now;
+        }
     }
 }

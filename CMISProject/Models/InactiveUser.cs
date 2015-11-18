@@ -14,13 +14,18 @@ namespace CMISProject.Models
         public int InactiveUserId { get; set; }
 
         [Required]
-        [Column("UserId")]
+        public int UserId { get; set; }
+
+        [ForeignKey("UserId")]
         public virtual User User { get; set; }
 
         [Required]
+        [DisplayFormat(ApplyFormatInEditMode=true, DataFormatString="YYYY-MM-dd")]
+        [DataType(DataType.Date)]
         public string InactiveDate { get; set; }
 
         [Required]
+        [DataType(DataType.MultilineText)]
         public string Reason { get; set; }
     }
 }

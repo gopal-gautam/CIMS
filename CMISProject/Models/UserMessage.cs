@@ -25,6 +25,5 @@ namespace CMISProject.Models
         [ForeignKey("MessageId")]
         public virtual Message Messsage { get; set; }
 
-
     }
 }

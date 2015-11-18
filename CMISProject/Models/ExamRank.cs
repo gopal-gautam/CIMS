@@ -35,6 +35,7 @@ namespace CMISProject.Models
         */       
 
         [Required]
+        [ScaffoldColumn(false)]
         public int Rank { get; set; }
 
         [Required]
