@@ -14,17 +14,15 @@ namespace CMISProject.Models
         public int GroupResourceId { get; set; }
 
         [Required]
-        [Display(Name = "GroupResourceId")]
-        public int GrpResId { get; set; }
+        public int GroupId { get; set; }
 
-        [Required]
-        // [ForeignKey("GroupId")]
-        [Column("GroupId")]
+        [ForeignKey("GroupId")]
         public virtual Group Group { get; set; }
 
         [Required]
-        // [ForeignKey("ResourceId")]
-        [Column("ResourceId")]
+        public int ResourceId { get; set; }
+
+        [ForeignKey("ResourceId")]
         public virtual Resource Resource { get; set; }
 
     }

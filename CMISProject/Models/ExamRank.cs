@@ -7,7 +7,7 @@ using System.Web;
 
 namespace CMISProject.Models
 {
-    //public enum SGPA
+    //public enum SemesterGradePointAverage
     //{
     //    Aplus, A, Bplus, B, Cplus, C, D, F
     //}
@@ -19,8 +19,9 @@ namespace CMISProject.Models
         public int ExamRankId { get; set; }
 
         [Required]
-        // [ForeignKey("UserId")]
-        [Column("UserId")]
+        public int UserId { get; set; }
+
+        [ForeignKey("UserId")]
         public virtual Student Student { get; set; }
 
         public int Percentage { get; set; }
@@ -37,6 +38,6 @@ namespace CMISProject.Models
         public int Rank { get; set; }
 
         [Required]
-        public SGPA SGPA { get; set; }
+        public SemesterGradePointAverage SemesterGradePointAverage { get; set; }
     }
 }

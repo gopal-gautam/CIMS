@@ -13,8 +13,9 @@ namespace CMISProject.Models
         [ScaffoldColumn(false)]
         public int CustomUserPropertyId { get; set; }
         [Required]
-        // [ForeignKey("UserId")]
-        [Column("UserId")]
+        public int UserId { get; set; }
+
+        [ForeignKey("UserId")]
         public virtual User User { get; set; }
 
         [Required]

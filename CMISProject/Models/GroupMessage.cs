@@ -12,13 +12,17 @@ namespace CMISProject.Models
         [Required]
         [ScaffoldColumn(false)]
         public int GroupMessageId { get; set; }
-        
-        // [ForeignKey("GroupId")]
-        [Column("GroupId")]
+
+        [Required]
+        public int GroupId { get; set; }
+
+        [ForeignKey("GroupId")]
         public virtual Group Group { get; set; }
 
-        // [ForeignKey("MessageId")]
-        [Column("MessageId")]
+        [Required]
+        public int MessageId { get; set; }
+
+        [ForeignKey("MessageId")]
         public virtual Message Messsage { get; set; }
 
 

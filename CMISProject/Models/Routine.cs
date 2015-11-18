@@ -24,13 +24,15 @@ namespace CMISProject.Models
         public DateTime EndTime { get; set; }
 
         [Required]
-        // [ForeignKey("GroupId")]
-        [Column("GroupId")]
+        public int GroupId { get; set; }
+
+        [ForeignKey("GroupId")]
         public virtual Group Group { get; set; }
 
         [Required]
-        // [ForeignKey("UserId")]
-        [Column("UserId")]
+        public int UserId { get; set; }
+
+        [ForeignKey("UserId")]
         public virtual User User { get; set; }
 
         [Required]

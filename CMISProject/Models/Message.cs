@@ -36,8 +36,9 @@ namespace CMISProject.Models
         public string  Msg { get; set; }
 
         [Required]
-        // [ForeignKey("UserId")]
-        [Column("UserId")]
+        public int UserId { get; set; }
+
+        [ForeignKey("UserId")]
         public virtual User CreatedBy { get; set; }
 
         [Required]

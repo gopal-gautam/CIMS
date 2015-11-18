@@ -15,13 +15,15 @@ namespace CMISProject.Models
         public int UserResourceId { get; set; }
 
         [Required]
-        // [ForeignKey("UserId")]
-        [Column("UserId")]
+        public int UserId { get; set; }
+
+        [ForeignKey("UserId")]
         public virtual User User { get; set; }
 
         [Required]
-        // [ForeignKey("ResourceId")]
-        [Column("ResourceId")]
+        public int ResourceId { get; set; }
+
+        [ForeignKey("ResourceId")]
         public virtual Resource Resource { get; set; }
     }
 }

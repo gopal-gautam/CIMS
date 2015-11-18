@@ -14,7 +14,9 @@ namespace CMISProject.Models
         public int CustomGroupPropertyId { get; set; }
 
         [Required]
-        // [ForeignKey("GroupId")]
+        public int GroupId { get; set; }
+
+        [ForeignKey("GroupId")]
         public virtual Group Group { get; set; }
 
         [Required]

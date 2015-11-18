@@ -18,12 +18,12 @@ namespace CMISProject.Models
         public int ResourceId { get; set; }
 
         [Required]
-        [Display(Name= "ResourceType")]
-        public Type Rtype{ get; set;}
+        [Display(Name= "Resource Type")]
+        public Type ResourceType{ get; set;}
 
         [Required]
-        [Display(Name = "ResourceName")]
-        public string ResName { get; set; }
+        [Display(Name = "Resource Name")]
+        public string ResourceName { get; set; }
 
         [Required]
         public string Filename { get; set; }
@@ -32,15 +32,16 @@ namespace CMISProject.Models
         public DateTime UploadedDate { get; set; }
 
         [Required]
-        // [ForeignKey("UserId")]
+        public int UserId { get; set; }
+
+        [ForeignKey("UserId")]
         public virtual User UploadedBy { get; set; }
 
         [Required]
-        // [ForeignKey("SubjectId")]
-        [Column("SubjectId")]
+        public int SubjectId { get; set; }
+
+        [ForeignKey("SubjectId")]
         public virtual Subject Subject { get; set; }
-
-
 
 
     }

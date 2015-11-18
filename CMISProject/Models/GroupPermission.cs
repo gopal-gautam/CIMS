@@ -13,11 +13,16 @@ namespace CMISProject.Models
         [ScaffoldColumn(false)]
         public int GroupPermissionId { get; set; }
 
-        // [ForeignKey("GroupId")]
-        [Column("GroupId")]
-        public virtual Group Group { get; set; }
+        [Required]
+        public int GroupId { get; set; }
 
-        // [ForeignKey("PermissionId")]
+        [ForeignKey("GroupId")]
+        public virtual Group Group { get; set; }
+        
+        [Required]
+        public int PermissionId { get; set; }
+
+        [ForeignKey("PermissionId")]
         public virtual Permission Permission { get; set; }
 
     }

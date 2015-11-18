@@ -12,12 +12,17 @@ namespace CMISProject.Models
         [Required]
         [ScaffoldColumn(false)]
         public int UserPermissionId { get; set; }
-        // [ForeignKey("UserId")]
-        [Column("UserId")]
+
+        [Required]
+        public int UserId { get; set; }
+
+        [ForeignKey("UserId")]
         public virtual User User { get; set; }
 
-        // [ForeignKey("PermissionId")]
-        [Column("Permission")]
+        [Required]
+        public int PermissionId { get; set; }
+
+        [ForeignKey("PermissionId")]
         public virtual Permission Permission { get; set; }
 
     }

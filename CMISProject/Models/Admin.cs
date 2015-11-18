@@ -14,7 +14,7 @@ namespace CMISProject.Models
 
         [Required]
         [StringLength(30, MinimumLength = 2, ErrorMessage = "AdminName must be between 2 and 30 characters")]
-        public string Name { get; set; }
+        public string AdminName { get; set; }
 
         [Required]
         [StringLength(20, MinimumLength = 2, ErrorMessage = "UserName must be between 2 and 30 characters")]
@@ -43,12 +43,7 @@ namespace CMISProject.Models
         [Required]
         public string Address { get; set; }
 
-        [Required]
-        public long PhoneNumber1 { get; set; }
-        
-        public long PhoneNumber2 { get; set; }
-        
-        public long PhoneNumber3 { get; set; }
+        public virtual ICollection<string> PhoneNumber { get; set; }
 
         [Required]
         [Display (Name = "P.O.BoxNumber")]

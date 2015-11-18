@@ -13,12 +13,16 @@ namespace CMISProject.Models
         [ScaffoldColumn(false)]
         public int UserMessageId { get; set; }
 
-        // [ForeignKey("UserId")]
-        [Column("UserId")]
+        [Required]
+        public int UserId { get; set; }
+
+        [ForeignKey("UserId")]
         public virtual User User { get; set; }
 
-        // [ForeignKey("MessageId")]
-        [Column("MessageId")]
+        [Required]
+        public int MessageId { get; set; }
+
+        [ForeignKey("MessageId")]
         public virtual Message Messsage { get; set; }
 
 

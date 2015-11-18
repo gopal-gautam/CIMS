@@ -17,8 +17,9 @@ namespace CMISProject.Models
         public string FacultyName { get; set; }
 
         [Required]
-        // [ForeignKey("UserId")]
-        [Column("UserId")]
+        public int UserId { get; set; }
+
+        [ForeignKey("UserId")]
         public virtual User FacultyHead { get; set; }
 
 

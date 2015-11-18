@@ -12,7 +12,7 @@ namespace CMISProject.Models
     //    I, II, III, IV, V, VI, VII, VIII
     //}
 
-    public enum SGPA
+    public enum SemesterGradePointAverage
     {
         Aplus, A, Bplus, B, Cplus, C, D, F
     }
@@ -28,13 +28,15 @@ namespace CMISProject.Models
         public int ExamMarkSheetId { get; set; }
 
         [Required]
-        // [ForeignKey("UserId")]
-        [Column("UserId")]
+        public int UserId { get; set; }
+
+        [ForeignKey("UserId")]
         public virtual Student Student { get; set; }
 
         [Required]
-        // [ForeignKey("SubjectId")]
-        [Column("SubjectId")]
+        public int SubjectId { get; set; }
+
+        [ForeignKey("SubjectId")]
         public virtual Subject Subject { get; set; }
 
         [Required]
@@ -58,7 +60,7 @@ namespace CMISProject.Models
         [Required]
         public Semester Semester { get; set; }
 
-        public SGPA SGPA { get; set; }
+        public SemesterGradePointAverage SemesterGradePointAverage { get; set; }
 
 
     }
