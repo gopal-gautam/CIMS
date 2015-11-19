@@ -20,7 +20,7 @@ namespace CMISProject.Models
     {
         Male, Female, Other
     }
-    public abstract class User
+    public class User
     {
         [Required]
         [ScaffoldColumn(false)]
@@ -58,11 +58,11 @@ namespace CMISProject.Models
         [ForeignKey("CreatedByUserId")]
         public virtual User CreatedBy { get; set; }
 
-        [Required]
-        public int GroupId { get; set; }
+        //[Required]
+        //public int GroupId { get; set; }
 
-        [ForeignKey("GroupId")]
-        public virtual Group Group { get; set; }
+        //[ForeignKey("GroupId")]
+        //public virtual Group Group { get; set; }
         
         [DataType(DataType.EmailAddress)]
         [UIHint("E-mail Id")]
