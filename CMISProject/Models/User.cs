@@ -20,7 +20,7 @@ namespace CMISProject.Models
     {
         Male, Female, Other
     }
-    public class User
+    public abstract class User
     {
         [Required]
         [ScaffoldColumn(false)]
@@ -53,9 +53,9 @@ namespace CMISProject.Models
         public DateTime CreatedDate { get; set; }
 
         [Required]
-        public int UserId { get; set; }
+        public int CreatedByUserId { get; set; }
 
-        [ForeignKey("UserId")]
+        [ForeignKey("CreatedByUserId")]
         public virtual User CreatedBy { get; set; }
 
         [Required]
