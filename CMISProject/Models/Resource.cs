@@ -20,10 +20,12 @@ namespace CMISProject.Models
 
         [Required]
         [Display(Name= "Resource Type")]
+        [UIHint("Resource Type")]
         public Type ResourceType{ get; set;}
 
         [Required]
         [Display(Name = "Resource Name")]
+        [UIHint("Resource Name")]
         public string ResourceName { get; set; }
 
         [Required]

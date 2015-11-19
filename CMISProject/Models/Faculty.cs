@@ -14,6 +14,7 @@ namespace CMISProject.Models
         public int FacultyId { get; set; }
 
         [Required]
+        [UIHint("Faculty Name")]
         public string FacultyName { get; set; }
 
         [Required]

@@ -32,16 +32,20 @@ namespace CMISProject.Models
 
         [Required]
         [Display(Name = "Credit Hours")]
+        [UIHint("Credit Hours")]
         public int CreditHours { get; set; }
 
         [Required]
         [Display(Name = "Primary Book")]
+        [UIHint("Primary Book")]
         public string PrimaryBook { get; set; } 
 
         [Display(Name= "Reference Book1")]
+        [UIHint("Reference Book1")]
         public string ReferenceBook1 { get; set;}
 
         [Display(Name= "Reference Book2")]
+        [UIHint("Reference Book2")]
         public string ReferenceBook2 { get; set;}
 
     }

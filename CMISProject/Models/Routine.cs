@@ -19,10 +19,12 @@ namespace CMISProject.Models
 
         [Required]
         [DisplayFormat(ApplyFormatInEditMode=true, DataFormatString="HH:mm")]
+        [UIHint("Start Time")]
         public TimeSpan StartTime { get; set; }
 
         [Required]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "HH:mm")]
+        [UIHint("End Time")]
         public TimeSpan EndTime { get; set; }
 
         [Required]
@@ -38,9 +40,11 @@ namespace CMISProject.Models
         public virtual User User { get; set; }
 
         [Required]
+        [UIHint("Day")]
         public DayOfWeek Day { get; set; }
         
         [DataType(DataType.MultilineText)]
+        [UIHint("Break Remark")]
         public Mode BreakRemark { get; set; }
 
     }

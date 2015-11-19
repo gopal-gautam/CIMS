@@ -13,6 +13,7 @@ namespace CMISProject.Models
         public int ProgrammeId { get; set; }
 
         [Required]
+        [UIHint("Programme Name")]
         public string ProgrammeName { get; set; }
     }
 }

@@ -12,6 +12,7 @@ namespace CMISProject.Models
         public ApplicationDbContext()
             : base("DefaultConnection")
         {
+
         }
     }
 }

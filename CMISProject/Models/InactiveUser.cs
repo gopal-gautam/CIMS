@@ -22,10 +22,13 @@ namespace CMISProject.Models
         [Required]
         [DisplayFormat(ApplyFormatInEditMode=true, DataFormatString="YYYY-MM-dd")]
         [DataType(DataType.Date)]
+        [ScaffoldColumn(false)]
+        [UIHint("Inactive Date")]
         public string InactiveDate { get; set; }
 
         [Required]
         [DataType(DataType.MultilineText)]
+        [UIHint("Reason for Inactivation")]
         public string Reason { get; set; }
     }
 }

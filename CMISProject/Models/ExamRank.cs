@@ -24,10 +24,11 @@ namespace CMISProject.Models
         [ForeignKey("UserId")]
         public virtual Student Student { get; set; }
 
-        public int Percentage { get; set; }
-
+        [UIHint("Total Marks")]
         public int TotalMarks { get; set; }
 
+        [UIHint("Percentage")]
+        public int Percentage { get; set; }
      /* [Required]
         // // [ForeignKey("ExamMarkSheet")]
         [Column("Marks")]
@@ -36,9 +37,11 @@ namespace CMISProject.Models
 
         [Required]
         [ScaffoldColumn(false)]
+        [UIHint("Rank")]
         public int Rank { get; set; }
 
         [Required]
+        [UIHint("SGPA")]
         public SemesterGradePointAverage SemesterGradePointAverage { get; set; }
     }
 }

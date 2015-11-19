@@ -30,12 +30,14 @@ namespace CMISProject.Models
 
         [Required]
         [Display(Name="MessageType")]
+        [UIHint("Message Type")]
         public MessageType MessageType { get; set; }
 
         [Required]
         [Display(Name="Message")]
         [UIHint("Enter Message")]
         [DataType(DataType.MultilineText)]
+        [UIHint("Message")]
         public string  Msg { get; set; }
 
         [Required]
@@ -51,6 +53,7 @@ namespace CMISProject.Models
         public DateTime CreatedDate { get; set;}
 
         [DataType(DataType.Upload)]
+        [UIHint("Upload File")]
         public string Attachment { get; set; }
 
         /*
@@ -65,6 +68,7 @@ namespace CMISProject.Models
         public React React { get; set; }
 
         [Required]
+        [UIHint("Message Mode")]
         public MessageMode Mode { get; set; }
 
         public Message()

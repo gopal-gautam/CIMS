@@ -14,6 +14,7 @@ namespace CMISProject.Models
         [ScaffoldColumn(false)]
         public int PermissionId { get; set; }
 
+        [UIHint("Permission Name")]
         public string Perm { get; set; }
     }
 }

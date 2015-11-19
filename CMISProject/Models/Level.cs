@@ -13,6 +13,7 @@ namespace CMISProject.Models
         public int LevelId { get; set; }
 
         [Required]
+        [UIHint("No. of Year")]
         public string Year { get; set; }
 
     }

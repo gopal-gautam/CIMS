@@ -40,9 +40,11 @@ namespace CMISProject.Models
         public virtual Subject Subject { get; set; }
 
         [Required]
+        [UIHint("Obtained Marks")]
         public int Marks { get; set; }
 
         [Required]
+        [UIHint("Exam Type")]
         public ExamType ExamType { get; set; }
 
         [Required]
@@ -53,15 +55,19 @@ namespace CMISProject.Models
 
         [Required]
         [DataType(DataType.DateTime)]
+        [UIHint("Exam Date & Time")]
         public DateTime ExamDate { get; set; }
 
         [Required]
         [ScaffoldColumn(false)]
+        [UIHint("Subject Rank")]
         public int SubjectRank { get; set; }
 
         [Required]
+        [UIHint("Semester")]
         public Semester Semester { get; set; }
 
+        [UIHint("SGPA")]
         public SemesterGradePointAverage SemesterGradePointAverage { get; set; }
 
     }

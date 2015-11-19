@@ -21,11 +21,13 @@ namespace CMISProject.Models
         [Display(Name="Password")]
         [DataType(DataType.Password)]
         [StringLength(30, MinimumLength= 8, ErrorMessage="Password should be more than 8 character and less than 30 characters")]
+        [UIHint("Password")]
         public string Password { get; set; }
         
         [Required]
         [Display(Name="Name")]
         [StringLength(30, MinimumLength= 2, ErrorMessage= "Group name must be between 2 and 30 characters")]
+        [UIHint("Group Name")]
         public string GroupName { get; set; }
 
         [Required]
@@ -41,6 +43,7 @@ namespace CMISProject.Models
         public string CreatedBy { get; set; }
         
         [StringLength(30, MinimumLength= 2, ErrorMessage="SubgroupName must be between 2 and 30 characters")]
+        [UIHint("Sub-Group Name")]
         public string Subgroup { get; set; }
         
         [Required]
