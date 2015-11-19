@@ -159,18 +159,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\FacultyController.cs" />
-    <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\InactiveUserController.cs" />
-    <Compile Include="Controllers\LevelController.cs" />
     <Compile Include="DAL\CIMSEntities.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511170934441_init.cs" />
-    <Compile Include="Migrations\201511170934441_init.Designer.cs">
-      <DependentUpon>201511170934441_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -192,6 +184,7 @@
     <Compile Include="Models\Routine.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\User.cs" />
@@ -247,26 +240,6 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Group\Create.cshtml" />
-    <Content Include="Views\Group\Delete.cshtml" />
-    <Content Include="Views\Group\Details.cshtml" />
-    <Content Include="Views\Group\Edit.cshtml" />
-    <Content Include="Views\Group\Index.cshtml" />
-    <Content Include="Views\Faculty\Create.cshtml" />
-    <Content Include="Views\Faculty\Delete.cshtml" />
-    <Content Include="Views\Faculty\Details.cshtml" />
-    <Content Include="Views\Faculty\Edit.cshtml" />
-    <Content Include="Views\Faculty\Index.cshtml" />
-    <Content Include="Views\InactiveUser\Create.cshtml" />
-    <Content Include="Views\InactiveUser\Delete.cshtml" />
-    <Content Include="Views\InactiveUser\Details.cshtml" />
-    <Content Include="Views\InactiveUser\Edit.cshtml" />
-    <Content Include="Views\InactiveUser\Index.cshtml" />
-    <Content Include="Views\Level\Create.cshtml" />
-    <Content Include="Views\Level\Delete.cshtml" />
-    <Content Include="Views\Level\Details.cshtml" />
-    <Content Include="Views\Level\Edit.cshtml" />
-    <Content Include="Views\Level\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -277,11 +250,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511170934441_init.resx">
-      <DependentUpon>201511170934441_init.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

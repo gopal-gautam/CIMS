@@ -39,7 +39,7 @@ namespace CMISProject.Models
         [Required]
         [Display(Name = "Date Of Establishment")]
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode=true, DataFormatString="YYYY-MM-dd")]
+        [DisplayFormat(ApplyFormatInEditMode=true, DataFormatString="{0:yyyy-MM-dd}")]
         [UIHint("Established Date")]
         public DateTime DateOfEstablishment { get; set; }
 

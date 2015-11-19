@@ -10,7 +10,6 @@ namespace CMISProject.Models
     public class UserResource
     {
         [Required]
-        [Display(Name = "UserResourceId")]
         [ScaffoldColumn(false)]
         public int UserResourceId { get; set; }
 
