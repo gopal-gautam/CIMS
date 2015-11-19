@@ -36,15 +36,15 @@ namespace CMISProject.Models
         public DateTime CreatedDate { get; set; }
 
         [Required]
-        public int UserId { get; set; }
+        public int CreateByUserId { get; set; }
 
-        [ForeignKey("UserId")]
+        [ForeignKey("CreateByUserId")]
         [ScaffoldColumn(false)]
-        public string CreatedBy { get; set; }
+        public User CreatedBy { get; set; }
         
-        [StringLength(30, MinimumLength= 2, ErrorMessage="SubgroupName must be between 2 and 30 characters")]
-        [UIHint("Sub-Group Name")]
-        public string Subgroup { get; set; }
+        //[StringLength(30, MinimumLength= 2, ErrorMessage="SubgroupName must be between 2 and 30 characters")]
+        //[UIHint("Sub-Group Name")]
+        //public string Subgroup { get; set; }
         
         [Required]
         public Status Status { get; set; }
