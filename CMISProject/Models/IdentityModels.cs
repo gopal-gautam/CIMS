@@ -46,6 +46,12 @@ namespace CMISProject.Models
             return idResult.Succeeded;
         }
 
+        //public bool DeleteUser(ApplicationUser user)
+        //{
+        //    var um = new UserManager<IdentityUser>(new UserStore<IdentityUser>(new ApplicationDbContext()));
+           
+        //}
+
         public void ClearUserRoles(string userId)
         {
             var um = new UserManager<IdentityUser>(new UserStore<IdentityUser>(new ApplicationDbContext()));
