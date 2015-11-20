@@ -18,16 +18,20 @@ namespace CMISProject.Models
         public string AdminName { get; set; }
 
         [Required]
-        [StringLength(20, MinimumLength = 2, ErrorMessage = "UserName must be between 2 and 20 characters")]
-        [UIHint("First Name")]
-        public string FirstName { get; set; }
-        [StringLength(20, MinimumLength = 2, ErrorMessage = "UserName must be between 2 and 20 characters")]
-        [UIHint("Middle Name")]
-        public string MiddleName { get; set; }
-        [Required]
-        [UIHint("Last Name")]
-        [StringLength(20, MinimumLength = 2, ErrorMessage = "UserName must be between 2 and 20 characters")]
-        public string LastName { get; set; }
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "AdminName must be between 2 and 50 characters")]
+        public string OrganizationName { get; set; }
+
+        //[Required]
+        //[StringLength(20, MinimumLength = 2, ErrorMessage = "UserName must be between 2 and 20 characters")]
+        //[UIHint("First Name")]
+        //public string FirstName { get; set; }
+        //[StringLength(20, MinimumLength = 2, ErrorMessage = "UserName must be between 2 and 20 characters")]
+        //[UIHint("Middle Name")]
+        //public string MiddleName { get; set; }
+        //[Required]
+        //[UIHint("Last Name")]
+        //[StringLength(20, MinimumLength = 2, ErrorMessage = "UserName must be between 2 and 20 characters")]
+        //public string LastName { get; set; }
 
         [Required]
         [Display(Name = "Password")]
