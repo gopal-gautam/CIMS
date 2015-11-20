@@ -49,7 +49,7 @@ namespace CMISProject.Models
         [StringLength(20, MinimumLength = 2, ErrorMessage = "Last Name must be between 2 and 20 characters")]
         [UIHint("Last Name")]
         public string LastName { get; set; }
-        
+
         [Required]
         public DateTime CreatedDate { get; set; }
 
@@ -59,16 +59,20 @@ namespace CMISProject.Models
         [ForeignKey("CreatedByUserId")]
         public virtual User CreatedBy { get; set; }
 
+        [Required]
+        [DataType(DataType.DateTime)]
+        public DateTime ModifiedDate { get; set; }
+
         //[Required]
         //public int GroupId { get; set; }
 
         //[ForeignKey("GroupId")]
         //public virtual Group Group { get; set; }
-        
+
         [DataType(DataType.EmailAddress)]
         [UIHint("E-mail Id")]
         public string Email { get; set; }
-        
+
         [Required]
         [DataType(DataType.MultilineText)]
         [UIHint("Address")]
@@ -77,15 +81,16 @@ namespace CMISProject.Models
         [DataType(DataType.PhoneNumber)]
         [UIHint("Phone No.")]
         public virtual ICollection<string> PhoneNumber { get; set; }
-        
+
         [Required]
         [UIHint("Sex")]
         public Sex Sex { get; set; }
 
         [Required]
-        [Display(Name="Date Of Birth")]
+        [Display(Name = "Date Of Birth")]
         [DataType(DataType.Date)]
         [UIHint("Date of Birth")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime DateOfBirth { get; set; }
 
         [Required]
@@ -107,14 +112,21 @@ namespace CMISProject.Models
         [UIHint("Citizenship No.")]
         public string CitizenShipNumber { get; set; }
 
+
+        public User()
+        {
+            CreatedDate = DateTime.Now;
+            ModifiedDate = DateTime.Now;
+        }
+
+        //public class ApplicationDbContext : IdentityDbContext<User>
+        //{
+        //    public ApplicationDbContext()
+        //        : base("DefaultConnection")
+        //    {
+
+        //    }
+        //}
+
     }
-
-    //public class ApplicationDbContext : IdentityDbContext<User>
-    //{
-    //    public ApplicationDbContext()
-    //        : base("DefaultConnection")
-    //    {
-
-    //    }
-    //}
 }

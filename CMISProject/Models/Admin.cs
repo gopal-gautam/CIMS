@@ -19,6 +19,7 @@ namespace CMISProject.Models
 
         [Required]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "AdminName must be between 2 and 50 characters")]
+        [UIHint("Organization Name")]
         public string OrganizationName { get; set; }
 
         //[Required]
@@ -46,6 +47,12 @@ namespace CMISProject.Models
         [DisplayFormat(ApplyFormatInEditMode=true, DataFormatString="{0:yyyy-MM-dd}")]
         [UIHint("Established Date")]
         public DateTime DateOfEstablishment { get; set; }
+
+        public DateTime CreatedDate { get; set; }
+
+        [Required]
+        [DataType(DataType.DateTime)]
+        public DateTime ModifiedDate { get; set; }
 
         [Required]
         [DataType(DataType.EmailAddress)]
@@ -82,6 +89,11 @@ namespace CMISProject.Models
         [DataType(DataType.ImageUrl)]
         [UIHint("Upload Logo File")]
         public string LogoFile { get; set; }
-                            
+        
+        public Admin()
+        {
+            CreatedDate = DateTime.Now;
+            ModifiedDate = DateTime.Now;
+        }
     }
 }

@@ -36,6 +36,10 @@ namespace CMISProject.Models
         public DateTime CreatedDate { get; set; }
 
         [Required]
+        [DataType(DataType.DateTime)]
+        public DateTime ModifiedDate { get; set; }
+
+        [Required]
         public int CreateByUserId { get; set; }
 
         [ForeignKey("CreateByUserId")]

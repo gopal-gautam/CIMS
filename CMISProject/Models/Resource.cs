@@ -37,6 +37,10 @@ namespace CMISProject.Models
         public DateTime UploadedDate { get; set; }
 
         [Required]
+        [DataType(DataType.DateTime)]
+        public DateTime ModifiedDate { get; set; }
+
+        [Required]
         public int UserId { get; set; }
 
         [ForeignKey("UserId")]
@@ -52,6 +56,7 @@ namespace CMISProject.Models
         public Resource()
         {
             UploadedDate = DateTime.Now;
+            ModifiedDate = DateTime.Now;
         }
     }
 }

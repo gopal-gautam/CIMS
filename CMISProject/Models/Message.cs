@@ -52,6 +52,10 @@ namespace CMISProject.Models
         [ReadOnly(true)]
         public DateTime CreatedDate { get; set;}
 
+        [Required]
+        [DataType(DataType.DateTime)]
+        public DateTime ModifiedDate { get; set; }
+
         [DataType(DataType.Upload)]
         [UIHint("Upload File")]
         public string Attachment { get; set; }
@@ -74,6 +78,7 @@ namespace CMISProject.Models
         public Message()
         {
             CreatedDate = DateTime.Now;
+            ModifiedDate = DateTime.Now;
         }
     }
 }
