@@ -15,6 +15,7 @@ namespace CMISProject.ViewModels
         public string AdminName { get; set; }
 
         [Required]
+        [Display(Name= "Organization Name")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "AdminName must be between 2 and 50 characters")]
         [UIHint("Organization Name")]
         public string OrganizationName { get; set; }
@@ -33,7 +34,6 @@ namespace CMISProject.ViewModels
         //public string LastName { get; set; }
 
         [Required]
-        [Display(Name = "Password")]
         [DataType(DataType.Password)]
         [StringLength(30, MinimumLength = 8, ErrorMessage = "Password should be more than 8 character and less than 30 characters")]
         [UIHint("Password")]
@@ -45,6 +45,24 @@ namespace CMISProject.ViewModels
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         [UIHint("Established Date")]
         public DateTime DateOfEstablishment { get; set; }
+
+        [Required]
+        [Display(Name = "Created Date")]
+        [DataType(DataType.DateTime)]
+        public DateTime CreatedDate { get; set; }
+
+        [Required]
+        [Display(Name = "Created By")]
+        public string CreatedBy { get; set; }
+
+        [Required]
+        [Display(Name= "Modified Date")]
+        [DataType(DataType.DateTime)]
+        public DateTime ModifiedDate { get; set; }
+
+        [Required]
+        [Display(Name = "Modified By")]
+        public string ModifiedBy { get; set; }
 
         [Required]
         [DataType(DataType.EmailAddress)]
