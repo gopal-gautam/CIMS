@@ -17,6 +17,9 @@ namespace CMISProject.Models
         [UIHint("Name")]
         public string AdminName { get; set; }
 
+        [Required]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "AdminName must be between 2 and 50 characters")]
+        public string OrganizationName { get; set; }
 
         //[Required]
         //[StringLength(20, MinimumLength = 2, ErrorMessage = "UserName must be between 2 and 20 characters")]
