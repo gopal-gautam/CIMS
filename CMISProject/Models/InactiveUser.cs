@@ -13,22 +13,23 @@ namespace CMISProject.Models
         [ScaffoldColumn(false)]
         public int InactiveUserId { get; set; }
 
-        [Required]
-        public int UserId { get; set; }
-
-        [ForeignKey("UserId")]
-        public virtual User User { get; set; }
+        public string InactivatedBy { get; set; }
 
         [Required]
         [DisplayFormat(ApplyFormatInEditMode=true, DataFormatString="YYYY-MM-dd")]
         [DataType(DataType.Date)]
         [ScaffoldColumn(false)]
         [UIHint("Inactive Date")]
-        public string InactiveDate { get; set; }
+        public DateTime InactivatedDate { get; set; }
 
         [Required]
         [DataType(DataType.MultilineText)]
         [UIHint("Reason for Inactivation")]
         public string Reason { get; set; }
+
+        //public InactiveUser()
+        //{
+        //    InactivedDate = DateTime.Now;
+        //}
     }
 }

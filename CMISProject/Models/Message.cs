@@ -40,12 +40,7 @@ namespace CMISProject.Models
         [UIHint("Message")]
         public string  Msg { get; set; }
 
-        [Required]
-        public int UserId { get; set; }
-
-        [ForeignKey("UserId")]
-        [ScaffoldColumn(false)]
-        public virtual User CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
 
         [Required]
         [DataType(DataType.DateTime)]
@@ -55,6 +50,8 @@ namespace CMISProject.Models
         [Required]
         [DataType(DataType.DateTime)]
         public DateTime ModifiedDate { get; set; }
+
+        public string ModifiedBy { get; set; }
 
         [DataType(DataType.Upload)]
         [UIHint("Upload File")]
@@ -75,10 +72,10 @@ namespace CMISProject.Models
         [UIHint("Message Mode")]
         public MessageMode Mode { get; set; }
 
-        public Message()
-        {
-            CreatedDate = DateTime.Now;
-            ModifiedDate = DateTime.Now;
-        }
+        //public Message()
+        //{
+        //    CreatedDate = DateTime.Now;
+        //    //ModifiedDate = DateTime.Now;
+        //}
     }
 }

@@ -28,6 +28,18 @@ namespace CMISProject.Models
         public TimeSpan EndTime { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
+        public DateTime IssuedDate { get; set; }
+
+        public string IssuedBy { get; set; }
+
+        [Required]
+        [DataType(DataType.DateTime)]
+        public DateTime ModifiedDate { get; set; }
+
+        public string ModifiedBy { get; set; }
+
+        [Required]
         public int GroupId { get; set; }
 
         [ForeignKey("GroupId")]
@@ -46,6 +58,11 @@ namespace CMISProject.Models
         [DataType(DataType.MultilineText)]
         [UIHint("Break Remark")]
         public Mode BreakRemark { get; set; }
+
+        //public Routine()
+        //{
+        //    IssuedDate = DateTime.Now;
+        //}
 
     }
 }

@@ -53,15 +53,13 @@ namespace CMISProject.Models
         [Required]
         public DateTime CreatedDate { get; set; }
 
-        [Required]
-        public int CreatedByUserId { get; set; }
-
-        [ForeignKey("CreatedByUserId")]
-        public virtual User CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
 
         [Required]
         [DataType(DataType.DateTime)]
         public DateTime ModifiedDate { get; set; }
+
+        public string ModifiedBy { get; set; }
 
         //[Required]
         //public int GroupId { get; set; }
@@ -113,11 +111,11 @@ namespace CMISProject.Models
         public string CitizenShipNumber { get; set; }
 
 
-        public User()
-        {
-            CreatedDate = DateTime.Now;
-            ModifiedDate = DateTime.Now;
-        }
+        //public User()
+        //{
+        //    CreatedDate = DateTime.Now;
+        //    //ModifiedDate = DateTime.Now;
+        //}
 
         //public class ApplicationDbContext : IdentityDbContext<User>
         //{

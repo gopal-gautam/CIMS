@@ -36,16 +36,13 @@ namespace CMISProject.Models
         [DataType(DataType.DateTime)]
         public DateTime UploadedDate { get; set; }
 
+        public string UploadedBy { get; set; }
+
         [Required]
         [DataType(DataType.DateTime)]
         public DateTime ModifiedDate { get; set; }
 
-        [Required]
-        public int UserId { get; set; }
-
-        [ForeignKey("UserId")]
-        [ReadOnly(true)]
-        public virtual User UploadedBy { get; set; }
+        public string ModifiedBy { get; set; }
 
         [Required]
         public int SubjectId { get; set; }
@@ -53,10 +50,10 @@ namespace CMISProject.Models
         [ForeignKey("SubjectId")]
         public virtual Subject Subject { get; set; }
 
-        public Resource()
-        {
-            UploadedDate = DateTime.Now;
-            ModifiedDate = DateTime.Now;
-        }
+        //public Resource()
+        //{
+        //    UploadedDate = DateTime.Now;
+        //    //ModifiedDate = DateTime.Now;
+        //}
     }
 }

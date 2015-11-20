@@ -35,16 +35,13 @@ namespace CMISProject.Models
         [DataType(DataType.DateTime)]
         public DateTime CreatedDate { get; set; }
 
+        public string CreatedBy { get; set; }
+
         [Required]
         [DataType(DataType.DateTime)]
         public DateTime ModifiedDate { get; set; }
 
-        [Required]
-        public int CreateByUserId { get; set; }
-
-        [ForeignKey("CreateByUserId")]
-        [ScaffoldColumn(false)]
-        public User CreatedBy { get; set; }
+        public string ModifiedBy { get; set; }
         
         //[StringLength(30, MinimumLength= 2, ErrorMessage="SubgroupName must be between 2 and 30 characters")]
         //[UIHint("Sub-Group Name")]
@@ -53,10 +50,10 @@ namespace CMISProject.Models
         [Required]
         public Status Status { get; set; }
 
-        public Group()
-        {
-            CreatedDate = DateTime.Now;
-        }
+        //public Group()
+        //{
+        //    CreatedDate = DateTime.Now;
+        //}
          
     }
 }

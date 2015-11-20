@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -35,7 +36,6 @@ namespace CMISProject.Models
         //public string LastName { get; set; }
 
         [Required]
-        [Display(Name = "Password")]
         [DataType(DataType.Password)]
         [StringLength(30, MinimumLength = 8, ErrorMessage = "Password should be more than 8 character and less than 30 characters")]
         [UIHint("Password")]
@@ -50,9 +50,13 @@ namespace CMISProject.Models
 
         public DateTime CreatedDate { get; set; }
 
+        public string CreatedBy { get; set; }
+
         [Required]
         [DataType(DataType.DateTime)]
         public DateTime ModifiedDate { get; set; }
+
+        public string ModifiedBy { get; set; }
 
         [Required]
         [DataType(DataType.EmailAddress)]
@@ -90,10 +94,10 @@ namespace CMISProject.Models
         [UIHint("Upload Logo File")]
         public string LogoFile { get; set; }
         
-        public Admin()
-        {
-            CreatedDate = DateTime.Now;
-            ModifiedDate = DateTime.Now;
-        }
+        //public Admin()
+        //{
+        //    CreatedDate = DateTime.Now;
+        //    //ModifiedDate = DateTime.Now;
+        //}
     }
 }
