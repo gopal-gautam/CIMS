@@ -1,0 +1,14 @@
+﻿ public class TestDB : DbContext
+    {
+        public DbSet<Contact> Contacts { get; set; }
+
+        public override int SaveChanges()
+        {
+            foreach (var contact in ChangeTracker.Entries<Contact>().Where(e => e.State == System.Data.EntityState.Modified))
+            {
+                contact.Entity.ModifiedDate = DateTime.Now;
+            }
+            
+            return base.SaveChanges();
+        }
+    }
