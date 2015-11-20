@@ -35,6 +35,7 @@ namespace CMISProject.ViewModels
 
         [Required]
         [DataType(DataType.Password)]
+        [RegularExpression(@"(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$",ErrorMessage="Password must have atleat 1 uppercase, 1 lowercase, 1 number or special character and at least 8 characters")]
         [StringLength(30, MinimumLength = 8, ErrorMessage = "Password should be more than 8 character and less than 30 characters")]
         [UIHint("Password")]
         public string Password { get; set; }
