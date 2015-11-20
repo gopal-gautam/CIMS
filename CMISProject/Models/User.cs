@@ -5,6 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using CMISProject.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace CMISProject.Models
 {
@@ -107,4 +108,13 @@ namespace CMISProject.Models
         public string CitizenShipNumber { get; set; }
 
     }
+
+    //public class ApplicationDbContext : IdentityDbContext<User>
+    //{
+    //    public ApplicationDbContext()
+    //        : base("DefaultConnection")
+    //    {
+
+    //    }
+    //}
 }

@@ -38,6 +38,9 @@ namespace CMISProject.DAL
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            //modelBuilder.Entity<Group>()
+            //    .HasRequired(m => m.CreatedBy);
         }
 
     }

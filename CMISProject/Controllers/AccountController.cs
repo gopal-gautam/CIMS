@@ -78,11 +78,11 @@ namespace CMISProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName };
+                var user = model.GetUser();
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInAsync(user, isPersistent: false);
+                    //await SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -92,6 +92,18 @@ namespace CMISProject.Controllers
             }
 
             // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+        public ActionResult Index()
+        {
+            var db = new ApplicationDbContext();
+            var users = db.Users;
+            var model = new List<EditUserViewModel>();
+            foreach (var user in users)
+            {
+                model.Add(new EditUserViewModel(user));
+            }
             return View(model);
         }
 
@@ -177,6 +189,61 @@ namespace CMISProject.Controllers
             }
 
             // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+        public ActionResult Edit(string id, ManageMessageId? message = null)
+        {
+            var db = new ApplicationDbContext();
+            var user = db.Users.First(m => m.UserName == id);
+            var model = new EditUserViewModel(user);
+            ViewBag.messageId = message;
+            return View(model);
+        }
+
+
+        public ActionResult UserRoles(string id)
+        {
+            var db = new ApplicationDbContext();
+            var user = db.Users.First(m => m.UserName == id);
+            var model = new SelectUserRolesViewModel(user);
+            return View(model);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UserRoles(SelectUserRolesViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var db = new ApplicationDbContext();
+                var user = db.Users.First(m => m.UserName == model.UserName);
+                var im = new IdentityManager();
+                im.ClearUserRoles(user.Id);
+                foreach (var role in model.Roles)
+                {
+                    if (role.Selected)
+                    {
+                        im.AddUserToRole(user.Id, role.RoleName);
+                    }
+                }
+
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+
+        public ActionResult Delete(string id)
+        {
+            var db = new ApplicationDbContext();
+            var user = db.Users.First(m => m.UserName == id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            var model = new EditUserViewModel(user);
             return View(model);
         }
 

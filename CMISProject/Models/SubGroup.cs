@@ -5,7 +5,7 @@ using System.Web;
 
 namespace CMISProject.Models
 {
-    public class Staff : User
+    public class SubGroup
     {
 
     }

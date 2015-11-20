@@ -1,11 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CMISProject.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
-        [Display(Name = "Username")]
+        [Display(Name = "User name")]
         public string UserName { get; set; }
     }
 
@@ -59,5 +61,78 @@ namespace CMISProject.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public ApplicationUser GetUser()
+        {
+            var user = new ApplicationUser()
+            {
+                UserName = this.UserName,
+            };
+            return user;
+        }
+    }
+
+    public class EditUserViewModel
+    {
+        public EditUserViewModel() { }
+        public EditUserViewModel(ApplicationUser user)
+        {
+            this.UserName = user.UserName;
+        }
+
+        [Required]
+        [Display(Name = "User Name")]
+        public string UserName { get; set; }
+
+    }
+
+    public class SelectRoleEditorViewModel
+    {
+        public SelectRoleEditorViewModel() { }
+        public SelectRoleEditorViewModel(IdentityRole role)
+        {
+            this.RoleName = role.Name;
+        }
+
+        [Required]
+        public string RoleName { get; set; }
+
+        public bool Selected { get; set; }
+    }
+
+    public class SelectUserRolesViewModel
+    {
+        public SelectUserRolesViewModel()
+        {
+            this.Roles = new List<SelectRoleEditorViewModel>();
+        }
+
+        public SelectUserRolesViewModel(ApplicationUser user)
+            : this()
+        {
+            this.UserName = user.UserName;
+            //this.FirstName = user.FirstName;
+            //this.LastName = user.LastName;
+
+            var db = new ApplicationDbContext();
+
+            var roles = db.Roles;
+
+            foreach (var role in roles)
+            {
+                this.Roles.Add(new SelectRoleEditorViewModel(role));
+            }
+
+            foreach (var role in user.Roles)
+            {
+                var userRole = this.Roles.Find(r => r.RoleName == role.Role.Name);
+                userRole.Selected = true;
+            }
+        }
+
+        public string UserName { get; set; }
+        //public string FirstName { get; set; }
+        //public string LastName { get; set; }
+        public List<SelectRoleEditorViewModel> Roles { get; set; }
     }
 }

@@ -4,20 +4,18 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace CMISProject.Models
+namespace CMISProject.ViewModels
 {
-    public class Admin
+    public class AdminViewModel
     {
         [Required]
-        [ScaffoldColumn(false)]
-        public int AdminId { get; set; }
-
-        [Required]
+        [Display(Name="Admin Username")]
         [StringLength(30, MinimumLength = 2, ErrorMessage = "AdminName must be between 2 and 30 characters")]
         [UIHint("Name")]
         public string AdminName { get; set; }
 
         [Required]
+        [Display(Name = "First Name")]
         [StringLength(20, MinimumLength = 2, ErrorMessage = "UserName must be between 2 and 20 characters")]
         [UIHint("First Name")]
         public string FirstName { get; set; }
@@ -39,7 +37,7 @@ namespace CMISProject.Models
         [Required]
         [Display(Name = "Date Of Establishment")]
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode=true, DataFormatString="{0:yyyy-MM-dd}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         [UIHint("Established Date")]
         public DateTime DateOfEstablishment { get; set; }
 
@@ -62,7 +60,7 @@ namespace CMISProject.Models
         [UIHint("Phone Number")]
         public virtual ICollection<string> PhoneNumber { get; set; }
 
-        [Display (Name = "P.O.Box Number")]
+        [Display(Name = "P.O.Box Number")]
         [UIHint("P.O. Box No.")]
         public string POBoxNumber { get; set; }
 
@@ -75,9 +73,8 @@ namespace CMISProject.Models
         [UIHint("VAT No.")]
         public string VatNo { get; set; }
 
-        [DataType(DataType.ImageUrl)]
+        [DataType(DataType.Upload)]
         [UIHint("Upload Logo File")]
-        public string LogoFile { get; set; }
-                            
+        public HttpPostedFileBase LogoFile { get; set; }
     }
 }
