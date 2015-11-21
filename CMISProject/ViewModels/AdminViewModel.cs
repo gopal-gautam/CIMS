@@ -56,16 +56,15 @@ namespace CMISProject.ViewModels
         [Display(Name = "Created By")]
         public string CreatedBy { get; set; }
 
-        [Required]
         [Display(Name= "Modified Date")]
         [DataType(DataType.DateTime)]
         public DateTime ModifiedDate { get; set; }
 
-        [Required]
         [Display(Name = "Modified By")]
         public string ModifiedBy { get; set; }
 
         [Required]
+        [RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z")]
         [DataType(DataType.EmailAddress)]
         [UIHint("E-mail Id")]
         public string Email { get; set; }
