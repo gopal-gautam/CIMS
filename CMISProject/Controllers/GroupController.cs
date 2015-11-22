@@ -42,7 +42,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /Group/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
