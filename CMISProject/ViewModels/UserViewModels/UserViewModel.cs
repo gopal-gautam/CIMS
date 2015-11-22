@@ -73,7 +73,7 @@ namespace CMISProject.ViewModels
 
         [DataType(DataType.PhoneNumber)]
         [UIHint("Phone No.")]
-        public virtual ICollection<string> PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         [Required]
         [UIHint("Sex")]
