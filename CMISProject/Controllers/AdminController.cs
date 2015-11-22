@@ -38,7 +38,7 @@ namespace CMISProject.Controllers
                     //ModifiedBy = admin.ModifiedBy,
                     OrganizationName = admin.OrganizationName,
                     //PanNo = admin.PanNo,
-                    //PhoneNumber = admin.PhoneNumber,
+                    //PhoneNumbers = admin.PhoneNumbers,
                     //POBoxNumber = admin.POBoxNumber,
                     //VatNo = admin.VatNo,
                     //Website = admin.Website,
@@ -98,7 +98,7 @@ namespace CMISProject.Controllers
                         //ModifiedBy = adminViewModel.ModifiedBy,
                         OrganizationName = adminViewModel.OrganizationName,
                         PanNo = adminViewModel.PanNo,
-                        PhoneNumber = adminViewModel.PhoneNumber,
+                        PhoneNumbers = adminViewModel.PhoneNumbers,
                         POBoxNumber = adminViewModel.POBoxNumber,
                         VatNo = adminViewModel.VatNo,
                         Website = adminViewModel.Website,
@@ -146,7 +146,7 @@ namespace CMISProject.Controllers
                 //ModifiedBy = admin.ModifiedBy,
                 OrganizationName = admin.OrganizationName,
                 PanNo = admin.PanNo,
-                PhoneNumber = admin.PhoneNumber,
+                PhoneNumbers = admin.PhoneNumbers,
                 POBoxNumber = admin.POBoxNumber,
                 VatNo = admin.VatNo,
                 Website = admin.Website,
@@ -183,7 +183,7 @@ namespace CMISProject.Controllers
                         //ModifiedBy = adminViewModel.ModifiedBy,
                         OrganizationName = adminViewModel.OrganizationName,
                         PanNo = adminViewModel.PanNo,
-                        PhoneNumber = adminViewModel.PhoneNumber,
+                        PhoneNumbers = adminViewModel.PhoneNumbers,
                         POBoxNumber = adminViewModel.POBoxNumber,
                         VatNo = adminViewModel.VatNo,
                         Website = adminViewModel.Website,
@@ -214,7 +214,7 @@ namespace CMISProject.Controllers
             {
                 return HttpNotFound();
             }
-            var adminViewModel = new AdminListViewModel()
+            var adminViewModel = new AdminViewModel()
             {
                 //AdminName = admin.AdminName,
                 Address = admin.Address,
@@ -228,10 +228,10 @@ namespace CMISProject.Controllers
                 //ModifiedBy = admin.ModifiedBy,
                 OrganizationName = admin.OrganizationName,
                 //PanNo = admin.PanNo,
-                //PhoneNumber = admin.PhoneNumber,
+                //PhoneNumber = admin.PhoneNumbers,
                 //POBoxNumber = admin.POBoxNumber,
                 //VatNo = admin.VatNo,
-                //Website = admin.Website,
+                Website = admin.Website,
 
             };
             
