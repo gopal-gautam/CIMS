@@ -27,8 +27,21 @@ namespace CMISProject.Controllers
                 {
                     AdminName = admin.AdminName,
                     Address = admin.Address,
-                    //do as for other properties of AdminViewModel
-
+                    CreatedBy = admin.CreatedBy,
+                    CreatedDate = admin.CreatedDate,
+                    DateOfEstablishment = admin.DateOfEstablishment,
+                    Email = admin.Email,
+                    FaxNumber = admin.FaxNumber,
+                    //LogoFile = admin.LogoFile,
+                    //ModifiedDate = admin.ModifiedDate,
+                    //ModifiedBy = admin.ModifiedBy,
+                    OrganizationName = admin.OrganizationName,
+                    PanNo = admin.PanNo,
+                    PhoneNumber = admin.PhoneNumber,
+                    POBoxNumber = admin.POBoxNumber,
+                    VatNo = admin.VatNo,
+                    Website = admin.Website,
+                    
                 };
                 viewModels.Add(viewModel);
             }
@@ -72,7 +85,21 @@ namespace CMISProject.Controllers
                     {
                         AdminName = adminViewModel.AdminName,
                         Address = adminViewModel.Address,
-                        // Do same for other properties
+                        CreatedBy = adminViewModel.CreatedBy,
+                        CreatedDate = adminViewModel.CreatedDate,
+                        DateOfEstablishment = adminViewModel.DateOfEstablishment,
+                        Email = adminViewModel.Email,
+                        FaxNumber = adminViewModel.FaxNumber,
+                        //LogoFile = adminViewModel.LogoFile,
+                        //ModifiedDate = adminViewModel.ModifiedDate,
+                        //ModifiedBy = adminViewModel.ModifiedBy,
+                        OrganizationName = adminViewModel.OrganizationName,
+                        PanNo = adminViewModel.PanNo,
+                        PhoneNumber = adminViewModel.PhoneNumber,
+                        POBoxNumber = adminViewModel.POBoxNumber,
+                        VatNo = adminViewModel.VatNo,
+                        Website = adminViewModel.Website,
+
                     };
                     db.Admins.Add(admin);
                     db.SaveChanges();
@@ -105,7 +132,20 @@ namespace CMISProject.Controllers
             {
                 Address = admin.Address,
                 AdminName = admin.AdminName,
-                //Do same for other
+                CreatedBy = admin.CreatedBy,
+                CreatedDate = admin.CreatedDate,
+                DateOfEstablishment = admin.DateOfEstablishment,
+                Email = admin.Email,
+                FaxNumber = admin.FaxNumber,
+                //LogoFile = admin.LogoFile,
+                //ModifiedDate = admin.ModifiedDate,
+                //ModifiedBy = admin.ModifiedBy,
+                OrganizationName = admin.OrganizationName,
+                PanNo = admin.PanNo,
+                PhoneNumber = admin.PhoneNumber,
+                POBoxNumber = admin.POBoxNumber,
+                VatNo = admin.VatNo,
+                Website = admin.Website,
             };
             if (admin == null)
             {
@@ -128,7 +168,20 @@ namespace CMISProject.Controllers
                     {
                         AdminName = adminViewModel.AdminName,
                         Address = adminViewModel.Address,
-                        // Do same for other properties
+                        CreatedBy = adminViewModel.CreatedBy,
+                        CreatedDate = adminViewModel.CreatedDate,
+                        DateOfEstablishment = adminViewModel.DateOfEstablishment,
+                        Email = adminViewModel.Email,
+                        FaxNumber = adminViewModel.FaxNumber,
+                        //LogoFile = adminViewModel.LogoFile,
+                        //ModifiedDate = adminViewModel.ModifiedDate,
+                        //ModifiedBy = adminViewModel.ModifiedBy,
+                        OrganizationName = adminViewModel.OrganizationName,
+                        PanNo = adminViewModel.PanNo,
+                        PhoneNumber = adminViewModel.PhoneNumber,
+                        POBoxNumber = adminViewModel.POBoxNumber,
+                        VatNo = adminViewModel.VatNo,
+                        Website = adminViewModel.Website,
                     };
                     db.Entry(admin).State = EntityState.Modified;
                     db.SaveChanges();
@@ -159,7 +212,20 @@ namespace CMISProject.Controllers
             {
                 AdminName = admin.AdminName,
                 Address = admin.Address,
-                //do as for other properties of AdminViewModel
+                CreatedBy = admin.CreatedBy,
+                CreatedDate = admin.CreatedDate,
+                DateOfEstablishment = admin.DateOfEstablishment,
+                Email = admin.Email,
+                FaxNumber = admin.FaxNumber,
+                //LogoFile = admin.LogoFile,
+                //ModifiedDate = admin.ModifiedDate,
+                //ModifiedBy = admin.ModifiedBy,
+                OrganizationName = admin.OrganizationName,
+                PanNo = admin.PanNo,
+                PhoneNumber = admin.PhoneNumber,
+                POBoxNumber = admin.POBoxNumber,
+                VatNo = admin.VatNo,
+                Website = admin.Website,
 
             };
             
