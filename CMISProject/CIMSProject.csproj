@@ -210,7 +210,6 @@
     <None Include="Notes\Configuration.gnotes" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Content Include="Notes\DropDownListCodeAndRegularExpressions.txt" />
     <Content Include="Views\Group\Create.cshtml" />
     <Content Include="Views\Group\Delete.cshtml" />
     <Content Include="Views\Group\Details.cshtml" />
