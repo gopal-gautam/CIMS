@@ -75,7 +75,7 @@ namespace CMISProject.Models
 
         [DataType(DataType.PhoneNumber)]
         [UIHint("Phone Number")]
-        public virtual ICollection<string> PhoneNumber { get; set; }
+        public string PhoneNumbers { get; set; }
 
         [Display (Name = "P.O.Box Number")]
         [UIHint("P.O. Box No.")]
