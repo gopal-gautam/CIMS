@@ -24,7 +24,7 @@ namespace CMISProject.Filters
             var currentUser = HttpContext.Current.User.Identity.Name;
             CIMSEntities db = new CIMSEntities();
             User user = db.Users.Single(s => s.UserName == currentUser);
-            Permission permission = db.Permissions.Single(s => s.Perm == Permission);
+            Permission permission = db.Permissions.Single(s => s.PermissionName == Permission);
             if (permission == null)
             {
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { Controller = "Home", Action = "Index" }));
