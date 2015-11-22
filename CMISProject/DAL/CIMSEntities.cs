@@ -33,6 +33,7 @@ namespace CMISProject.DAL
         public DbSet<Faculty> Faculties { get; set; }
         public DbSet<Level> Levels { get; set; }
         public DbSet<Programme> Programmes { get; set; }
+        public DbSet<GroupsUsers> GroupUserRelations { get; set; }
 
         //Removing the default tablename pluralization
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
