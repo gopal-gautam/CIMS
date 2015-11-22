@@ -15,7 +15,7 @@ namespace CMISProject.Controllers
         //
         // GET: /Permission/
 
-        CIMSEntities db = new CIMSEntities();
+        private CIMSEntities db = new CIMSEntities();
 
         public ActionResult Index()
         {
