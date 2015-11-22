@@ -9,6 +9,9 @@ namespace CMISProject.ViewModels.PermissionViewModels
     public class PermissionViewModel
     {
         [UIHint("Permission Name")]
-        public string Perm { get; set; }
+        public string PermissionName { get; set; }
+
+        [UIHint("Description")]
+        public string PermissionDescription { get; set; }
     }
 }

@@ -15,6 +15,10 @@ namespace CMISProject.Models
         public int PermissionId { get; set; }
 
         [UIHint("Permission Name")]
-        public string Perm { get; set; }
+        public string PermissionName { get; set; }
+
+        [UIHint("Description")]
+        public string PermissionDescription { get; set; }
+
     }
 }
