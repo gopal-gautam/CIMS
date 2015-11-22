@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace CMISProject.ViewModels
+namespace CMISProject.ViewModels.AdminViewModels
 {
     public class AdminViewModel
     {
@@ -47,21 +47,21 @@ namespace CMISProject.ViewModels
         [UIHint("Established Date")]
         public DateTime DateOfEstablishment { get; set; }
 
-        [Required]
-        [Display(Name = "Created Date")]
-        [DataType(DataType.DateTime)]
-        public DateTime CreatedDate { get; set; }
+        //[Required]
+        //[Display(Name = "Created Date")]
+        //[DataType(DataType.DateTime)]
+        //public DateTime CreatedDate { get; set; }
 
-        [Required]
-        [Display(Name = "Created By")]
-        public string CreatedBy { get; set; }
+        //[Required]
+        //[Display(Name = "Created By")]
+        //public string CreatedBy { get; set; }
 
-        [Display(Name= "Modified Date")]
-        [DataType(DataType.DateTime)]
-        public DateTime ModifiedDate { get; set; }
+        //[Display(Name= "Modified Date")]
+        //[DataType(DataType.DateTime)]
+        //public DateTime ModifiedDate { get; set; }
 
-        [Display(Name = "Modified By")]
-        public string ModifiedBy { get; set; }
+        //[Display(Name = "Modified By")]
+        //public string ModifiedBy { get; set; }
 
         [Required]
         [RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z")]

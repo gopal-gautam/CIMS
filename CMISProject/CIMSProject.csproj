@@ -200,7 +200,8 @@
     <Compile Include="Models\UserMessage.cs" />
     <Compile Include="Models\UserPermission.cs" />
     <Compile Include="Models\UserResource.cs" />
-    <Compile Include="ViewModels\AdminViewModel.cs" />
+    <Compile Include="ViewModels\AdminViewModels\AdminViewModel.cs" />
+    <Compile Include="ViewModels\AdminViewModels\AdminListViewModel.cs" />
     <Compile Include="ViewModels\CustomGroupPropertyViewModel.cs" />
     <Compile Include="ViewModels\CustomUserPropertyViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModel.cs" />

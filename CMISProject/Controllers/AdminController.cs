@@ -4,43 +4,44 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CMISProject.DAL;
-using CMISProject.ViewModels;
+using CMISProject.ViewModels.AdminViewModels;
 using System.Net;
 using CMISProject.Models;
 using System.Data.Entity;
 
 namespace CMISProject.Controllers
 {
-    [Authorize(Roles = "SuperAdmin")]
+    
     public class AdminController : Controller
     {
         //
         // GET: /Admin/
         private CIMSEntities db = new CIMSEntities();
-        private List<AdminViewModel> viewModels = new List<AdminViewModel>();
+        private List<AdminListViewModel> viewModels = new List<AdminListViewModel>();
 
+        [Authorize(Roles = "SuperAdmin")]
         public ActionResult Index()
         {
             foreach (var admin in db.Admins)
             {
-                var viewModel = new AdminViewModel()
+                var viewModel = new AdminListViewModel()
                 {
-                    AdminName = admin.AdminName,
+                    //AdminName = admin.AdminName,
                     Address = admin.Address,
-                    CreatedBy = admin.CreatedBy,
-                    CreatedDate = admin.CreatedDate,
-                    DateOfEstablishment = admin.DateOfEstablishment,
-                    Email = admin.Email,
-                    FaxNumber = admin.FaxNumber,
-                    //LogoFile = admin.LogoFile,
+                    //CreatedBy = admin.CreatedBy,
+                    //CreatedDate = admin.CreatedDate,
+                    //DateOfEstablishment = admin.DateOfEstablishment,
+                    //Email = admin.Email,
+                    //FaxNumber = admin.FaxNumber,
+                    LogoFile = admin.LogoFile,
                     //ModifiedDate = admin.ModifiedDate,
                     //ModifiedBy = admin.ModifiedBy,
                     OrganizationName = admin.OrganizationName,
-                    PanNo = admin.PanNo,
-                    PhoneNumber = admin.PhoneNumber,
-                    POBoxNumber = admin.POBoxNumber,
-                    VatNo = admin.VatNo,
-                    Website = admin.Website,
+                    //PanNo = admin.PanNo,
+                    //PhoneNumber = admin.PhoneNumber,
+                    //POBoxNumber = admin.POBoxNumber,
+                    //VatNo = admin.VatNo,
+                    //Website = admin.Website,
                     
                 };
                 viewModels.Add(viewModel);
@@ -66,6 +67,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /Admin/Create
+        [Authorize(Roles = "SuperAdmin")]
         public ActionResult Create()
         {
             return View(new AdminViewModel());
@@ -73,6 +75,7 @@ namespace CMISProject.Controllers
 
         //
         // POST: /Admin/Create
+        [Authorize(Roles = "SuperAdmin")]
         [HttpPost]
         public ActionResult Create(AdminViewModel adminViewModel)
         {
@@ -85,12 +88,12 @@ namespace CMISProject.Controllers
                     {
                         AdminName = adminViewModel.AdminName,
                         Address = adminViewModel.Address,
-                        CreatedBy = adminViewModel.CreatedBy,
-                        CreatedDate = adminViewModel.CreatedDate,
+                        //CreatedBy = adminViewModel.CreatedBy,
+                        //CreatedDate = adminViewModel.CreatedDate,
                         DateOfEstablishment = adminViewModel.DateOfEstablishment,
                         Email = adminViewModel.Email,
                         FaxNumber = adminViewModel.FaxNumber,
-                        //LogoFile = adminViewModel.LogoFile,
+                        LogoFile = adminViewModel.LogoFile.ToString(),
                         //ModifiedDate = adminViewModel.ModifiedDate,
                         //ModifiedBy = adminViewModel.ModifiedBy,
                         OrganizationName = adminViewModel.OrganizationName,
@@ -121,6 +124,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /Admin/Edit/5
+        [Authorize(Roles = "SuperAdmin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -132,8 +136,8 @@ namespace CMISProject.Controllers
             {
                 Address = admin.Address,
                 AdminName = admin.AdminName,
-                CreatedBy = admin.CreatedBy,
-                CreatedDate = admin.CreatedDate,
+                //CreatedBy = admin.CreatedBy,
+                //CreatedDate = admin.CreatedDate,
                 DateOfEstablishment = admin.DateOfEstablishment,
                 Email = admin.Email,
                 FaxNumber = admin.FaxNumber,
@@ -156,6 +160,7 @@ namespace CMISProject.Controllers
 
         //
         // POST: /Admin/Edit/5
+        [Authorize(Roles = "SuperAdmin")]
         [HttpPost]
         public ActionResult Edit(int id, AdminViewModel adminViewModel)
         {
@@ -168,8 +173,8 @@ namespace CMISProject.Controllers
                     {
                         AdminName = adminViewModel.AdminName,
                         Address = adminViewModel.Address,
-                        CreatedBy = adminViewModel.CreatedBy,
-                        CreatedDate = adminViewModel.CreatedDate,
+                        //CreatedBy = adminViewModel.CreatedBy,
+                        //CreatedDate = adminViewModel.CreatedDate,
                         DateOfEstablishment = adminViewModel.DateOfEstablishment,
                         Email = adminViewModel.Email,
                         FaxNumber = adminViewModel.FaxNumber,
@@ -197,6 +202,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /Admin/Delete/5
+        [Authorize(Roles = "SuperAdmin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -212,8 +218,8 @@ namespace CMISProject.Controllers
             {
                 AdminName = admin.AdminName,
                 Address = admin.Address,
-                CreatedBy = admin.CreatedBy,
-                CreatedDate = admin.CreatedDate,
+                //CreatedBy = admin.CreatedBy,
+                //CreatedDate = admin.CreatedDate,
                 DateOfEstablishment = admin.DateOfEstablishment,
                 Email = admin.Email,
                 FaxNumber = admin.FaxNumber,
@@ -234,6 +240,7 @@ namespace CMISProject.Controllers
 
         //
         // POST: /Admin/Delete/5
+        [Authorize(Roles = "SuperAdmin")]
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
