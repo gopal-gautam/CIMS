@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace CMISProject.Controllers
 {
-    
+    [Authorize]
     public class GroupController : Controller
     {
         private CIMSEntities db = new CIMSEntities();
@@ -33,7 +33,7 @@ namespace CMISProject.Controllers
                     Status = group.Status,
                     //ModifiedBy = group.ModifiedBy,
                     //ModifiedDate = group.ModifiedDate,
-                    
+
                 };
                 viewModels.Add(viewModel);
             }
@@ -90,10 +90,10 @@ namespace CMISProject.Controllers
                     db.SaveChanges();
 
                     IdentityManager im = new IdentityManager();
-                    ApplicationUser user = new ApplicationUser() { UserName=group.GroupName, };
+                    ApplicationUser user = new ApplicationUser() { UserName = group.GroupName, };
                     im.CreateUser(user, group.Password);
-                return RedirectToAction("Index");
-            }
+                    return RedirectToAction("Index");
+                }
                 return View(groupViewModel);
 
             }
@@ -143,6 +143,7 @@ namespace CMISProject.Controllers
                 {
                     Group group = new Group()
                     {
+                        GroupId = id,
                         GroupName = groupViewModel.GroupName,
                         Password = groupViewModel.Password,
                         //CreatedBy = groupViewModel.CreatedBy,
@@ -203,7 +204,7 @@ namespace CMISProject.Controllers
                 Group group = db.Groups.Find(id);
                 db.Groups.Remove(group);
                 db.SaveChanges();
-                
+
                 return RedirectToAction("Index");
             }
             catch
@@ -211,5 +212,50 @@ namespace CMISProject.Controllers
                 return View();
             }
         }
+
+        [HttpPost]
+        public JsonResult doesGroupNameExist(string groupName)
+        {
+            if (db.Groups.Single(s => s.GroupName == groupName) != null)
+            {
+                return Json(false);
+            }
+            return Json(true);
+        }
+
+        public ActionResult ChangeStatus(int id)
+        {
+            if(db.Groups.Find(id).CreatedBy != HttpContext.User.Identity.Name)
+            {
+                return RedirectToAction("Index");
+            }
+            if (db.Groups.Find(id) != null)
+            {
+                return View(new ChangeStatusViewModel());
+            }
+            return new HttpNotFoundResult();
+        }
+
+        [HttpPost]
+        public ActionResult ChangeStatus(int id, ChangeStatusViewModel changeStatusViewModel)
+        {
+            if(db.Groups.Find(id).CreatedBy != HttpContext.User.Identity.Name)
+            {
+                return RedirectToAction("Index");
+            }
+            if (db.Groups.Find(id) != null)
+            {
+                Group group = new Group()
+                {
+                    GroupId = id,
+                    Status = changeStatusViewModel.Status,
+                };
+                db.Entry(group).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return new HttpNotFoundResult();
+        }
     }
+
 }

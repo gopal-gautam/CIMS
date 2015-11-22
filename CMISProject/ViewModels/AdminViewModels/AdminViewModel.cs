@@ -4,12 +4,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using CMISProject.Models;
+using System.Web.Mvc;
 
 namespace CMISProject.ViewModels.AdminViewModels
 {
     public class AdminViewModel
     {
         [Required]
+        [Remote("doesUserNameExist", "User", ErrorMessage = "This username is not available. Please use another username.")]
         [Display(Name="Admin Username")]
         [StringLength(30, MinimumLength = 2, ErrorMessage = "AdminName must be between 2 and 30 characters")]
         [UIHint("Name")]

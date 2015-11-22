@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace CMISProject.Controllers
 {
@@ -178,6 +179,7 @@ namespace CMISProject.Controllers
                 {
                     User user = new User()
                     {
+                        UserId = id,
                         Address = userViewModel.Address,
                         //BloodGroup = userViewModel.BloodGroup,
                         CitizenShipNumber = userViewModel.CitizenShipNumber,
@@ -268,5 +270,16 @@ namespace CMISProject.Controllers
                 return View();
             }
         }
+
+
+        [HttpPost]
+        public JsonResult doesUserNameExist(string UserName)
+        {
+
+            var user = Membership.GetUser(UserName);
+
+            return Json(user == null);
+        }
+
     }
 }

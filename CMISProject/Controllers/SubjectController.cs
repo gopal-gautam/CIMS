@@ -54,7 +54,7 @@ namespace CMISProject.Controllers
         public ActionResult Create()
         {
 
-            return View(new SubjectViewModel);
+            return View(new SubjectViewModel());
         }
 
         //
@@ -65,8 +65,26 @@ namespace CMISProject.Controllers
             try
             {
                 // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    Subject subject = new Subject()
+                    {
+                        CreditHours = subjectViewModel.CreditHours,
+                        Group = subjectViewModel.Group,
+                        PrimaryBook = subjectViewModel.PrimaryBook,
+                        ReferenceBook1 = subjectViewModel.ReferenceBook1,
+                        ReferenceBook2 = subjectViewModel.ReferenceBook2,
+                        SubjectName = subjectViewModel.SubjectName,
+                        SubjectTeacher = subjectViewModel.SubjectTeacher,
+                        
+                    };
+                    db.Subjects.Add(subject);
+                    db.SaveChanges();
 
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                }
+
+                return View(subjectViewModel);
             }
             catch
             {
@@ -76,21 +94,61 @@ namespace CMISProject.Controllers
 
         //
         // GET: /Subject/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Subject subject = db.Subjects.Find(id);
+            SubjectViewModel subjectViewModel = new SubjectViewModel()
+            {
+                        CreditHours = subject.CreditHours,
+                        Group = subject.Group,
+                        PrimaryBook = subject.PrimaryBook,
+                        ReferenceBook1 = subject.ReferenceBook1,
+                        ReferenceBook2 = subject.ReferenceBook2,
+                        SubjectName = subject.SubjectName,
+                        SubjectTeacher = subject.SubjectTeacher,
+            };
+
+            if (subject == null)
+            {
+                return HttpNotFound();
+            }
+            return View(subjectViewModel);
         }
 
         //
         // POST: /Subject/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, SubjectViewModel subjectViewModel)
         {
             try
             {
                 // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    Subject subject = new Subject()
+                    {
+                        SubjectId = id,
+                        CreditHours = subjectViewModel.CreditHours,
+                        Group = subjectViewModel.Group,
+                        PrimaryBook = subjectViewModel.PrimaryBook,
+                        ReferenceBook1 = subjectViewModel.ReferenceBook1,
+                        ReferenceBook2 = subjectViewModel.ReferenceBook2,
+                        SubjectName = subjectViewModel.SubjectName,
+                        SubjectTeacher = subjectViewModel.SubjectTeacher,
+                    };
+                    if (subject == null)
+                    {
+                        return new HttpNotFoundResult();
+                    }
+                    db.Entry(subject).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(subjectViewModel);
             }
             catch
             {
@@ -100,9 +158,24 @@ namespace CMISProject.Controllers
 
         //
         // GET: /Subject/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Subject subject = db.Subjects.Find(id);
+
+            if (subject == null)
+            {
+                return new HttpNotFoundResult();
+            }
+            //db.Subjects.Remove(subject);
+            //db.SaveChanges();
+
+            return View(subject);
+            
         }
 
         //
@@ -113,7 +186,9 @@ namespace CMISProject.Controllers
             try
             {
                 // TODO: Add delete logic here
-
+                
+                db.Subjects.Remove(db.Subjects.Find(id));
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch

@@ -171,6 +171,7 @@ namespace CMISProject.Controllers
                 {
                     Admin admin = new Admin()
                     {
+                        AdminId = id,
                         AdminName = adminViewModel.AdminName,
                         Address = adminViewModel.Address,
                         //CreatedBy = adminViewModel.CreatedBy,

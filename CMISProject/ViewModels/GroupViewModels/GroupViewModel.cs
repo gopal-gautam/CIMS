@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace CMISProject.ViewModels
 {
@@ -24,6 +25,7 @@ namespace CMISProject.ViewModels
         public string Password { get; set; }
 
         [Required]
+        [Remote("doesGroupNameExist", "Group", ErrorMessage= "This groupName is not valid. Please enter another groupName.")]
         [Display(Name = "Name")]
         [StringLength(30, MinimumLength = 2, ErrorMessage = "Group name must be between 2 and 30 characters")]
         [UIHint("Group Name")]
@@ -48,6 +50,12 @@ namespace CMISProject.ViewModels
 
         [Required]
         [UIHint("Status")]
+        public Status Status { get; set; }
+    }
+
+    public class ChangeStatusViewModel
+    {
+        public string GroupName { get; set; }
         public Status Status { get; set; }
     }
 }
