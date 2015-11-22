@@ -83,7 +83,7 @@ namespace CMISProject.Models
 
         [DataType(DataType.PhoneNumber)]
         [UIHint("Phone No.")]
-        public virtual string PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         [Required]
         [UIHint("Sex")]
