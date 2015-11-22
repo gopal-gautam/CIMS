@@ -1,6 +1,7 @@
 ﻿using CMISProject.DAL;
 using CMISProject.Models;
 using CMISProject.ViewModels;
+using CMISProject.ViewModels.GroupViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -11,26 +12,27 @@ using System.Web.Mvc;
 
 namespace CMISProject.Controllers
 {
-    [Authorize(Roles = "SuperAdmin")]
+    
     public class GroupController : Controller
     {
         private CIMSEntities db = new CIMSEntities();
-        private List<GroupViewModel> viewModels = new List<GroupViewModel>();
+        private List<GroupListViewModel> viewModels = new List<GroupListViewModel>();
         //
         // GET: /Group/
+        [Authorize(Roles = "SuperAdmin")]
         public ActionResult Index()
         {
             foreach (var group in db.Groups)
             {
-                var viewModel = new GroupViewModel()
+                var viewModel = new GroupListViewModel()
                 {
                     GroupName = group.GroupName,
-                    Password = group.Password,
-                    CreatedBy = group.CreatedBy,
-                    CreatedDate = group.CreatedDate,
-                    //Status = group.Status,
-                    ModifiedBy = group.ModifiedBy,
-                    ModifiedDate = group.ModifiedDate,
+                    //Password = group.Password,
+                    //CreatedBy = group.CreatedBy,
+                    //CreatedDate = group.CreatedDate,
+                    Status = group.Status,
+                    //ModifiedBy = group.ModifiedBy,
+                    //ModifiedDate = group.ModifiedDate,
                     
                 };
                 viewModels.Add(viewModel);
@@ -56,6 +58,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /Group/Create
+        [Authorize(Roles = "SuperAdmin")]
         public ActionResult Create()
         {
             return View(new GroupViewModel());
@@ -63,6 +66,7 @@ namespace CMISProject.Controllers
 
         //
         // POST: /Group/Create
+        [Authorize(Roles = "SuperAdmin")]
         [HttpPost]
         public ActionResult Create(GroupViewModel groupViewModel)
         {
@@ -75,11 +79,11 @@ namespace CMISProject.Controllers
                     {
                         GroupName = groupViewModel.GroupName,
                         Password = groupViewModel.Password,
-                        CreatedBy = groupViewModel.CreatedBy,
-                        CreatedDate = groupViewModel.CreatedDate,
-                        //Status = groupViewModel.Status,
-                        ModifiedBy = groupViewModel.ModifiedBy,
-                        ModifiedDate = groupViewModel.ModifiedDate,
+                        //CreatedBy = groupViewModel.CreatedBy,
+                        //CreatedDate = groupViewModel.CreatedDate,
+                        Status = groupViewModel.Status,
+                        //ModifiedBy = groupViewModel.ModifiedBy,
+                        //ModifiedDate = groupViewModel.ModifiedDate,
 
                     };
                     db.Groups.Add(group);
@@ -101,6 +105,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /Group/Edit/5
+        [Authorize(Roles = "SuperAdmin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -112,11 +117,11 @@ namespace CMISProject.Controllers
             {
                 GroupName = group.GroupName,
                 Password = group.Password,
-                CreatedBy = group.CreatedBy,
-                CreatedDate = group.CreatedDate,
-                //Status = group.Status,
-                ModifiedBy = group.ModifiedBy,
-                ModifiedDate = group.ModifiedDate,
+                //CreatedBy = group.CreatedBy,
+                //CreatedDate = group.CreatedDate,
+                Status = group.Status,
+                //ModifiedBy = group.ModifiedBy,
+                //ModifiedDate = group.ModifiedDate,
             };
             if (group == null)
             {
@@ -127,6 +132,7 @@ namespace CMISProject.Controllers
 
         //
         // POST: /Group/Edit/5
+        [Authorize(Roles = "SuperAdmin")]
         [HttpPost]
         public ActionResult Edit(int id, GroupViewModel groupViewModel)
         {
@@ -139,11 +145,11 @@ namespace CMISProject.Controllers
                     {
                         GroupName = groupViewModel.GroupName,
                         Password = groupViewModel.Password,
-                        CreatedBy = groupViewModel.CreatedBy,
-                        CreatedDate = groupViewModel.CreatedDate,
-                        //Status = groupViewModel.Status,
-                        ModifiedBy = groupViewModel.ModifiedBy,
-                        ModifiedDate = groupViewModel.ModifiedDate,
+                        //CreatedBy = groupViewModel.CreatedBy,
+                        //CreatedDate = groupViewModel.CreatedDate,
+                        Status = groupViewModel.Status,
+                        //ModifiedBy = groupViewModel.ModifiedBy,
+                        //ModifiedDate = groupViewModel.ModifiedDate,
                     };
                     db.Entry(group).State = EntityState.Modified;
                     db.SaveChanges();
@@ -159,6 +165,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /Group/Delete/5
+        [Authorize(Roles = "SuperAdmin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -170,15 +177,15 @@ namespace CMISProject.Controllers
             {
                 return HttpNotFound();
             }
-            var groupViewModel = new GroupViewModel()
+            var groupViewModel = new GroupListViewModel()
             {
                 GroupName = group.GroupName,
-                Password = group.Password,
-                CreatedBy = group.CreatedBy,
-                CreatedDate = group.CreatedDate,
-                //Status = group.Status,
-                ModifiedBy = group.ModifiedBy,
-                ModifiedDate = group.ModifiedDate,
+                //Password = group.Password,
+                //CreatedBy = group.CreatedBy,
+                //CreatedDate = group.CreatedDate,
+                Status = group.Status,
+                //ModifiedBy = group.ModifiedBy,
+                //ModifiedDate = group.ModifiedDate,
             };
 
             return View(groupViewModel);
@@ -186,6 +193,7 @@ namespace CMISProject.Controllers
 
         //
         // POST: /Group/Delete/5
+        [Authorize(Roles = "SuperAdmin")]
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

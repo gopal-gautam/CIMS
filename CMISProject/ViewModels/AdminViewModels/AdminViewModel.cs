@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using CMISProject.Models;
 
 namespace CMISProject.ViewModels.AdminViewModels
 {
@@ -45,7 +44,7 @@ namespace CMISProject.ViewModels.AdminViewModels
         [Display(Name = "Date Of Establishment")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
-        [UIHint("Established Date")]
+        //[UIHint("Date")]
         public DateTime DateOfEstablishment { get; set; }
 
         //[Required]
@@ -82,7 +81,7 @@ namespace CMISProject.ViewModels.AdminViewModels
 
         [DataType(DataType.PhoneNumber)]
         [UIHint("Phone Number")]
-        public string PhoneNumbers { get; set; }
+        public virtual ICollection<string> PhoneNumber { get; set; }
 
         [Display(Name = "P.O.Box Number")]
         [UIHint("P.O. Box No.")]

@@ -1,0 +1,64 @@
+﻿.....................................................................
+for dropdown list from mvc model items:
+
+pls explain why <%= Html.DropDownList("ListItems", Model.ListItems) %> can't work in "Autobinding the selected item" section. What's the first parameter Name means in the method?
+
+@Yao: it will work, but then you would have to place the "selected item" in a variable whose name is "ListItems".
+The Name parameter is both the name of the html form field, and the name of the view model property that will be automatically bound to the field. And the "meaning" of the name also depends on whether the "selectList" property is supplied.
+
+@model List<string>
+@Html.DropDownList(
+    "Foo", 
+    new SelectList(
+        Model.Select(x => new { Value = x, Text = x }),
+        "Value",
+        "Text"
+    )
+)
+........................................................................
+
+private void SetGenreArtistViewBag(int? GenreID = null, int? ArtistID = null) {
+
+    if (GenreID == null)
+
+        ViewBag.GenreId = new SelectList(db.Genres, "GenreId", "Name");
+
+    else
+
+        ViewBag.GenreId = new SelectList(db.Genres.ToArray(), "GenreId", "Name", GenreID);
+
+    if (ArtistID == null)
+
+        ViewBag.ArtistId = new SelectList(db.Artists, "ArtistId", "Name");
+
+    else
+
+        ViewBag.ArtistId = new SelectList(db.Artists, "ArtistId", "Name", ArtistID);
+
+}
+...............................................................................................
+
+[Display(Name = "Rating (1-10)")]
+[Range(1,10)]
+[UIHint("StarRating")]
+public int Rating { get; set; }
+ 
+[Display(Name = "Cost (1-4)")]
+[Range(1, 4)]
+[UIHint("CostRating")]
+public int Cost { get; set; }
+
+..............................................................................................
+manghsir 04
+PhoneNumber:
+[RegularExpression("^[0-9]{8})|[0-9]+{12}|[0-9]{11}$", ErrorMessage = "Invalid phone")]
+[RegularExpression(@"^\d{8}|00\d{10}|\+\d{2}\d{8}", ErrorMessage = "Invalid Phone")]
+[RegularExpression(@"^(?:\d{8}|00\d{10}|\+\d{2}\d{8})$", ErrorMessage = "Invalid Phone")]
+[RegularExpression(@"^[0-9]{8})|00[0-9]{12}|\+00[0-9]{11}", ErrorMessage = "Invalid Phone")]
+Website:
+/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?\//
+UserName:
+[RegularExpression("^([a-zA-Z])[a-zA-Z_-]*[\w_-]*[\S]$|^([a-zA-Z])[0-9_-]*[\S]$|^[a-zA-Z]*[\S]$")]
+[RegularExpression(@"^([a-zA-Z])[a-zA-Z_-]*[\w_-]*[\S]$|^([a-zA-Z])[0-9_-]*[\S]$|^[a-zA-Z]*[\S]$")]
+Name:
+[RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only please")]

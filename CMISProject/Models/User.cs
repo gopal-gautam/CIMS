@@ -7,6 +7,11 @@ using System.ComponentModel.DataAnnotations;
 using CMISProject.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 
+
+
+///<summary>
+///
+///</summary>
 namespace CMISProject.Models
 {
     public enum BloodGroup
@@ -78,7 +83,7 @@ namespace CMISProject.Models
 
         [DataType(DataType.PhoneNumber)]
         [UIHint("Phone No.")]
-        public virtual ICollection<string> PhoneNumber { get; set; }
+        public virtual string PhoneNumber { get; set; }
 
         [Required]
         [UIHint("Sex")]

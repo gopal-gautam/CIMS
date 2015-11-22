@@ -98,7 +98,7 @@ namespace CMISProject.Controllers
                         //ModifiedBy = adminViewModel.ModifiedBy,
                         OrganizationName = adminViewModel.OrganizationName,
                         PanNo = adminViewModel.PanNo,
-                        PhoneNumbers = adminViewModel.PhoneNumbers,
+                        PhoneNumber = adminViewModel.PhoneNumber,
                         POBoxNumber = adminViewModel.POBoxNumber,
                         VatNo = adminViewModel.VatNo,
                         Website = adminViewModel.Website,
@@ -146,7 +146,7 @@ namespace CMISProject.Controllers
                 //ModifiedBy = admin.ModifiedBy,
                 OrganizationName = admin.OrganizationName,
                 PanNo = admin.PanNo,
-                PhoneNumber = admin.PhoneNumbers,
+                PhoneNumber = admin.PhoneNumber,
                 POBoxNumber = admin.POBoxNumber,
                 VatNo = admin.VatNo,
                 Website = admin.Website,
@@ -183,7 +183,7 @@ namespace CMISProject.Controllers
                         //ModifiedBy = adminViewModel.ModifiedBy,
                         OrganizationName = adminViewModel.OrganizationName,
                         PanNo = adminViewModel.PanNo,
-                        PhoneNumbers = adminViewModel.PhoneNumber,
+                        PhoneNumber = adminViewModel.PhoneNumber,
                         POBoxNumber = adminViewModel.POBoxNumber,
                         VatNo = adminViewModel.VatNo,
                         Website = adminViewModel.Website,
@@ -214,24 +214,24 @@ namespace CMISProject.Controllers
             {
                 return HttpNotFound();
             }
-            var adminViewModel = new AdminViewModel()
+            var adminViewModel = new AdminListViewModel()
             {
-                AdminName = admin.AdminName,
+                //AdminName = admin.AdminName,
                 Address = admin.Address,
                 //CreatedBy = admin.CreatedBy,
                 //CreatedDate = admin.CreatedDate,
-                DateOfEstablishment = admin.DateOfEstablishment,
-                Email = admin.Email,
-                FaxNumber = admin.FaxNumber,
+                //DateOfEstablishment = admin.DateOfEstablishment,
+                //Email = admin.Email,
+                //FaxNumber = admin.FaxNumber,
                 //LogoFile = admin.LogoFile,
                 //ModifiedDate = admin.ModifiedDate,
                 //ModifiedBy = admin.ModifiedBy,
                 OrganizationName = admin.OrganizationName,
-                PanNo = admin.PanNo,
-                PhoneNumber = admin.PhoneNumbers,
-                POBoxNumber = admin.POBoxNumber,
-                VatNo = admin.VatNo,
-                Website = admin.Website,
+                //PanNo = admin.PanNo,
+                //PhoneNumber = admin.PhoneNumber,
+                //POBoxNumber = admin.POBoxNumber,
+                //VatNo = admin.VatNo,
+                //Website = admin.Website,
 
             };
             
