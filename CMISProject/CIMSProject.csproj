@@ -169,9 +169,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\EnumToDropDownHelper.cs" />
-    <Compile Include="Migrations\201511191516395_init.cs" />
-    <Compile Include="Migrations\201511191516395_init.Designer.cs">
-      <DependentUpon>201511191516395_init.cs</DependentUpon>
+    <Compile Include="Migrations\201511220625553_init.cs" />
+    <Compile Include="Migrations\201511220625553_init.Designer.cs">
+      <DependentUpon>201511220625553_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -220,6 +220,8 @@
     <Content Include="Views\Group\Details.cshtml" />
     <Content Include="Views\Group\Edit.cshtml" />
     <Content Include="Views\Group\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -277,7 +279,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Admin\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
@@ -288,8 +289,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511191516395_init.resx">
-      <DependentUpon>201511191516395_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201511220625553_init.resx">
+      <DependentUpon>201511220625553_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
