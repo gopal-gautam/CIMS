@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CMISProject.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -6,18 +7,18 @@ using System.Web;
 
 namespace CMISProject.ViewModels
 {
-    public enum BloodGroup
-    {
-        APositive, ANegative, BPositive, BNegative, ABPositive, ABNegative, OPositive, ONegative
-    }
-    public enum UserType
-    {
-        Staff, Student
-    }
-    public enum Sex
-    {
-        Male, Female, Other
-    }
+    //public enum BloodGroup
+    //{
+    //    APositive, ANegative, BPositive, BNegative, ABPositive, ABNegative, OPositive, ONegative
+    //}
+    //public enum UserType
+    //{
+    //    Staff, Student
+    //}
+    //public enum Sex
+    //{
+    //    Male, Female, Other
+    //}
 
     public class UserViewModel
     {
@@ -45,23 +46,23 @@ namespace CMISProject.ViewModels
         [UIHint("Last Name")]
         public string LastName { get; set; }
 
-        [Required]
-        [UIHint("Date")]
-        public DateTime CreatedDate { get; set; }
+        //[Required]
+        //[UIHint("Date")]
+        //public DateTime CreatedDate { get; set; }
 
-        [Required]
-        [UIHint("Created By")]
-        public string CreatedBy { get; set; }
+        //[Required]
+        //[UIHint("Created By")]
+        //public string CreatedBy { get; set; }
 
-        [DataType(DataType.DateTime)]
-        [UIHint("Date")]
-        public DateTime ModifiedDate { get; set; }
+        //[DataType(DataType.DateTime)]
+        //[UIHint("Date")]
+        //public DateTime ModifiedDate { get; set; }
 
-        [UIHint("Date")]
-        public string ModifiedBy { get; set; }
+        //[UIHint("Date")]
+        //public string ModifiedBy { get; set; }
 
         [DataType(DataType.EmailAddress)]
-        [RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z")]
+        //[RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z")]
         [UIHint("E-mail Id")]
         public string Email { get; set; }
 
@@ -96,7 +97,7 @@ namespace CMISProject.ViewModels
 
         [DataType(DataType.Upload)]
         [UIHint("Upload ImgFile")]
-        public string ImageFile { get; set; }
+        public HttpPostedFileBase ImageFile { get; set; }
 
         [UIHint("Blood Group")]
         public BloodGroup BloodGroup { get; set; }

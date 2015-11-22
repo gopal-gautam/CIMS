@@ -1,6 +1,7 @@
 ﻿using CMISProject.DAL;
 using CMISProject.Models;
 using CMISProject.ViewModels;
+using CMISProject.ViewModels.UserViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -11,39 +12,39 @@ using System.Web.Mvc;
 
 namespace CMISProject.Controllers
 {
-    [Authorize(Roles = "SuperAdmin")]
+    
     public class UserController : Controller
     {
         //
         // GET: /User/
         private CIMSEntities db = new CIMSEntities();
-        private List<UserViewModel> viewModels = new List<UserViewModel>();
+        private List<UserListViewModel> viewModels = new List<UserListViewModel>();
 
+        [Authorize(Roles = "SuperAdmin")]
         public ActionResult Index()
         {
             foreach (var user in db.Users)
             {
-                var viewModel = new UserViewModel()
+                var viewModel = new UserListViewModel()
                 {
                     Address = user.Address,
                     //BloodGroup = user.BloodGroup,
-                    CitizenShipNumber = user.CitizenShipNumber,
-                    CreatedBy = user.CreatedBy,
-                    CreatedDate = user.CreatedDate,
-                    DateOfBirth = user.DateOfBirth,
+                    //CitizenShipNumber = user.CitizenShipNumber,
+                    //CreatedBy = user.CreatedBy,
+                    //CreatedDate = user.CreatedDate,
+                    //DateOfBirth = user.DateOfBirth,
                     Email = user.Email,
                     ImageFile = user.ImageFile,
-                    ModifiedBy = user.ModifiedBy,
-                    ModifiedDate = user.ModifiedDate,
-                    Nationality = user.Nationality,
-                    Password = user.Password,
-                    PhoneNumber = user.PhoneNumber,
-                    Religion = user.Religion,
+                    //ModifiedBy = user.ModifiedBy,
+                    //ModifiedDate = user.ModifiedDate,
+                    //Nationality = user.Nationality,
+                    //Password = user.Password,
+                    //PhoneNumber = user.PhoneNumber,
+                    //Religion = user.Religion,
                     //Sex = user.Sex,
-                    UserName = user.UserName,
-                    FirstName = user.FirstName,
-                    MiddleName = user.MiddleName,
-                    LastName = user.LastName,
+                    //UserName = user.UserName,
+                    Name = user.FirstName + " " +user.MiddleName + " " +user.LastName,
+                    
                 };
                 viewModels.Add(viewModel);
             }
@@ -68,6 +69,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /User/Create
+        [Authorize(Roles = "SuperAdmin")]
         public ActionResult Create()
         {
             return View(new UserViewModel());
@@ -75,6 +77,7 @@ namespace CMISProject.Controllers
 
         //
         // POST: /User/Create
+        [Authorize(Roles = "SuperAdmin")]
         [HttpPost]
         public ActionResult Create(UserViewModel userViewModel)
         {
@@ -86,20 +89,20 @@ namespace CMISProject.Controllers
                     User user = new User()
                     {
                         Address = userViewModel.Address,
-                        //BloodGroup = userViewModel.BloodGroup,
+                        BloodGroup = userViewModel.BloodGroup,
                         CitizenShipNumber = userViewModel.CitizenShipNumber,
-                        CreatedBy = userViewModel.CreatedBy,
-                        CreatedDate = userViewModel.CreatedDate,
+                        //CreatedBy = userViewModel.CreatedBy,
+                        //CreatedDate = userViewModel.CreatedDate,
                         DateOfBirth = userViewModel.DateOfBirth,
                         Email = userViewModel.Email,
-                        ImageFile = userViewModel.ImageFile,
-                        ModifiedBy = userViewModel.ModifiedBy,
-                        ModifiedDate = userViewModel.ModifiedDate,
+                        ImageFile = userViewModel.ImageFile.ToString(),
+                        //ModifiedBy = userViewModel.ModifiedBy,
+                        //ModifiedDate = userViewModel.ModifiedDate,
                         Nationality = userViewModel.Nationality,
                         Password = userViewModel.Password,
                         PhoneNumber = userViewModel.PhoneNumber,
                         Religion = userViewModel.Religion,
-                        //Sex = userViewModel.Sex,
+                        Sex = userViewModel.Sex,
                         UserName = userViewModel.UserName,
                         FirstName = userViewModel.FirstName,
                         MiddleName = userViewModel.MiddleName,
@@ -108,10 +111,11 @@ namespace CMISProject.Controllers
                     db.Users.Add(user);
                     db.SaveChanges();
 
-                    //IdentityManager im = new IdentityManager();
-                    //ApplicationUser user = new ApplicationUser() { UserName = user.UserName, };
-                    //im.CreateUser(user, user.Password);
-                return RedirectToAction("Index");
+                    IdentityManager im = new IdentityManager();
+                    ApplicationUser userForLogin = new ApplicationUser() { UserName = user.UserName, };
+                    im.CreateUser(userForLogin, user.Password);
+               
+                    return RedirectToAction("Index");
             }
                 return View(userViewModel);
         }
@@ -125,6 +129,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /User/Edit/5
+        [Authorize(Roles = "SuperAdmin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -137,13 +142,13 @@ namespace CMISProject.Controllers
                 Address = user.Address,
                 //BloodGroup = user.BloodGroup,
                 CitizenShipNumber = user.CitizenShipNumber,
-                CreatedBy = user.CreatedBy,
-                CreatedDate = user.CreatedDate,
+                //CreatedBy = user.CreatedBy,
+                //CreatedDate = user.CreatedDate,
                 DateOfBirth = user.DateOfBirth,
                 Email = user.Email,
-                ImageFile = user.ImageFile,
-                ModifiedBy = user.ModifiedBy,
-                ModifiedDate = user.ModifiedDate,
+                //ImageFile = user.ImageFile,
+                //ModifiedBy = user.ModifiedBy,
+                //ModifiedDate = user.ModifiedDate,
                 Nationality = user.Nationality,
                 Password = user.Password,
                 PhoneNumber = user.PhoneNumber,
@@ -176,13 +181,13 @@ namespace CMISProject.Controllers
                         Address = userViewModel.Address,
                         //BloodGroup = userViewModel.BloodGroup,
                         CitizenShipNumber = userViewModel.CitizenShipNumber,
-                        CreatedBy = userViewModel.CreatedBy,
-                        CreatedDate = userViewModel.CreatedDate,
+                        //CreatedBy = userViewModel.CreatedBy,
+                        //CreatedDate = userViewModel.CreatedDate,
                         DateOfBirth = userViewModel.DateOfBirth,
                         Email = userViewModel.Email,
-                        ImageFile = userViewModel.ImageFile,
-                        ModifiedBy = userViewModel.ModifiedBy,
-                        ModifiedDate = userViewModel.ModifiedDate,
+                        ImageFile = userViewModel.ImageFile.ToString(),
+                        //ModifiedBy = userViewModel.ModifiedBy,
+                        //ModifiedDate = userViewModel.ModifiedDate,
                         Nationality = userViewModel.Nationality,
                         Password = userViewModel.Password,
                         PhoneNumber = userViewModel.PhoneNumber,
@@ -207,6 +212,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /User/Delete/5
+        [Authorize(Roles="SuperAdmin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -218,27 +224,28 @@ namespace CMISProject.Controllers
             {
                 return HttpNotFound();
             }
-            var userViewModel = new UserViewModel()
+            var userViewModel = new UserListViewModel()
             {
                 Address = user.Address,
+                Name = user.FirstName + " " + user.MiddleName + " " + user.LastName,
                 //BloodGroup = user.BloodGroup,
-                CitizenShipNumber = user.CitizenShipNumber,
-                CreatedBy = user.CreatedBy,
-                CreatedDate = user.CreatedDate,
-                DateOfBirth = user.DateOfBirth,
-                Email = user.Email,
-                ImageFile = user.ImageFile,
-                ModifiedBy = user.ModifiedBy,
-                ModifiedDate = user.ModifiedDate,
-                Nationality = user.Nationality,
-                Password = user.Password,
-                PhoneNumber = user.PhoneNumber,
-                Religion = user.Religion,
+                //CitizenShipNumber = user.CitizenShipNumber,
+                //CreatedBy = user.CreatedBy,
+                //CreatedDate = user.CreatedDate,
+                //DateOfBirth = user.DateOfBirth,
+                //Email = user.Email,
+                //ImageFile = user.ImageFile,
+                //ModifiedBy = user.ModifiedBy,
+                //ModifiedDate = user.ModifiedDate,
+                //Nationality = user.Nationality,
+                //Password = user.Password,
+                //PhoneNumber = user.PhoneNumber,
+                //Religion = user.Religion,
                 //Sex = user.Sex,
-                UserName = user.UserName,
-                FirstName = user.FirstName,
-                MiddleName = user.MiddleName,
-                LastName = user.LastName,
+                //UserName = user.UserName,
+                //FirstName = user.FirstName,
+                //MiddleName = user.MiddleName,
+                //LastName = user.LastName,
             };
             return View(userViewModel);
         }

@@ -44,7 +44,7 @@ namespace CMISProject.ViewModels.AdminViewModels
         [Display(Name = "Date Of Establishment")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
-        [UIHint("Established Date")]
+        //[UIHint("Date")]
         public DateTime DateOfEstablishment { get; set; }
 
         //[Required]

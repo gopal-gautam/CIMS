@@ -214,24 +214,24 @@ namespace CMISProject.Controllers
             {
                 return HttpNotFound();
             }
-            var adminViewModel = new AdminViewModel()
+            var adminViewModel = new AdminListViewModel()
             {
-                AdminName = admin.AdminName,
+                //AdminName = admin.AdminName,
                 Address = admin.Address,
                 //CreatedBy = admin.CreatedBy,
                 //CreatedDate = admin.CreatedDate,
-                DateOfEstablishment = admin.DateOfEstablishment,
-                Email = admin.Email,
-                FaxNumber = admin.FaxNumber,
+                //DateOfEstablishment = admin.DateOfEstablishment,
+                //Email = admin.Email,
+                //FaxNumber = admin.FaxNumber,
                 //LogoFile = admin.LogoFile,
                 //ModifiedDate = admin.ModifiedDate,
                 //ModifiedBy = admin.ModifiedBy,
                 OrganizationName = admin.OrganizationName,
-                PanNo = admin.PanNo,
-                PhoneNumber = admin.PhoneNumber,
-                POBoxNumber = admin.POBoxNumber,
-                VatNo = admin.VatNo,
-                Website = admin.Website,
+                //PanNo = admin.PanNo,
+                //PhoneNumber = admin.PhoneNumber,
+                //POBoxNumber = admin.POBoxNumber,
+                //VatNo = admin.VatNo,
+                //Website = admin.Website,
 
             };
             

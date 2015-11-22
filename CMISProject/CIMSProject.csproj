@@ -205,12 +205,15 @@
     <Compile Include="ViewModels\AdminViewModels\AdminListViewModel.cs" />
     <Compile Include="ViewModels\CustomGroupPropertyViewModel.cs" />
     <Compile Include="ViewModels\CustomUserPropertyViewModel.cs" />
-    <Compile Include="ViewModels\GroupViewModel.cs" />
-    <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="ViewModels\GroupViewModels\GroupListViewModel.cs" />
+    <Compile Include="ViewModels\GroupViewModels\GroupViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModels\UserListViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModels\UserViewModel.cs" />
     <None Include="Notes\Configuration.gnotes" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Content Include="Notes\DropDownListCodeAndRegularExpressions.txt" />
+    <Content Include="Notes\DropDownListCodeAndRegularExpressions.nksnotes" />
+    <None Include="Notes\Things to be enhanced.gnotes" />
     <Content Include="Views\Group\Create.cshtml" />
     <Content Include="Views\Group\Delete.cshtml" />
     <Content Include="Views\Group\Details.cshtml" />
@@ -224,7 +227,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Notes\RemoteAnnotationForUsernameValidation.txt" />
+    <None Include="Notes\RemoteAnnotationForUsernameValidation.gnotes" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Notes\ImplementModifiedDate.gnotes" />

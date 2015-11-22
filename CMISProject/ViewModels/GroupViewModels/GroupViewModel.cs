@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CMISProject.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,10 +8,10 @@ using System.Web;
 
 namespace CMISProject.ViewModels
 {
-    public enum Status
-    {
-        active, inactive
-    }
+    //public enum Status
+    //{
+    //    active, inactive
+    //}
 
     public class GroupViewModel
     {
@@ -28,22 +29,22 @@ namespace CMISProject.ViewModels
         [UIHint("Group Name")]
         public string GroupName { get; set; }
 
-        [Required]
-        [ScaffoldColumn(false)]
-        [DataType(DataType.DateTime)]
-        [UIHint("Date")]
-        public DateTime CreatedDate { get; set; }
+        //[Required]
+        //[ScaffoldColumn(false)]
+        //[DataType(DataType.DateTime)]
+        //[UIHint("Date")]
+        //public DateTime CreatedDate { get; set; }
 
-        [Required]
-        [UIHint("Created By")]
-        public string CreatedBy { get; set; }
+        //[Required]
+        //[UIHint("Created By")]
+        //public string CreatedBy { get; set; }
 
-        [DataType(DataType.DateTime)]
-        [UIHint("Date")]
-        public DateTime ModifiedDate { get; set; }
+        //[DataType(DataType.DateTime)]
+        //[UIHint("Date")]
+        //public DateTime ModifiedDate { get; set; }
 
-        [UIHint("Modified By")]
-        public string ModifiedBy { get; set; }
+        //[UIHint("Modified By")]
+        //public string ModifiedBy { get; set; }
 
         [Required]
         [UIHint("Status")]
