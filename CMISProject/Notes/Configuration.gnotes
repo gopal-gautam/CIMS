@@ -43,10 +43,22 @@ namespace CMISProject.Migrations
                 UserName = "gopal",
             };
 
+			var nirojUser = new Application()
+			{
+				UserName = "Niroj"
+			}
+
             success = im.CreateUser(user, "ramjane");
             if (!success) return success;
 
             success = im.AddUserToRole(user.Id, "SuperAdmin");
+            if (!success) return success;
+
+
+			success = im.CreateUser(nirojUser, "nirish");
+            if (!success) return success;
+
+            success = im.AddUserToRole(nirojUser.Id, "SuperAdmin");
             if (!success) return success;
 
             return success;
