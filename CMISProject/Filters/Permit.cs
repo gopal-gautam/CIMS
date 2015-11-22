@@ -19,6 +19,7 @@ namespace CMISProject.Filters
             if(! filterContext.HttpContext.User.Identity.IsAuthenticated)
             {
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { Controller = "Account", Action = "Login" }));
+                return;
             }
             var currentUser = HttpContext.Current.User.Identity.Name;
             CIMSEntities db = new CIMSEntities();
@@ -27,6 +28,7 @@ namespace CMISProject.Filters
             if (permission == null)
             {
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { Controller = "Home", Action = "Index" }));
+                return;
             }
             var userPermissions = db.UserPermissions.Where(s=>s.UserId == user.UserId & s.Permission == permission).ToList();
             var userGroupRelations = db.GroupUserRelations.Where(s => s.UserId == user.UserId);
@@ -36,9 +38,10 @@ namespace CMISProject.Filters
                 var group = db.Groups.Find(userGroupRelation.GroupId);
                 groupPermissions.AddRange(db.GroupPermissions.Where(s => s.GroupId == group.GroupId).ToList());
             }
-            if(userPermissions.Count() == 0 && groupPermissions.Count() == 0)
+            if(userPermissions.Count() == 0 || groupPermissions.Count() == 0 || db.Admins.Single( s=> s.AdminName == currentUser) != null)
             {
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { Controller = "Home", Action = "Index" }));
+                return;
             }
             base.OnActionExecuted(filterContext);
         }
