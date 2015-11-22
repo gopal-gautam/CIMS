@@ -163,6 +163,7 @@
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PermissionController.cs" />
+    <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\CIMSEntities.cs" />
     <Compile Include="Filters\Permit.cs" />
@@ -208,11 +209,13 @@
     <Compile Include="Models\UserResource.cs" />
     <Compile Include="ViewModels\AdminViewModels\AdminViewModel.cs" />
     <Compile Include="ViewModels\AdminViewModels\AdminListViewModel.cs" />
-    <Compile Include="ViewModels\CustomGroupPropertyViewModel.cs" />
-    <Compile Include="ViewModels\CustomUserPropertyViewModel.cs" />
+    <Compile Include="ViewModels\CustomGroupPropertyViewModels\CustomGroupPropertyViewModel.cs" />
+    <Compile Include="ViewModels\CustomeUserPropertyViewModels\CustomUserPropertyViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModels\GroupListViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModels\GroupViewModel.cs" />
     <Compile Include="ViewModels\PermissionViewModels\PermissionViewModel.cs" />
+    <Compile Include="ViewModels\SubjectViewModels\SubjectListViewModel.cs" />
+    <Compile Include="ViewModels\SubjectViewModels\SubjectViewModel.cs" />
     <Compile Include="ViewModels\UserViewModels\UserListViewModel.cs" />
     <Compile Include="ViewModels\UserViewModels\UserViewModel.cs" />
     <None Include="Notes\Configuration.gnotes" />
@@ -227,6 +230,19 @@
     <Content Include="Views\Group\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Permission\Index.cshtml" />
+    <Content Include="Views\Permission\Create.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\Permission\Edit.cshtml" />
+    <Content Include="Views\Permission\Details.cshtml" />
+    <Content Include="Views\Permission\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -284,8 +300,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Permission\" />
-    <Folder Include="Views\User\" />
+    <Folder Include="Views\Subject\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
