@@ -7,6 +7,11 @@ using System.ComponentModel.DataAnnotations;
 using CMISProject.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 
+
+
+///<summary>
+///
+///</summary>
 namespace CMISProject.Models
 {
     public enum BloodGroup

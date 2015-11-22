@@ -207,6 +207,7 @@
     <Compile Include="ViewModels\CustomUserPropertyViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModels\GroupListViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModels\GroupViewModel.cs" />
+    <Compile Include="ViewModels\PermissionViewModels\PermissionViewModel.cs" />
     <Compile Include="ViewModels\UserViewModels\UserListViewModel.cs" />
     <Compile Include="ViewModels\UserViewModels\UserViewModel.cs" />
     <None Include="Notes\Configuration.gnotes" />
