@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using CMISProject.Models;
 
 namespace CMISProject.ViewModels.AdminViewModels
 {
@@ -81,7 +82,7 @@ namespace CMISProject.ViewModels.AdminViewModels
 
         [DataType(DataType.PhoneNumber)]
         [UIHint("Phone Number")]
-        public virtual ICollection<string> PhoneNumber { get; set; }
+        public string PhoneNumbers { get; set; }
 
         [Display(Name = "P.O.Box Number")]
         [UIHint("P.O. Box No.")]
