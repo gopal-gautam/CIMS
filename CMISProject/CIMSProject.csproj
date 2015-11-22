@@ -160,7 +160,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\CIMSEntities.cs" />
     <Compile Include="Filters\Permit.cs" />
     <Compile Include="Global.asax.cs">
@@ -199,10 +201,21 @@
     <Compile Include="Models\UserMessage.cs" />
     <Compile Include="Models\UserPermission.cs" />
     <Compile Include="Models\UserResource.cs" />
-    <Compile Include="ViewModels\AdminViewModel.cs" />
+    <Compile Include="ViewModels\AdminViewModels\AdminViewModel.cs" />
+    <Compile Include="ViewModels\AdminViewModels\AdminListViewModel.cs" />
+    <Compile Include="ViewModels\CustomGroupPropertyViewModel.cs" />
+    <Compile Include="ViewModels\CustomUserPropertyViewModel.cs" />
+    <Compile Include="ViewModels\GroupViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
     <None Include="Notes\Configuration.gnotes" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Content Include="Notes\DropDownListCodeAndRegularExpressions.txt" />
+    <Content Include="Views\Group\Create.cshtml" />
+    <Content Include="Views\Group\Delete.cshtml" />
+    <Content Include="Views\Group\Details.cshtml" />
+    <Content Include="Views\Group\Edit.cshtml" />
+    <Content Include="Views\Group\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -261,6 +274,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Admin\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
