@@ -14,14 +14,15 @@ namespace CMISProject.Models
     }
     public class Resource
     {
-        [Required]
-        [ScaffoldColumn(false)]
-        public int ResourceId { get; set; }
+        //[Required]
+        //[ScaffoldColumn(false)]
+        //public int ResourceId { get; set; }
 
-        [Required]
+        //[Required]
+        [Key]
         [Display(Name= "Resource Type")]
         [UIHint("Resource Type")]
-        public Type ResourceType{ get; set;}
+        public Type? ResourceType{ get; set;}
 
         [Required]
         [Display(Name = "Resource Name")]
@@ -44,8 +45,8 @@ namespace CMISProject.Models
 
         public string ModifiedBy { get; set; }
 
-        [Required]
-        public int SubjectId { get; set; }
+        //[Required]
+        public int? SubjectId { get; set; }
 
         [ForeignKey("SubjectId")]
         public virtual Subject Subject { get; set; }
