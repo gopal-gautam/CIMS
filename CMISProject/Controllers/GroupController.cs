@@ -66,7 +66,8 @@ namespace CMISProject.Controllers
             }
             if (group.CreatedBy != User.Identity.Name)
             {
-                return RedirectToAction("Index");
+                ViewBag.ErrorMessage = "Sorry, You can't add members in this group";
+                return View("~/Views/Shared/Error.cshtml");
             }
             User user = db.Users.Find(userId);
             if (user == null)
