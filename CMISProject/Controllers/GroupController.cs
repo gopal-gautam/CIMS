@@ -129,9 +129,10 @@ namespace CMISProject.Controllers
 
         }
 
-        public bool CheckMemeber(int GroupId, int UserId)
+        public static bool CheckMemeber(int GroupId, int UserId)
         {
             bool isMember = false;
+            CIMSEntities db = new CIMSEntities();
             Group group = db.Groups.Find(GroupId);
             if (group == null)
             {
