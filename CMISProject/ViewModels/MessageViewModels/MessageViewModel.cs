@@ -23,7 +23,7 @@ namespace CMISProject.ViewModels.MessageViewModels
 
         [DataType(DataType.Upload)]
         [UIHint("Upload File")]
-        public string Attachment { get; set; }
+        public HttpPostedFileBase Attachment { get; set; }
 
         public React React { get; set; }
 
