@@ -17,10 +17,10 @@ namespace CMISProject.Models
         [UIHint("Faculty Name")]
         public string FacultyName { get; set; }
 
-        [Required]
-        public int UserId { get; set; }
+        //[Required]
+        public int FacultyHeadId { get; set; }
 
-        [ForeignKey("UserId")]
+        [ForeignKey("FacultyHeadId")]
         public virtual User FacultyHead { get; set; }
 
 
