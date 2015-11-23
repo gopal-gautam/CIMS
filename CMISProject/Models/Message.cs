@@ -12,10 +12,10 @@ namespace CMISProject.Models
     {
         NormalMsg, ReplyMsg, Notice /*, Comment */, Complaint, Suggestion, Event, TeacherHelp, Proposal
     }
-    public enum React
-    {
-        Like, Unlike
-    }
+    //public enum React
+    //{
+    //    Like, Unlike
+    //}
     public enum MessageMode
     {
         ReadOnly, ReadLikeDislike, ReadLikeDislikeReplyComment, Deny
@@ -67,7 +67,7 @@ namespace CMISProject.Models
         [Required]
         public DateTime RecievedDate { get; set; }
         */
-        public React React { get; set; }
+        //public React React { get; set; }
 
         [Required]
         [UIHint("Message Mode")]
