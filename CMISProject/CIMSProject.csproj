@@ -162,6 +162,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\PermissionController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -209,6 +210,8 @@
     <Compile Include="ViewModels\CustomeUserPropertyViewModels\CustomUserPropertyViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModels\GroupListViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModels\GroupViewModel.cs" />
+    <Compile Include="ViewModels\MessageViewModels\MessageListViewModel.cs" />
+    <Compile Include="ViewModels\MessageViewModels\MessageViewModel.cs" />
     <Compile Include="ViewModels\PermissionViewModels\PermissionViewModel.cs" />
     <Compile Include="ViewModels\SubjectViewModels\SubjectListViewModel.cs" />
     <Compile Include="ViewModels\SubjectViewModels\SubjectViewModel.cs" />
@@ -299,6 +302,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Message\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
