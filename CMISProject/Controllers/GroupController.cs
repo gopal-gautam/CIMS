@@ -98,14 +98,21 @@ namespace CMISProject.Controllers
             Group group = db.Groups.Find(id);
             if (group == null)
             {
-                return RedirectToAction("Index");
+                return HttpNotFound("The specified Group doen't exist");
             }
+
 
             User user = db.Users.Find(userid);
             if (user == null)
             {
+                return HttpNotFound("Specified user doesn't exist");
+            }
+
+            if (group.CreatedBy != User.Identity.Name || db.Users.Find(userid).UserName != User.Identity.Name)
+            {
                 return RedirectToAction("Index");
             }
+
             foreach (var groupUser in db.GroupUserRelations.Where(s => s.GroupId == id & s.UserId == userid).ToList())
             {
                 try
@@ -121,6 +128,33 @@ namespace CMISProject.Controllers
             return RedirectToAction("Index");
 
         }
+
+        public bool CheckMemeber(int GroupId, int UserId)
+        {
+            bool isMember = false;
+            Group group = db.Groups.Find(GroupId);
+            if (group == null)
+            {
+                return isMember;
+            }
+
+
+            User user = db.Users.Find(UserId);
+            if (user == null)
+            {
+                return isMember;
+            }
+            foreach (var groupUser in db.GroupUserRelations.Where(p => p.GroupId == GroupId).ToList())
+            {
+                if (groupUser.UserId == UserId)
+                {
+                    isMember = true;
+                    break;
+                }
+            }
+            return isMember;
+        }
+
         /// <summary>
         /// This function is used to delete a group from database.
         /// </summary>
@@ -197,7 +231,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /Group/Create
-        [Authorize(Roles = "SuperAdmin")]
+        //[Authorize(Roles = "SuperAdmin")]
         public ActionResult Create()
         {
             return View(new GroupViewModel());
@@ -205,8 +239,9 @@ namespace CMISProject.Controllers
 
         //
         // POST: /Group/Create
-        [Authorize(Roles = "SuperAdmin")]
+        //[Authorize(Roles = "SuperAdmin")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(GroupViewModel groupViewModel)
         {
             try
@@ -244,7 +279,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /Group/Edit/5
-        [Authorize(Roles = "SuperAdmin")]
+        //[Authorize(Roles = "SuperAdmin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -271,8 +306,9 @@ namespace CMISProject.Controllers
 
         //
         // POST: /Group/Edit/5
-        [Authorize(Roles = "SuperAdmin")]
+        //[Authorize(Roles = "SuperAdmin")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, GroupViewModel groupViewModel)
         {
             try
@@ -305,7 +341,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /Group/Delete/5
-        [Authorize(Roles = "SuperAdmin")]
+        //[Authorize(Roles = "SuperAdmin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
