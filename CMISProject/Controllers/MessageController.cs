@@ -34,7 +34,7 @@ namespace CMISProject.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Message message = db.Messages.Find(id);
-            if(message == null)
+            if (message == null)
             {
                 return HttpNotFound();
             }
@@ -44,15 +44,15 @@ namespace CMISProject.Controllers
 
         //
         // GET: /Message/Create
-        public ActionResult Create()
+        public ActionResult CreateMessageForUser()
         {
-            return View(new MessageViewModel());
+            return View(new SendMessageViewModel());
         }
 
         //
         // POST: /Message/Create
         [HttpPost]
-        public ActionResult Create(MessageViewModel messageViewModel)
+        public ActionResult CreateMessageForUser(SendMessageViewModel messageViewModel)
         {
 
             try
@@ -60,23 +60,34 @@ namespace CMISProject.Controllers
                 // TODO: Add insert logic here
                 if (ModelState.IsValid)
                 {
-                    Resource resource = new Resource() 
-                    { 
-                        ResourceName = DateTime.Now.ToString("yyyymmddMMss") + messageViewModel.Attachment.FileName,
-                        Filename = messageViewModel.Attachment.FileName,
-                    };
+                    HttpPostedFileBase fileUploaded = messageViewModel.Attachment;
                     Message message = new Message()
                     {
-                        Attachment = resource,
+                        //Attachment = resource,
                         MessageType = messageViewModel.MessageType,
                         Mode = messageViewModel.Mode,
                         Msg = messageViewModel.Msg,
                         React = messageViewModel.React,
                     };
-                    db.Resources.Add(resource);
-                    db.Messages.Add(message);
-                    db.SaveChanges();
+                    UserMessage userMessage = new UserMessage()
+                    {
+                        UserId = messageViewModel.userMessage.UserId,
+                        MessageId = message.MessageId,
+                    };
+                    if (fileUploaded != null && fileUploaded.ContentLength > 0)
+                    {
+                        Resource resource = new Resource()
+                        {
+                            ResourceName = DateTime.Now.ToString("yyyymmddMMss") + messageViewModel.Attachment.FileName,
+                            Filename = messageViewModel.Attachment.FileName,
+                        };
+                        message.Attachment = resource;
+                        db.Resources.Add(resource);
+                    }
 
+                    db.Messages.Add(message);
+                    db.UserMessages.Add(userMessage);
+                    db.SaveChanges();
                     return RedirectToAction("Index");
                 }
 
@@ -88,9 +99,62 @@ namespace CMISProject.Controllers
             }
         }
 
-        //
+        public ActionResult CreateMessageForGroup(int? id)
+        {
+            return View(new GroupMessageViewModel());
+        }
+
+        [HttpPost]
+        public ActionResult CreateMessageForGroup(GroupMessageViewModel messageViewModel)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    HttpPostedFileBase fileUploaded = messageViewModel.Attachment;
+
+                    Message message = new Message()
+                    {
+                        MessageType = messageViewModel.MessageType,
+                        Mode = messageViewModel.Mode,
+                        Msg = messageViewModel.Msg,
+                        React = messageViewModel.React,
+                    };
+
+                    GroupMessage groupMessage = new GroupMessage()
+                    {
+                        GroupId = messageViewModel.groupMessage.GroupId,
+                        MessageId = message.MessageId,
+                    };
+
+                    if (fileUploaded != null && fileUploaded.ContentLength > 0)
+                    {
+                        Resource resource = new Resource()
+                        {
+                            ResourceName = DateTime.Now.ToString("yyyymmddMMss") + messageViewModel.Attachment.FileName,
+                            Filename = messageViewModel.Attachment.FileName,
+                        };
+                        message.Attachment = resource;
+                        db.Resources.Add(resource);
+                    }
+
+                    db.Messages.Add(message);
+                    db.GroupMessages.Add(groupMessage);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(messageViewModel);
+            }
+
+            catch
+            {
+                return View();
+            }
+        }
+        //C:\Users\Niroj\Source\Repos\CIMRepo\CMISProject\Models\UserPermission.cs
         // GET: /Message/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult EditMessageForUser(int? id)
         {
             if (id == null)
             {
@@ -108,7 +172,7 @@ namespace CMISProject.Controllers
 
             }
 
-            MessageViewModel messageViewModel = new MessageViewModel()
+            SendMessageViewModel messageViewModel = new SendMessageViewModel()
             {
                 //Attachment = message.Attachment.ToString(),
                 MessageType = message.MessageType,
@@ -123,7 +187,7 @@ namespace CMISProject.Controllers
         //
         // POST: /Message/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, MessageViewModel messageViewModel)
+        public ActionResult EditMessageForUser(int id, SendMessageViewModel messageViewModel)
         {
 
             try
@@ -150,7 +214,7 @@ namespace CMISProject.Controllers
                     {
                         return HttpNotFound();
                     }
-                    messageViewModel.Attachment.SaveAs(Path.Combine(Server.MapPath("~/Uploads/") , message.Attachment.ResourceName));
+                    messageViewModel.Attachment.SaveAs(Path.Combine(Server.MapPath("~/Uploads/"), message.Attachment.ResourceName));
                     db.Entry(resource).State = EntityState.Modified;
                     db.Entry(message).State = EntityState.Modified;
                     db.SaveChanges();
