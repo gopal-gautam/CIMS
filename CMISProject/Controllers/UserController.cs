@@ -1,6 +1,7 @@
 ﻿using CMISProject.DAL;
 using CMISProject.Models;
 using CMISProject.ViewModels;
+using CMISProject.ViewModels.MessageViewModels;
 using CMISProject.ViewModels.UserViewModels;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace CMISProject.Controllers
         private List<UserListViewModel> viewModels = new List<UserListViewModel>();
 
         [Authorize(Roles = "SuperAdmin")]
-        public ActionResult Index()
+        public ActionResult ListAllUsers()
         {
             foreach (var user in db.Users)
             {
@@ -50,6 +51,48 @@ namespace CMISProject.Controllers
                 viewModels.Add(viewModel);
             }
             return View();
+        }
+
+        //Get all the messages that are assigned in the userGroup that the current user falls in
+        public ActionResult Index()
+        {
+            var curUserId = db.Users.Single(s => s.UserName == User.Identity.Name).UserId;
+            List<Message> messagesList = new List<Message>();
+            List<int> groupIdList = new List<int>();
+            groupIdList = (from gr in db.GroupUserRelations
+                         where gr.UserId == curUserId
+                         select gr.GroupId).ToList();
+            foreach( var groupId in groupIdList)
+            {
+                foreach( var groupMessage in db.GroupMessages.Where(s=>s.GroupId == groupId).ToList())
+                {
+                    messagesList.Add(groupMessage.Messsage);
+                }
+            }
+
+            List<ViewMessageViewModel> viewMessagesModel = new List<ViewMessageViewModel>();
+            foreach ( var message in messagesList)
+            {
+                ViewMessageViewModel viewMessageModel = new ViewMessageViewModel();
+                int Likes = 0;
+                int Dislikes = 0;
+                foreach( var messageReaction in db.MessageReactions.Where(s=>s.MessageId == message.MessageId))
+                {
+                    if (messageReaction.React == React.Like)
+                        Likes++;
+                    else if (messageReaction.React == React.Dislike)
+                        Dislikes++;
+                }
+                viewMessageModel.LikeCounts = Likes;
+                viewMessageModel.DislikeCounts = Dislikes;
+                viewMessageModel.Attachment = message.Attachment;
+                viewMessageModel.MessageType = message.MessageType;
+                viewMessageModel.Mode = message.Mode;
+                viewMessageModel.Msg = message.Msg;
+
+                viewMessagesModel.Add(viewMessageModel);
+            }
+            return View(viewMessagesModel.ToList());
         }
 
         //
@@ -270,36 +313,36 @@ namespace CMISProject.Controllers
                 {
                     db.GroupUserRelations.Remove(groupUser);
                 }
-                foreach (var routine in db.Routines.Where(s=> s.UserId == id).ToList())
+                foreach (var routine in db.Routines.Where(s => s.UserId == id).ToList())
                 {
                     db.Routines.Remove(routine);
                 }
-                foreach (var userResource in db.UserResources.Where(s=> s.UserId == id).ToList())
+                foreach (var userResource in db.UserResources.Where(s => s.UserId == id).ToList())
                 {
                     db.UserResources.Remove(userResource);
                 }
-                foreach (var userExamMarkSheet in db.ExamMarkSheets.Where(s=> s.UserId == id).ToList())
+                foreach (var userExamMarkSheet in db.ExamMarkSheets.Where(s => s.UserId == id).ToList())
                 {
                     db.ExamMarkSheets.Remove(userExamMarkSheet);
                 }
-                foreach (var userExamRank in db.ExamRanks.Where(s=>s.UserId == id).ToList())
+                foreach (var userExamRank in db.ExamRanks.Where(s => s.UserId == id).ToList())
                 {
                     db.ExamRanks.Remove(userExamRank);
                 }
-                foreach (var userMessage in db.UserMessages.Where(s=>s.UserId == id).ToList())
+                foreach (var userMessage in db.UserMessages.Where(s => s.UserId == id).ToList())
                 {
                     db.UserMessages.Remove(userMessage);
                 }
-                foreach (var userFaculty in db.Faculties.Where(s=>s.FacultyHeadId == id).ToList())
+                foreach (var userFaculty in db.Faculties.Where(s => s.FacultyHeadId == id).ToList())
                 {
                     userFaculty.FacultyHead = null;
                     db.Entry(userFaculty).State = EntityState.Modified;
                 }
-                foreach (var customUserProperty in db.CustomUserProperties.Where(s=>s.UserId == id).ToList())
-            {
-                customUserProperty.User = null;
-                db.Entry(customUserProperty).State = EntityState.Modified;
-            }
+                foreach (var customUserProperty in db.CustomUserProperties.Where(s => s.UserId == id).ToList())
+                {
+                    customUserProperty.User = null;
+                    db.Entry(customUserProperty).State = EntityState.Modified;
+                }
                 db.SaveChanges();
 
                 return RedirectToAction("Index");
@@ -314,6 +357,46 @@ namespace CMISProject.Controllers
         //{
 
         //}
+
+
+        public ActionResult ReactToMessage(int MessageId, React react)
+        {
+            Message message = db.Messages.Find(MessageId);
+            if (message == null)
+            {
+                return HttpNotFound();
+            }
+
+            var curUserId = db.Users.Single(s => s.UserName == User.Identity.Name).UserId;
+
+            bool hasMessageHasSameReact = (from mr in db.MessageReactions
+                                           where mr.MessageId == MessageId
+                                           where mr.React == react
+                                           where mr.UserId == curUserId
+                                           select mr).Count() == 1;
+
+            if (hasMessageHasSameReact) return RedirectToAction("Index");
+
+
+            MessageReaction messageReaction = new MessageReaction()
+            {
+                MessageId = MessageId,
+                UserId = curUserId,
+                React = react,
+            };
+
+            try
+            {
+                db.MessageReactions.Add(messageReaction);
+                db.SaveChanges();
+            }
+            catch
+            {
+                return View();
+            }
+            return View();
+        }
+
 
         [HttpPost]
         public JsonResult doesUserNameExist(string UserName)
