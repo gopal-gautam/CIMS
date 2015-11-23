@@ -195,6 +195,7 @@
     <Compile Include="Models\InactiveUser.cs" />
     <Compile Include="Models\Level.cs" />
     <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\MessageReaction.cs" />
     <Compile Include="Models\Permission.cs" />
     <Compile Include="Models\Programme.cs" />
     <Compile Include="Models\Resource.cs" />
