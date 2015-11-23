@@ -13,7 +13,7 @@ namespace CMISProject.Models
         [ScaffoldColumn(false)]
         public int CustomGroupPropertyId { get; set; }
 
-        [Required]
+        //[Required]
         public int GroupId { get; set; }
 
         [ForeignKey("GroupId")]
