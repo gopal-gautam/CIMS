@@ -13,7 +13,7 @@ using System.Web.Security;
 
 namespace CMISProject.Controllers
 {
-    
+
     public class UserController : Controller
     {
         //
@@ -44,8 +44,8 @@ namespace CMISProject.Controllers
                     //Religion = user.Religion,
                     //Sex = user.Sex,
                     //UserName = user.UserName,
-                    Name = user.FirstName + " " +user.MiddleName + " " +user.LastName,
-                    
+                    Name = user.FirstName + " " + user.MiddleName + " " + user.LastName,
+
                 };
                 viewModels.Add(viewModel);
             }
@@ -115,13 +115,13 @@ namespace CMISProject.Controllers
                     IdentityManager im = new IdentityManager();
                     ApplicationUser userForLogin = new ApplicationUser() { UserName = user.UserName, };
                     im.CreateUser(userForLogin, user.Password);
-               
+
                     return RedirectToAction("Index");
-            }
+                }
                 return View(userViewModel);
-        }
-            
-        catch
+            }
+
+            catch
             {
                 return View();
             }
@@ -214,7 +214,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /User/Delete/5
-        [Authorize(Roles="SuperAdmin")]
+        [Authorize(Roles = "SuperAdmin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -262,7 +262,46 @@ namespace CMISProject.Controllers
                 // TODO: Add delete logic here
                 User user = db.Users.Find(id);
                 db.Users.Remove(user);
+                foreach (var userPermission in db.UserPermissions.Where(s => s.UserId == id).ToList())
+                {
+                    db.UserPermissions.Remove(userPermission);
+                }
+                foreach (var groupUser in db.GroupUserRelations.Where(s => s.UserId == id).ToList())
+                {
+                    db.GroupUserRelations.Remove(groupUser);
+                }
+                foreach (var routine in db.Routines.Where(s=> s.UserId == id).ToList())
+                {
+                    db.Routines.Remove(routine);
+                }
+                foreach (var userResource in db.UserResources.Where(s=> s.UserId == id).ToList())
+                {
+                    db.UserResources.Remove(userResource);
+                }
+                foreach (var userExamMarkSheet in db.ExamMarkSheets.Where(s=> s.UserId == id).ToList())
+                {
+                    db.ExamMarkSheets.Remove(userExamMarkSheet);
+                }
+                foreach (var userExamRank in db.ExamRanks.Where(s=>s.UserId == id).ToList())
+                {
+                    db.ExamRanks.Remove(userExamRank);
+                }
+                foreach (var userMessage in db.UserMessages.Where(s=>s.UserId == id).ToList())
+                {
+                    db.UserMessages.Remove(userMessage);
+                }
+                foreach (var userFaculty in db.Faculties.Where(s=>s.FacultyHeadId == id).ToList())
+                {
+                    userFaculty.FacultyHead = null;
+                    db.Entry(userFaculty).State = EntityState.Modified;
+                }
+                foreach (var customUserProperty in db.CustomUserProperties.Where(s=>s.UserId == id).ToList())
+            {
+                customUserProperty.User = null;
+                db.Entry(customUserProperty).State = EntityState.Modified;
+            }
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             catch
@@ -271,6 +310,10 @@ namespace CMISProject.Controllers
             }
         }
 
+        public ActionResult MakeUserInactive(int id)
+        {
+
+        }
 
         [HttpPost]
         public JsonResult doesUserNameExist(string UserName)
