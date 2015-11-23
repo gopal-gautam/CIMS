@@ -17,7 +17,7 @@ namespace CMISProject.Models
         [Display(Name = "Subject Name")]
         public string SubjectName { get; set; }
 
-        [Required]
+        //[Required]
         public int GroupId { get; set; }
         
         [ForeignKey("GroupId")]
