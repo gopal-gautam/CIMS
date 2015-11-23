@@ -67,7 +67,7 @@ namespace CMISProject.Controllers
                         MessageType = messageViewModel.MessageType,
                         Mode = messageViewModel.Mode,
                         Msg = messageViewModel.Msg,
-                        React = messageViewModel.React,
+                        //React = messageViewModel.React,
                     };
                     UserMessage userMessage = new UserMessage()
                     {
@@ -119,7 +119,7 @@ namespace CMISProject.Controllers
                         MessageType = messageViewModel.MessageType,
                         Mode = messageViewModel.Mode,
                         Msg = messageViewModel.Msg,
-                        React = messageViewModel.React,
+                        //React = messageViewModel.React,
                     };
 
                     GroupMessage groupMessage = new GroupMessage()
@@ -178,7 +178,7 @@ namespace CMISProject.Controllers
                 MessageType = message.MessageType,
                 Mode = message.Mode,
                 Msg = message.Msg,
-                React = message.React,
+                //React = message.React,
             };
 
             return View(messageViewModel);
@@ -207,7 +207,7 @@ namespace CMISProject.Controllers
                         MessageType = messageViewModel.MessageType,
                         Mode = messageViewModel.Mode,
                         Msg = messageViewModel.Msg,
-                        React = messageViewModel.React,
+                        //React = messageViewModel.React,
                     };
 
                     if (message == null)
