@@ -70,7 +70,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /User/Create
-        [Authorize(Roles = "SuperAdmin")]
+        //[Authorize(Roles = "SuperAdmin")]
         public ActionResult Create()
         {
             return View(new UserViewModel());
@@ -310,10 +310,10 @@ namespace CMISProject.Controllers
             }
         }
 
-        public ActionResult MakeUserInactive(int id)
-        {
+        //public ActionResult MakeUserInactive(int id)
+        //{
 
-        }
+        //}
 
         [HttpPost]
         public JsonResult doesUserNameExist(string UserName)
