@@ -78,7 +78,7 @@ namespace CMISProject.Controllers
 
         //
         // POST: /User/Create
-        [Authorize(Roles = "SuperAdmin")]
+        //[Authorize(Roles = "SuperAdmin")]
         [HttpPost]
         public ActionResult Create(UserViewModel userViewModel)
         {
@@ -130,7 +130,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /User/Edit/5
-        [Authorize(Roles = "SuperAdmin")]
+        //[Authorize(Roles = "SuperAdmin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -214,7 +214,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /User/Delete/5
-        [Authorize(Roles = "SuperAdmin")]
+        //[Authorize(Roles = "SuperAdmin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
