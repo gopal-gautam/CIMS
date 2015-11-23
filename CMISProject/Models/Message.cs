@@ -55,7 +55,8 @@ namespace CMISProject.Models
 
         [DataType(DataType.Upload)]
         [UIHint("Upload File")]
-        public string Attachment { get; set; }
+        public Resource Attachment { get; set; }
+
 
         /*
         [Required]
