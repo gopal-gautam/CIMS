@@ -16,12 +16,13 @@ namespace CMISProject.Controllers
     public class GroupController : Controller
     {
         private CIMSEntities db = new CIMSEntities();
-        private List<GroupListViewModel> viewModels = new List<GroupListViewModel>();
+
         //
         // GET: /Group/
         [Authorize(Roles = "SuperAdmin")]
-        public ActionResult Index()
+        public ActionResult ListAllGroups()
         {
+            List<GroupListViewModel> viewModels = new List<GroupListViewModel>();
             foreach (var group in db.Groups)
             {
                 var viewModel = new GroupListViewModel()
@@ -38,6 +39,144 @@ namespace CMISProject.Controllers
                 viewModels.Add(viewModel);
             }
             return View(viewModels);
+        }
+
+        public ActionResult Index()
+        {
+            return View(db.GroupUserRelations.Where(s => s.User.UserName == HttpContext.User.Identity.Name).ToList());
+        }
+
+        public ActionResult ListMembers(int id)
+        {
+            Group group = db.Groups.Find(id);
+            List<User> users = new List<User>();
+            foreach (var groupUserRow in db.GroupUserRelations.Where(s => s.GroupId == group.GroupId).ToList())
+            {
+                users.Add(groupUserRow.User);
+            }
+            return View(users);
+        }
+
+        public ActionResult AddMember(int id, int userId)
+        {
+            Group group = db.Groups.Find(id);
+            if (group == null)
+            {
+                return HttpNotFound();
+            }
+            if (group.CreatedBy != User.Identity.Name)
+            {
+                return RedirectToAction("Index");
+            }
+            User user = db.Users.Find(userId);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            GroupsUsers groupsUsers = new GroupsUsers()
+            {
+                GroupId = id,
+                UserId = userId,
+            };
+            try
+            {
+                db.GroupUserRelations.Add(groupsUsers);
+                db.SaveChanges();
+
+                return RedirectToAction("ListMembers", new { id = id });
+            }
+            catch
+            {
+                return RedirectToAction("ListMembers", new { id = id });
+
+            }
+
+        }
+
+        public ActionResult DeleteMember(int id, int userid)
+        {
+            Group group = db.Groups.Find(id);
+            if (group == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            User user = db.Users.Find(userid);
+            if (user == null)
+            {
+                return RedirectToAction("Index");
+            }
+            foreach (var groupUser in db.GroupUserRelations.Where(s => s.GroupId == id & s.UserId == userid).ToList())
+            {
+                try
+                {
+                    db.GroupUserRelations.Remove(groupUser);
+                }
+                catch
+                {
+                }
+
+            }
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+        /// <summary>
+        /// This function is used to delete a group from database.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult DeleteGroup(int? id)
+        {
+            try
+            {
+                if (id == null)
+                {
+                    return HttpNotFound();
+                }
+                foreach (var group in db.Groups.Where(s => s.GroupId == id).ToList())
+                {
+                    db.Groups.Remove(group);
+                }
+                foreach (var groupMessage in db.GroupMessages.Where(s => s.GroupId == id).ToList())
+                {
+                    db.GroupMessages.Remove(groupMessage);
+                }
+                foreach (var groupPermission in db.GroupPermissions.Where(s => s.GroupId == id).ToList())
+                {
+                    db.GroupPermissions.Remove(groupPermission);
+                }
+                foreach (var groupResource in db.GroupResources.Where(s => s.GroupId == id).ToList())
+                {
+                    db.GroupResources.Remove(groupResource);
+                }
+                foreach (var routine in db.Routines.Where(s => s.GroupId == id).ToList())
+                {
+                    db.Routines.Remove(routine);
+                }
+                foreach (var subject in db.Subjects.Where(s => s.SubjectId == id).ToList())
+                {
+                    subject.Group = null;
+                    db.Entry(subject).State = EntityState.Modified;
+                }
+                foreach (var customGroupProperty in db.CustomGroupProperties.Where(s => s.GroupId == id).ToList())
+                {
+                    customGroupProperty.Group = null;
+                    db.Entry(customGroupProperty).State = EntityState.Modified;
+                }
+                foreach (var groupsUsers in db.GroupUserRelations.Where(s => s.GroupId == id).ToList())
+                {
+                    db.GroupUserRelations.Remove(groupsUsers);
+                }
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+
         }
 
         //
@@ -225,7 +364,7 @@ namespace CMISProject.Controllers
 
         public ActionResult ChangeStatus(int id)
         {
-            if(db.Groups.Find(id).CreatedBy != HttpContext.User.Identity.Name)
+            if (db.Groups.Find(id).CreatedBy != HttpContext.User.Identity.Name)
             {
                 return RedirectToAction("Index");
             }
@@ -239,7 +378,7 @@ namespace CMISProject.Controllers
         [HttpPost]
         public ActionResult ChangeStatus(int id, ChangeStatusViewModel changeStatusViewModel)
         {
-            if(db.Groups.Find(id).CreatedBy != HttpContext.User.Identity.Name)
+            if (db.Groups.Find(id).CreatedBy != HttpContext.User.Identity.Name)
             {
                 return RedirectToAction("Index");
             }
