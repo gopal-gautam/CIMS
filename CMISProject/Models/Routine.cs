@@ -33,9 +33,9 @@ namespace CMISProject.Models
 
         public string IssuedBy { get; set; }
 
-        [Required]
-        [DataType(DataType.DateTime)]
-        public DateTime ModifiedDate { get; set; }
+        //[Required]
+        //[DataType(DataType.DateTime)]
+        public DateTime? ModifiedDate { get; set; }
 
         public string ModifiedBy { get; set; }
 

@@ -47,9 +47,9 @@ namespace CMISProject.Models
         [ReadOnly(true)]
         public DateTime CreatedDate { get; set;}
 
-        [Required]
-        [DataType(DataType.DateTime)]
-        public DateTime ModifiedDate { get; set; }
+        //[Required]
+        //[DataType(DataType.DateTime)]
+        public DateTime? ModifiedDate { get; set; }
 
         public string ModifiedBy { get; set; }
 
