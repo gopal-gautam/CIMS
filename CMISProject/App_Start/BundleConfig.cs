@@ -25,7 +25,10 @@ namespace CMISProject
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/bower_components/metisMenu/dist/metisMenu.min.css",
+                      "~/Content/timeline.css",
+                      "~/Content/sb-admin-2.css"));
         }
     }
 }

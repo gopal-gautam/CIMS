@@ -19,9 +19,13 @@ namespace CMISProject.Controllers
         // GET: /Admin/
         private CIMSEntities db = new CIMSEntities();
         
+        public ActionResult Index()
+        {
+            return View();
+        }
 
         [Authorize(Roles = "SuperAdmin")]
-        public ActionResult Index()
+        public ActionResult ViewAllAdmins()
         {
             
             List<AdminListViewModel> viewModels = new List<AdminListViewModel>();
