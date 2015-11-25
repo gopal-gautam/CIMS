@@ -262,6 +262,9 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Notes\ImplementModifiedDate.gnotes" />
+    <Content Include="Reports and Documentations\CIMS Project\CIMS diagrams\Context Diagram.vsdx" />
+    <Content Include="Reports and Documentations\CIMS Project\CIMS Project.pptx" />
+    <Content Include="Reports and Documentations\CIMS Project\CIMSReport.doc" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
