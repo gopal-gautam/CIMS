@@ -398,7 +398,7 @@ namespace CMISProject.Controllers
         }
 
 
-        [HttpPost]
+        //[HttpPost]
         public JsonResult doesUserNameExist(string UserName)
         {
 

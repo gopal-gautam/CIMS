@@ -154,3 +154,6 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+/CMISProject/App_Data/aspnet-CMISProject-20151018105347_log.ldf
+/CMISProject/App_Data/CMISProject.DAL.CIMSEntities_log.ldf
+/CMISProject/App_Data
