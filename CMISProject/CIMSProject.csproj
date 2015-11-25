@@ -227,6 +227,7 @@
     <Compile Include="Startup.cs" />
     <Content Include="Notes\DropDownListCodeAndRegularExpressions.nksnotes" />
     <None Include="Notes\Things to be enhanced.gnotes" />
+    <Content Include="Reports and Documentations\URL and websites, book names and newspaper article.txt" />
     <Content Include="Views\Group\Create.cshtml" />
     <Content Include="Views\Group\Delete.cshtml" />
     <Content Include="Views\Group\Details.cshtml" />
