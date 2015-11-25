@@ -8,7 +8,7 @@ using System.Web;
 namespace CMISProject.ViewModels.MessageViewModels
 {
 
-    private class MessageViewModel
+    public class MessageViewModel
     {
         [Required]
         [Display(Name = "MessageType")]

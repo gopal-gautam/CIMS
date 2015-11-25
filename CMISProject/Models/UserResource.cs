@@ -20,9 +20,9 @@ namespace CMISProject.Models
         public virtual User User { get; set; }
 
         [Required]
-        public int ResourceId { get; set; }
+        public string ResourceName { get; set; }
 
-        [ForeignKey("ResourceId")]
+        [ForeignKey("ResourceName")]
         public virtual Resource Resource { get; set; }
     }
 }

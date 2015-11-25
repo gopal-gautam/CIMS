@@ -11,7 +11,7 @@ namespace CMISProject.ViewModels.AdminViewModels
     public class AdminViewModel
     {
         [Required]
-        [Remote("doesUserNameExist", "User", ErrorMessage = "This username is not available. Please use another username.")]
+        [Remote("doesUserNameExist", "Admin", ErrorMessage = "This username is not available. Please use another username.")]
         [Display(Name="Admin Username")]
         [StringLength(30, MinimumLength = 2, ErrorMessage = "AdminName must be between 2 and 30 characters")]
         [UIHint("Name")]
@@ -67,7 +67,7 @@ namespace CMISProject.ViewModels.AdminViewModels
         //public string ModifiedBy { get; set; }
 
         [Required]
-        [RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z")]
+        //[RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z")]
         [DataType(DataType.EmailAddress)]
         [UIHint("E-mail Id")]
         public string Email { get; set; }

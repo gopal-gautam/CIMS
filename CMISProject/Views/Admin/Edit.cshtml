@@ -7,7 +7,7 @@
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(new { @enctype="multipart/form-data"}))
 {
     @Html.AntiForgeryToken()
     
@@ -108,6 +108,22 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.VatNo)
                 @Html.ValidationMessageFor(model => model.VatNo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PhoneNumbers, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PhoneNumbers)
+                @Html.ValidationMessageFor(model => model.PhoneNumbers)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LogoFile, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.LogoFile, new { @Type = "file" })
+                @Html.ValidationMessageFor(model => model.LogoFile)
             </div>
         </div>
 

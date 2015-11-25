@@ -8,6 +8,7 @@ using CMISProject.ViewModels.AdminViewModels;
 using System.Net;
 using CMISProject.Models;
 using System.Data.Entity;
+using System.IO;
 
 namespace CMISProject.Controllers
 {
@@ -17,11 +18,13 @@ namespace CMISProject.Controllers
         //
         // GET: /Admin/
         private CIMSEntities db = new CIMSEntities();
-        private List<AdminListViewModel> viewModels = new List<AdminListViewModel>();
+        
 
         [Authorize(Roles = "SuperAdmin")]
         public ActionResult Index()
         {
+            
+            List<AdminListViewModel> viewModels = new List<AdminListViewModel>();
             foreach (var admin in db.Admins)
             {
                 var viewModel = new AdminListViewModel()
@@ -79,6 +82,7 @@ namespace CMISProject.Controllers
         [HttpPost]
         public ActionResult Create(AdminViewModel adminViewModel)
         {
+            var usertest = User.Identity.Name;
             try
             {
                 // TODO: Add insert logic here
@@ -90,10 +94,11 @@ namespace CMISProject.Controllers
                         Address = adminViewModel.Address,
                         //CreatedBy = adminViewModel.CreatedBy,
                         //CreatedDate = adminViewModel.CreatedDate,
+                        Password = adminViewModel.Password,
                         DateOfEstablishment = adminViewModel.DateOfEstablishment,
                         Email = adminViewModel.Email,
                         FaxNumber = adminViewModel.FaxNumber,
-                        LogoFile = adminViewModel.LogoFile.ToString(),
+                        LogoFile = Path.GetFileName(adminViewModel.LogoFile.FileName),
                         //ModifiedDate = adminViewModel.ModifiedDate,
                         //ModifiedBy = adminViewModel.ModifiedBy,
                         OrganizationName = adminViewModel.OrganizationName,
@@ -104,6 +109,8 @@ namespace CMISProject.Controllers
                         Website = adminViewModel.Website,
 
                     };
+                    string logoFilePath = Path.Combine(Server.MapPath("~/Uploads/AdminLogo"), adminViewModel.LogoFile.FileName);
+                    adminViewModel.LogoFile.SaveAs(logoFilePath);
                     db.Admins.Add(admin);
                     db.SaveChanges();
 
@@ -257,6 +264,16 @@ namespace CMISProject.Controllers
             {
                 return View();
             }
+        }
+
+        public JsonResult doesUserNameExist(string AdminName)
+        {
+
+            //var user = System.Web.Security.Membership.GetUser(AdminName);
+
+            //return Json(user == null);
+            var result = db.Users.Where(s => s.UserName == AdminName).Count() == 0;
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }
