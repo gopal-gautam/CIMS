@@ -7,6 +7,18 @@ using System.Web;
 
 namespace CMISProject.Models
 {
+    /// <summary>
+    /// This contains the class that contains additional properties of student except the user property
+    /// that is unique property of students.
+    /// It contains 1 enum class:
+    /// Semester: contains names of the semesters
+    /// The properties are:
+    /// Semester: represents the semester of the student
+    /// Guardian1Name: represents the name of primary guardian
+    /// Guardian1Address: represents the address of primary guardian
+    /// Guardian2Name: represents the name of secondary guardian
+    /// Guardian2Address: represents the address of secondary guardian
+    /// </summary>
     public enum Semester
     {
         I, II, III, IV, V, VI, VII, VIII

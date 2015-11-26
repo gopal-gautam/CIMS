@@ -7,7 +7,19 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CMISProject.Models
 {
-    
+    /// <summary>
+    /// This contains the class that contains the properties to represent resource in detail.
+    /// All assigned users can view the routine.
+    /// The properties are:
+    /// RoutineId: identifies the routine uniquely
+    /// IssuedDate: represents the date when routine is issued
+    /// IssuedBy: represents the name of the user who issued the routine
+    /// ModifiedDate: represents the date when routine is modified
+    /// ModifiedBy: represents the name of the user who modified the routine
+    /// Periods: gets all the properties values to include in the routine
+    /// GroupId: used as foreign key to identify the group to which routine is assigned
+    /// Gorup: represents the group to which routine is assigned
+    /// </summary>
     public class Routine
     {
         [Required]

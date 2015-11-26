@@ -7,6 +7,20 @@ using System.Web;
 
 namespace CMISProject.Models
 {
+    /// <summary>
+    /// This cotains the class that contains all the properties to represent a period in detail. 
+    /// It is added to routine to display the routine completely.
+    /// It also contain 1 enum class:
+    /// Mode: contains the type of break after a class if any
+    /// The properties are:
+    /// PeriodId: identifies the period uniquely
+    /// StartTime: represents the starting time of the period
+    /// EndTime: represents the period ending time
+    /// TeacherUserId: used as foreign key to identify the teacher of that period
+    /// Teacher: represents the teacher of that period
+    /// Day: represents the day of a week on which there is period
+    /// BreakRemark: represents the nature of the break
+    /// </summary>
     public enum Mode
     {
         breakTime, refreshTime

@@ -8,6 +8,14 @@ using System.Web;
 
 namespace CMISProject.Models
 {
+    /// <summary>
+    /// This contains the class that contains all the properties to represent the permission.
+    /// Admin can only assign and remove the permission to group and user.
+    /// The properties are:
+    /// PermissionId: identifies the permission uniquely
+    /// PermissionName: represents the name of the permission
+    /// PermissionDescription: represents the description of the permission
+    /// </summary>
     public class Permission
     {
         [Required]

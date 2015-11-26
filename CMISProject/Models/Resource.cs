@@ -8,6 +8,22 @@ using System.Web;
 
 namespace CMISProject.Models
 {
+    /// <summary>
+    /// This contains the class that contains the properties to represent resource in detail.
+    /// All users can upload resources and only uploader and admin can remove it.
+    /// It also contains 1 enum class;
+    /// Type: contains the name of type of resource
+    /// The properties are:
+    /// ResourceName : used as primary key for the model and represents the name of resource created by the system
+    /// ResourceType : represents the type of resource
+    /// FileName: represents the original name of the resource at the time of upload
+    /// UploadedDate: represents the date when resource is uploaded
+    /// UploadedBy: represents the name of resource uploader
+    /// ModifiedDate: represents the date when resource is modified
+    /// ModifiedBy: represents the name of resource modifier
+    /// SubjectId : used as foreign key to identify the subject to which resource is related
+    /// Subject: represents the subject to which resource is related
+    /// </summary>
     public enum Type
     {
         Syllabus, Question, Note, Ebook, Assignment

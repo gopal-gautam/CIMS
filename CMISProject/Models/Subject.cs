@@ -7,6 +7,20 @@ using System.Web;
 
 namespace CMISProject.Models
 {
+    /// <summary>
+    /// This contains the class that contains all the properties to represent subject. Subject is assigned to students.
+    /// The properties are:
+    /// SubjectId: identifies the subject uniquely
+    /// SubjectName: represents the name of the subject
+    /// GroupId: used as foreign key to identify the group to which the subject is assigned
+    /// Group: represents the group to which thesubject is assigned
+    /// SubjectTeacherId: used as foreign key to identify the teacher assigned to that subject
+    /// SubjectTeacher: represents the teacher assigned to that subject
+    /// CreditHours: represents the credit of the subject gived by the university
+    /// PrimaryBook: represents the primary course book of the subject
+    /// ReferenceBook1: represents the reference book first of  the subject
+    /// ReferenceBook2: represents the reference book second fo the subject
+    /// </summary>
     public class Subject
     {
         [Required]

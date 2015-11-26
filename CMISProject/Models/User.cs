@@ -9,19 +9,43 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 
 
-///<summary>
-///
-///</summary>
+
 namespace CMISProject.Models
 {
+    ///<summary>
+    ///This contains the class that contains all the properties of User that represents the users.
+    ///Users are created by Admin only and as per permissions other users also can create users in some scenario
+    ///It also contains 2 enum classes:
+    ///BloodGroup: represents the names of blood groups of user
+    ///Sex: represents the gender of the user
+    ///The properties are:
+    ///UserId:identifies the user uniquely
+    ///UserName: represents login name of the user
+    ///Password:  represents the password to log into the system
+    ///FirstName: represents the First name of the user
+    ///MiddleName: represents the Middle name of the user
+    ///LastName: represents the Last or family name of the user
+    ///CreatedDate : represents the date when user is created.
+    /// CreatedBy : represents the name of user creator.
+    /// ModifiedDate : represents the date in which user is modified.
+    /// ModifiedBy : represents the name of user modifier.
+    /// Email: represents the email address of user
+    /// PhoneNumber: represents the contact number of user and 
+    ///                 for multiple phone numbers,user can separate the numbers with comma
+    /// Sex: represents the gender of the user
+    /// DateOfBirth: represents the birth date of the user
+    /// Nationality: represents the nation to which user belongs
+    /// BloodGroup: represents the blood group named of the user
+    /// CitizenShipNumber: represents the citizenship number of the user
+    ///</summary>
     public enum BloodGroup
     {
         APositive, ANegative, BPositive, BNegative, ABPositive, ABNegative, OPositive, ONegative
     }
-    public enum UserType
-    {
-        Staff, Student
-    }
+    //public enum UserType
+    //{
+    //    Staff, Student
+    //}
     public enum Sex
     {
         Male, Female, Other
