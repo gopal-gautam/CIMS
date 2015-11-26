@@ -62,7 +62,7 @@ namespace CMISProject.DAL
                 }
             }
 
-            foreach (var group in ChangeTracker.Entries<Group>().Where(s => s.State == EntityState.Modified))
+            foreach (var group in ChangeTracker.Entries<Group>())//.Where(s => s.State == EntityState.Modified))
             {
                 if (group.State == EntityState.Modified)
                 {
@@ -77,7 +77,7 @@ namespace CMISProject.DAL
                 
             }
 
-            foreach (var message in ChangeTracker.Entries<Message>().Where(s => s.State == EntityState.Modified))
+            foreach (var message in ChangeTracker.Entries<Message>())//.Where(s => s.State == EntityState.Modified))
             {
                 if (message.State == EntityState.Modified)
                 {
@@ -92,7 +92,7 @@ namespace CMISProject.DAL
                 
             }
 
-            foreach (var resource in ChangeTracker.Entries<Resource>().Where(s => s.State == EntityState.Modified))
+            foreach (var resource in ChangeTracker.Entries<Resource>())//.Where(s => s.State == EntityState.Modified))
             {
                 if (resource.State == EntityState.Modified)
                 {
@@ -106,7 +106,7 @@ namespace CMISProject.DAL
                 } 
             }
 
-            foreach (var routine in ChangeTracker.Entries<Routine>().Where(s => s.State == EntityState.Modified))
+            foreach (var routine in ChangeTracker.Entries<Routine>())//.Where(s => s.State == EntityState.Modified))
             {
                 if (routine.State == EntityState.Modified)
                 {
@@ -120,7 +120,7 @@ namespace CMISProject.DAL
                 }
             }
 
-            foreach (var user in ChangeTracker.Entries<User>().Where(s => s.State == EntityState.Modified))
+            foreach (var user in ChangeTracker.Entries<User>())//.Where(s => s.State == EntityState.Modified))
             {
                 if (user.State == EntityState.Modified)
                 {

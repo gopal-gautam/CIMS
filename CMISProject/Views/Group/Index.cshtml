@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CMISProject.Models.Group>
+﻿@model IEnumerable<CMISProject.ViewModels.GroupViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -12,9 +12,6 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedBy.UserName)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.GroupName)
         </th>
         <th>
@@ -26,18 +23,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.CreatedBy.UserName)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.GroupName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Status)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.GroupId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.GroupId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.GroupId })
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
 }

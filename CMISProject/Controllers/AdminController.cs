@@ -12,7 +12,7 @@ using System.IO;
 
 namespace CMISProject.Controllers
 {
-    
+    [Authorize]
     public class AdminController : Controller
     {
         //

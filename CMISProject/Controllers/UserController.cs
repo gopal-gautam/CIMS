@@ -56,7 +56,15 @@ namespace CMISProject.Controllers
         //Get all the messages that are assigned in the userGroup that the current user falls in
         public ActionResult Index()
         {
-            var curUserId = db.Users.Single(s => s.UserName == User.Identity.Name).UserId;
+            int curUserId;
+            try
+            {
+                curUserId = db.Users.Single(s => s.UserName == User.Identity.Name).UserId;
+            }
+            catch
+            {
+                curUserId = db.Admins.Single(s => s.AdminName == User.Identity.Name).AdminId;
+            }
             List<Message> messagesList = new List<Message>();
             List<int> groupIdList = new List<int>();
             groupIdList = (from gr in db.GroupUserRelations

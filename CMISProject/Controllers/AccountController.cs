@@ -49,6 +49,19 @@ namespace CMISProject.Controllers
                 if (user != null)
                 {
                     await SignInAsync(user, model.RememberMe);
+                    var db = new CMISProject.DAL.CIMSEntities();
+                    if (db.Admins.Where(s => s.AdminName == model.UserName).Count() == 1)
+                    {
+                        HttpContext.Session["isAdmin"] = true;
+                        HttpContext.Session["UserId"] = db.Admins.Single(s => s.AdminName == model.UserName).AdminId;
+                        
+                    }
+                    else if( db.Users.Where(s => s.UserName == model.UserName).Count()==1)
+                    {
+                        HttpContext.Session["isAdmin"] = false;
+                        HttpContext.Session["UserId"] = db.Users.Single(s => s.UserName == model.UserName).UserId;
+                    }
+                    HttpContext.Session["Username"] = model.UserName;
                     return RedirectToLocal(returnUrl);
                 }
                 else
@@ -63,7 +76,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        [Authorize(Roles="SuperAdmin")]
         public ActionResult Register()
         {
             return View();
@@ -72,7 +85,7 @@ namespace CMISProject.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize(Roles = "SuperAdmin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
@@ -200,8 +213,8 @@ namespace CMISProject.Controllers
             ViewBag.messageId = message;
             return View(model);
         }
-
-
+        
+        [Authorize(Roles="SuperAdmin")]
         public ActionResult UserRoles(string id)
         {
             var db = new ApplicationDbContext();
@@ -213,6 +226,8 @@ namespace CMISProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "SuperAdmin")]
+
         public ActionResult UserRoles(SelectUserRolesViewModel model)
         {
             if (ModelState.IsValid)
@@ -234,6 +249,7 @@ namespace CMISProject.Controllers
             return View();
         }
 
+        [Authorize(Roles = "SuperAdmin")]
 
         public ActionResult Delete(string id)
         {
