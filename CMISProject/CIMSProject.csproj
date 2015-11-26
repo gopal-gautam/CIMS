@@ -221,6 +221,7 @@
     <Compile Include="ViewModels\SubjectViewModels\SubjectListViewModel.cs" />
     <Compile Include="ViewModels\SubjectViewModels\SubjectViewModel.cs" />
     <Compile Include="ViewModels\UserViewModels\UserListViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModels\UserProfileViewModel.cs" />
     <Compile Include="ViewModels\UserViewModels\UserViewModel.cs" />
     <Content Include="App_Data\aspnet-CMISProject-20151018105347.mdf" />
     <Content Include="App_Data\aspnet-CMISProject-20151018105347_log.ldf">
