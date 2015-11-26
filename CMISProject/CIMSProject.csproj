@@ -221,6 +221,8 @@
     <Compile Include="ViewModels\SubjectViewModels\SubjectViewModel.cs" />
     <Compile Include="ViewModels\UserViewModels\UserListViewModel.cs" />
     <Compile Include="ViewModels\UserViewModels\UserViewModel.cs" />
+    <Content Include="App_Data\aspnet-CMISProject-20151018105347.mdf" />
+    <Content Include="App_Data\CMISProject.DAL.CIMSEntities.mdf" />
     <Content Include="bower_components\bootstrap-social\bootstrap-social.css" />
     <Content Include="bower_components\bootstrap\.bower.json" />
     <Content Include="bower_components\bootstrap\bower.json" />
@@ -1059,7 +1061,6 @@
     <Content Include="Views\Shared-bak\EditorTemplates\SelectRoleEditorViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Uploads\AdminLogo\" />
     <Folder Include="Views\Message\" />
   </ItemGroup>
