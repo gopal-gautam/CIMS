@@ -7,6 +7,20 @@ using System.Web;
 
 namespace CMISProject.Models
 {
+    /// <summary>
+    /// This contains class that contains all the properties hold by the group. 
+    /// Both users and admin can create the group and one who creates can only delete/modify the group.
+    /// It aslo contains one enum class:
+    /// Status : contains the status name of the group
+    /// The properties are:
+    /// GroupId: identifies group uniquely.
+    /// GroupName: represents the name of the group.
+    /// Status: represents the active or inactive status of group
+    /// CreatedDate : represents the date of group creation.
+    /// CreatedBy : represents the name of group creator.
+    /// ModifiedDate : represents the date in which group is modified.
+    /// ModifiedBy : represents the name of group modifier
+    /// </summary>
     public enum Status
     {
         active, inactive
@@ -30,7 +44,7 @@ namespace CMISProject.Models
         [UIHint("Group Name")]
         public string GroupName { get; set; }
 
-        [Required]
+        //[Required]
         [ScaffoldColumn(false)]
         [DataType(DataType.DateTime)]
         public DateTime? CreatedDate { get; set; }

@@ -7,6 +7,19 @@ using System.Web;
 
 namespace CMISProject.Models
 {
+    ///<summary>
+    ///This contains the class that contains all the properties for showing overall rank of students in the exam
+    ///It has following properties:
+    ///ExamRankId : identifies the row to show the rank uniquely
+    ///UserId : used as foreign key for student
+    ///Student : represents the student whose rank is to be shown
+    ///TotalMarks : represents the total marks of the student
+    ///Percentage : represents the obtained % of the student
+    ///Rank : represents the overall rank of student in the exam
+    ///SemesterGradePointAverage : represents semester wise grade marks of student value 
+    ///                             from the enum class SemesterGradePointAverage in ExamMarkSheet Model
+    ///</summary>
+
     //public enum SemesterGradePointAverage
     //{
     //    Aplus, A, Bplus, B, Cplus, C, D, F

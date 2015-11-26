@@ -7,6 +7,16 @@ using System.Web;
 
 namespace CMISProject.Models
 {
+    /// <summary>
+    /// This contains class that contains all the properties to hold the resource that assigned to group only by the admin 
+    /// All the members of the group get the resource.
+    /// The properties are:
+    /// GroupResourceId : identifies the group resource uniquely
+    /// GroupId: used as foreign key to identify the group to which the resource is assigned
+    /// Group: represents the group to which the resource is assigned
+    /// ResourceId: used as foreign key to identify the resource that is to be assigned to group
+    /// Resource: represents the resource assigned to group
+    /// </summary>
     public class GroupResource
     {
         [Required]

@@ -34,9 +34,9 @@ namespace CMISProject.Models
         [DataType(DataType.Upload)]
         public string Filename { get; set; }
 
-        [Required]
-        [DataType(DataType.DateTime)]
-        public DateTime UploadedDate { get; set; }
+        //[Required]
+        //[DataType(DataType.DateTime)]
+        public DateTime? UploadedDate { get; set; }
 
         public string UploadedBy { get; set; }
 

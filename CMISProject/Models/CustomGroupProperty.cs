@@ -7,6 +7,16 @@ using System.Web;
 
 namespace CMISProject.Models
 {
+    /// <summary>
+    /// This contains class that contains the additional properties of group 
+    /// that only can be created, deleted and modified by Admin. It is assigned to group by Admin.
+    /// The properties of this class are:
+    /// CustomGroupPropertyId : identifies the custom property of group uniquely
+    /// GroupId : represents id of the group to which this property is assigned and used as foreign key for Group.
+    /// Group : represents the group to which property is assigned
+    /// Property : represents name of the costum property
+    /// Value : holds the value of that property
+    /// </summary>
     public class CustomGroupProperty
     {
         [Required]

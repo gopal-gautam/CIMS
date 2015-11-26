@@ -42,10 +42,10 @@ namespace CMISProject.Models
 
         public string CreatedBy { get; set; }
 
-        [Required]
-        [DataType(DataType.DateTime)]
+        //[Required]
+        //[DataType(DataType.DateTime)]
         [ReadOnly(true)]
-        public DateTime CreatedDate { get; set;}
+        public DateTime? CreatedDate { get; set;}
 
         //[Required]
         //[DataType(DataType.DateTime)]

@@ -7,6 +7,27 @@ using System.Web;
 
 namespace CMISProject.Models
 {
+    ///<summary>
+    ///This contains the class that contains all the properties that need to be in the exam marksheet of students.
+    ///It also contains 2 enum classes:
+    ///SemesterGradePointAverage: contains all grade names that are given to represent average marks of student in one semester
+    ///ExamType: contains names of all types of exam that took place in organization/college for students
+    ///It is the result published to each student.
+    ///This contains following properties:
+    ///ExamMarkSheetId: identifies the Exam mark sheet of each students uniquely
+    ///UserId : represents foreign key for student that is the id of the student to whom this mark sheet is assigned
+    ///Student : represents the student to whom this mark sheed is assigned
+    ///SubjectId : represents foreign key for the subject that is id of the subject whose marks is to be shown
+    ///Subject : represents the subject whose marks is to be shown
+    ///Marks : represents marks of one subject
+    ///ExamType : represents type of the exam whose mark sheet is to be shown
+    ///FullMarks : represents full marks of the exam
+    ///Passmarks : represents pass marks of the exam
+    ///ExamDate : represents the date of examination
+    ///SubjectRank : represents rank in each subject
+    ///Semester : represents the semester of the students. Semester is represented by enum class in Student Model
+    ///SemesterGradePointAverage : represents the semester wise average of a student 
+    ///</summary>
     //public enum Semester
     //{
     //    I, II, III, IV, V, VI, VII, VIII

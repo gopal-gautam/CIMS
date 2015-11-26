@@ -7,6 +7,31 @@ using System.Web;
 
 namespace CMISProject.Models
 {
+    /// <summary>
+    /// This contains class that contains all the properties to hold the identity of admin. 
+    /// Admin is the organization itself and has all the permissions to create, delete, 
+    /// and modify uesrs and groups. The properties of admin are:
+    /// AdminId : used to identify the admin uniquely
+    /// AdminName : represents admin name for login
+    /// OrganizationName : represents organization/college name that using this system
+    /// Password : for admin login security
+    /// DateOfEstablishment : represensts organization/college's established date
+    /// CreatedDate : represents the date of admin creation.
+    /// CreatedBy : represents the name of admin creator.
+    /// ModifiedDate : represents the date in which admin is modified.
+    /// ModifiedBy : represents the name of admin modifier.
+    /// Email : represents the email address of orgranization/college.
+    /// Website : represents the website of organization/college.
+    /// Address : represents the address of organization/college.
+    /// PhoneNumbers : represents the contact numbers of organization/college. 
+    ///                 Multiple contact numbers can be added separated by commas.
+    /// POBoxNumber : represents the P.O. Box number of organization/college.
+    /// FaxNumber : represents the Fax number of organization/college.
+    /// PanNo : represents the Pan number of organization/college.
+    /// VatNo : represents the VAT number of organization/college.
+    ///         organization/college may have only one of PanNo and VatNo
+    /// LogoFile : represents the logo of organization/college. It is upload type.
+    /// </summary>
     public class Admin
     {
         [Required]
@@ -48,7 +73,7 @@ namespace CMISProject.Models
         [UIHint("Established Date")]
         public DateTime DateOfEstablishment { get; set; }
 
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
 
         public string CreatedBy { get; set; }
 

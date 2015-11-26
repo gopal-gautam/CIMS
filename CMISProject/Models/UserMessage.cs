@@ -7,6 +7,16 @@ using System.Web;
 
 namespace CMISProject.Models
 {
+    /// <summary>
+    /// This contains class that contains all the properties to hold the message assigned to user. 
+    /// Only the assigned user can view and interact the message but only the message creator can delete/modify the message
+    /// The properties are:
+    /// UserMessageId: identifies the user message uniquely
+    /// UserId : used as foreign key to identify the user to which the message is assigned
+    /// User: represents the user to which the message is assigned
+    /// MessageId : used as foreign key to identify the message to be assigned
+    /// Message: represents the message to be assigned.
+    /// </summary>
     public class UserMessage
     {
         [Required]

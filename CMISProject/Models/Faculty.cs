@@ -7,6 +7,15 @@ using System.Web;
 
 namespace CMISProject.Models
 {
+    /// <summary>
+    /// This contains the class that contains all the properties needed to represent faculty 
+    /// which can only be created/modified/deleted by Admin.
+    /// It contains following properties:
+    /// FacultyId : identifies the faculty uniquely
+    /// FacultyName : represents the name of the faculty
+    /// FacultyHeadId : represents foreign key for user who is head of the faculty
+    /// FacultyHead : represents the head of the faculty
+    /// </summary>
     public class Faculty
     {
         [Required]

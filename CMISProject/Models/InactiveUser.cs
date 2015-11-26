@@ -7,6 +7,14 @@ using System.Web;
 
 namespace CMISProject.Models
 {
+    /// <summary>
+    /// This contains the class that contains all the properties to represent an inactive user.
+    /// Admin adds user to inactive when they are out of the organization/college family due to some reason or passed out.
+    /// The properties are:
+    /// InactiveUserId: identifies the inactive user uniquely.
+    /// InactivatedBy: represents the user who inactivated the user
+    /// InactivatedDate: 
+    /// </summary>
     public class InactiveUser
     {
         [Required]
