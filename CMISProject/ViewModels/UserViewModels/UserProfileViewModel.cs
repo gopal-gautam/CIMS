@@ -11,7 +11,7 @@ namespace CMISProject.ViewModels.UserViewModels
     public class UserProfileViewModel
     {
         [Required]
-        [Display(Name="Name")]
+        [Display(Name="Username")]
         [Remote("doesUserNameExist", "User", ErrorMessage = "This username is not available. Please use another username.")]
         [StringLength(30, MinimumLength = 2, ErrorMessage = "UserName must be between 2 and 30 characters")]
         [UIHint("Username")]

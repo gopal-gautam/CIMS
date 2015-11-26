@@ -1,4 +1,5 @@
 ﻿using CMISProject.DAL;
+using CMISProject.Filters;
 using CMISProject.Models;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /Routine/Create
+        [Permit(Permission= "CreateRoutine")]
         public ActionResult Create()
         {
             return View(new Routine());
@@ -47,6 +49,7 @@ namespace CMISProject.Controllers
         //
         // POST: /Routine/Create
         [HttpPost]
+        [Permit(Permission = "CreateRoutine")]
         public ActionResult Create(Routine routine)
         {
             try
@@ -68,6 +71,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /Routine/Edit/5
+        [Permit(Permission = "EditRoutine")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -85,6 +89,7 @@ namespace CMISProject.Controllers
 
         //
         // POST: /Routine/Edit/5
+        [Permit(Permission = "EditRoutine")]
         [HttpPost]
         public ActionResult Edit(int id, Routine routine)
         {
@@ -107,6 +112,7 @@ namespace CMISProject.Controllers
 
         //
         // GET: /Routine/Delete/5
+        [Permit(Permission = "DeleteRoutine")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -125,6 +131,7 @@ namespace CMISProject.Controllers
 
         //
         // POST: /Routine/Delete/5
+        [Permit(Permission = "DeleteRoutine")]
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
