@@ -35,6 +35,7 @@ namespace CMISProject.DAL
         public DbSet<Programme> Programmes { get; set; }
         public DbSet<GroupsUsers> GroupUserRelations { get; set; }
         public DbSet<MessageReaction> MessageReactions { get; set; }
+        public DbSet<Period> Periods { get; set; }
 
         //Removing the default tablename pluralization
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
