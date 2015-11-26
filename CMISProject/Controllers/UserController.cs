@@ -1,4 +1,5 @@
 ﻿using CMISProject.DAL;
+using CMISProject.Filters;
 using CMISProject.Models;
 using CMISProject.ViewModels;
 using CMISProject.ViewModels.MessageViewModels;
@@ -129,6 +130,7 @@ namespace CMISProject.Controllers
         //
         // GET: /User/Create
         //[Authorize(Roles = "SuperAdmin")]
+        [Permit(Permission="CreateUser")]
         public ActionResult Create()
         {
             return View(new UserViewModel());
