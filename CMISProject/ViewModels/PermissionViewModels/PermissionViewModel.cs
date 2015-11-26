@@ -8,10 +8,10 @@ namespace CMISProject.ViewModels.PermissionViewModels
 {
     public class PermissionViewModel
     {
-        [UIHint("Permission Name")]
+        [Display(Name="Permission Name")]
         public string PermissionName { get; set; }
 
-        [UIHint("Description")]
+        [Display(Name="Description")]
         public string PermissionDescription { get; set; }
     }
 }
