@@ -1,4 +1,5 @@
 ﻿using CMISProject.DAL;
+using CMISProject.Filters;
 using CMISProject.Models;
 using CMISProject.ViewModels;
 using CMISProject.ViewModels.MessageViewModels;
@@ -56,7 +57,7 @@ namespace CMISProject.Controllers
         public ActionResult Index()
         {
             int curUserId = (int) HttpContext.Session["UserId"];
-            User currentUser = db.Users.Find(curUserId)
+            User currentUser = db.Users.Find(curUserId);
             return View();
         }
 
@@ -129,6 +130,7 @@ namespace CMISProject.Controllers
         //
         // GET: /User/Create
         //[Authorize(Roles = "SuperAdmin")]
+        [Permit(Permission="CreateUser")]
         public ActionResult Create()
         {
             return View(new UserViewModel());
@@ -328,10 +330,10 @@ namespace CMISProject.Controllers
                 {
                     db.GroupUserRelations.Remove(groupUser);
                 }
-                foreach (var routine in db.Routines.Where(s => s.UserId == id).ToList())
-                {
-                    db.Routines.Remove(routine);
-                }
+                //foreach (var routine in db.Routines.Where(s => s.Periods == id).ToList())
+                //{
+                //    db.Routines.Remove(routine);
+                //}
                 foreach (var userResource in db.UserResources.Where(s => s.UserId == id).ToList())
                 {
                     db.UserResources.Remove(userResource);

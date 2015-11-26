@@ -16,42 +16,40 @@ namespace CMISProject.Filters
 
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
+
+            if (!filterContext.HttpContext.User.Identity.IsAuthenticated)
+            {
+                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { Controller = "Account", Action = "Login" }));
+                return;
+            }
             if ((bool)HttpContext.Current.Session["isAdmin"])
             {
                 base.OnActionExecuted(filterContext);
                 return;
             }
-            else
+            var currentUser = HttpContext.Current.User.Identity.Name;
+            CIMSEntities db = new CIMSEntities();
+            User user = db.Users.Single(s => s.UserName == currentUser);
+            Permission permission = db.Permissions.Single(s => s.PermissionName == Permission);
+            if (permission == null)
             {
-                if (!filterContext.HttpContext.User.Identity.IsAuthenticated)
-                {
-                    filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { Controller = "Account", Action = "Login" }));
-                    return;
-                }
-                var currentUser = HttpContext.Current.User.Identity.Name;
-                CIMSEntities db = new CIMSEntities();
-                User user = db.Users.Single(s => s.UserName == currentUser);
-                Permission permission = db.Permissions.Single(s => s.PermissionName == Permission);
-                if (permission == null)
-                {
-                    filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { Controller = "Home", Action = "Index" }));
-                    return;
-                }
-                var userPermissions = db.UserPermissions.Where(s => s.UserId == user.UserId & s.Permission == permission).ToList();
-                var userGroupRelations = db.GroupUserRelations.Where(s => s.UserId == user.UserId);
-                List<GroupPermission> groupPermissions = new List<GroupPermission>(); ;
-                foreach (var userGroupRelation in userGroupRelations)
-                {
-                    var group = db.Groups.Find(userGroupRelation.GroupId);
-                    groupPermissions.AddRange(db.GroupPermissions.Where(s => s.GroupId == group.GroupId).ToList());
-                }
-                if (userPermissions.Count() == 0 || groupPermissions.Count() == 0 || db.Admins.Single(s => s.AdminName == currentUser) != null)
-                {
-                    filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { Controller = "Home", Action = "Index" }));
-                    return;
-                }
-                base.OnActionExecuted(filterContext);
+                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { Controller = "Home", Action = "Index" }));
+                return;
             }
+            var userPermissions = db.UserPermissions.Where(s => s.UserId == user.UserId & s.Permission == permission).ToList();
+            var userGroupRelations = db.GroupUserRelations.Where(s => s.UserId == user.UserId);
+            List<GroupPermission> groupPermissions = new List<GroupPermission>(); ;
+            foreach (var userGroupRelation in userGroupRelations)
+            {
+                var group = db.Groups.Find(userGroupRelation.GroupId);
+                groupPermissions.AddRange(db.GroupPermissions.Where(s => s.GroupId == group.GroupId).ToList());
+            }
+            if (userPermissions.Count() == 0 || groupPermissions.Count() == 0 || db.Admins.Single(s => s.AdminName == currentUser) != null)
+            {
+                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { Controller = "Home", Action = "Index" }));
+                return;
+            }
+            base.OnActionExecuted(filterContext);
         }
     }
 }

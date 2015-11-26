@@ -175,9 +175,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\EnumToDropDownHelper.cs" />
-    <Compile Include="Migrations\201511260548053_init.cs" />
-    <Compile Include="Migrations\201511260548053_init.Designer.cs">
-      <DependentUpon>201511260548053_init.cs</DependentUpon>
+    <Compile Include="Migrations\201511260818395_init.cs" />
+    <Compile Include="Migrations\201511260818395_init.Designer.cs">
+      <DependentUpon>201511260818395_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -224,11 +224,6 @@
     <Compile Include="ViewModels\UserViewModels\UserListViewModel.cs" />
     <Compile Include="ViewModels\UserViewModels\UserProfileViewModel.cs" />
     <Compile Include="ViewModels\UserViewModels\UserViewModel.cs" />
-    <Content Include="App_Data\aspnet-CMISProject-20151018105347.mdf" />
-    <Content Include="App_Data\aspnet-CMISProject-20151018105347_log.ldf">
-      <DependentUpon>aspnet-CMISProject-20151018105347.mdf</DependentUpon>
-    </Content>
-    <Content Include="App_Data\CMISProject.DAL.CIMSEntities.mdf" />
     <Content Include="bower_components\bootstrap-social\bootstrap-social.css" />
     <Content Include="bower_components\bootstrap\.bower.json" />
     <Content Include="bower_components\bootstrap\bower.json" />
@@ -1068,6 +1063,7 @@
     <Content Include="Views\Shared-bak\EditorTemplates\SelectRoleEditorViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Uploads\AdminLogo\" />
     <Folder Include="Views\Message\" />
     <Folder Include="Views\Routine\" />
@@ -1080,8 +1076,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511260548053_init.resx">
-      <DependentUpon>201511260548053_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201511260818395_init.resx">
+      <DependentUpon>201511260818395_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
