@@ -23,10 +23,22 @@ namespace CMISProject.Controllers
         public ActionResult ListAllGroups()
         {
             List<GroupListViewModel> viewModels = new List<GroupListViewModel>();
+
+            //private int curUserId
+            //{
+            //    get {
+            //    try {
+            //        curUserId = db.Users.Single(s => s.UserName == User.Identity.Name).UserId;
+            //    }
+            //catch {
+            //    curUserId = db.Admins.Single(s => s.AdminName == User.Identity.Name).AdminId;
+            //}
+            //    }
             foreach (var group in db.Groups)
             {
                 var viewModel = new GroupListViewModel()
                 {
+                    GroupId = group.GroupId,
                     GroupName = group.GroupName,
                     //Password = group.Password,
                     //CreatedBy = group.CreatedBy,
@@ -43,7 +55,17 @@ namespace CMISProject.Controllers
 
         public ActionResult Index()
         {
-            return View(db.GroupUserRelations.Where(s => s.User.UserName == HttpContext.User.Identity.Name).ToList());
+            List<GroupViewModel> groupViewModels = new List<GroupViewModel>();
+            foreach (var groupUser in db.GroupUserRelations.Where(s => s.User.UserName == HttpContext.User.Identity.Name).ToList())
+            {
+                Group group = groupUser.Group;
+                GroupViewModel groupViewModel = new GroupViewModel() { 
+                GroupName = group.GroupName,
+                Status = group.Status,
+                };
+                groupViewModels.Add(groupViewModel);
+            }
+            return View(groupViewModels);
         }
 
         public ActionResult ListMembers(int id)
@@ -254,7 +276,7 @@ namespace CMISProject.Controllers
                     Group group = new Group()
                     {
                         GroupName = groupViewModel.GroupName,
-                        Password = groupViewModel.Password,
+                        //Password = groupViewModel.Password,
                         //CreatedBy = groupViewModel.CreatedBy,
                         //CreatedDate = groupViewModel.CreatedDate,
                         Status = groupViewModel.Status,
@@ -264,10 +286,17 @@ namespace CMISProject.Controllers
                     };
                     db.Groups.Add(group);
                     db.SaveChanges();
+                    GroupsUsers groupsUsers = new GroupsUsers()
+                    {
+                        GroupId = group.GroupId,
+                        UserId = (int)HttpContext.Session["UserName"],
+                    };
+                    db.GroupUserRelations.Add(groupsUsers);
+                    db.SaveChanges();
 
-                    IdentityManager im = new IdentityManager();
-                    ApplicationUser user = new ApplicationUser() { UserName = group.GroupName, };
-                    im.CreateUser(user, group.Password);
+                    //IdentityManager im = new IdentityManager();
+                    //ApplicationUser user = new ApplicationUser() { UserName = group.GroupName, };
+                    //im.CreateUser(user, group.Password);
                     return RedirectToAction("Index");
                 }
                 return View(groupViewModel);
@@ -292,7 +321,7 @@ namespace CMISProject.Controllers
             GroupViewModel groupViewModel = new GroupViewModel()
             {
                 GroupName = group.GroupName,
-                Password = group.Password,
+                //Password = group.Password,
                 //CreatedBy = group.CreatedBy,
                 //CreatedDate = group.CreatedDate,
                 Status = group.Status,
@@ -322,7 +351,7 @@ namespace CMISProject.Controllers
                     {
                         GroupId = id,
                         GroupName = groupViewModel.GroupName,
-                        Password = groupViewModel.Password,
+                        //Password = groupViewModel.Password,
                         //CreatedBy = groupViewModel.CreatedBy,
                         //CreatedDate = groupViewModel.CreatedDate,
                         Status = groupViewModel.Status,
@@ -355,18 +384,19 @@ namespace CMISProject.Controllers
             {
                 return HttpNotFound();
             }
-            var groupViewModel = new GroupListViewModel()
-            {
-                GroupName = group.GroupName,
-                //Password = group.Password,
-                //CreatedBy = group.CreatedBy,
-                //CreatedDate = group.CreatedDate,
-                Status = group.Status,
-                //ModifiedBy = group.ModifiedBy,
-                //ModifiedDate = group.ModifiedDate,
-            };
+            //var groupViewModel = new GroupListViewModel()
+            //{
+            //    GroupId = group.GroupId,
+            //    GroupName = group.GroupName,
+            //    //Password = group.Password,
+            //    //CreatedBy = group.CreatedBy,
+            //    //CreatedDate = group.CreatedDate,
+            //    Status = group.Status,
+            //    //ModifiedBy = group.ModifiedBy,
+            //    //ModifiedDate = group.ModifiedDate,
+            //};
 
-            return View(groupViewModel);
+            return View(group);
         }
 
         //

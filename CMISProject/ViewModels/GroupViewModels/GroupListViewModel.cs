@@ -9,6 +9,8 @@ namespace CMISProject.ViewModels.GroupViewModels
 {
     public class GroupListViewModel
     {
+        public int GroupId { get; set; }
+
         [Required]
         [Display(Name = "Name")]
         [StringLength(30, MinimumLength = 2, ErrorMessage = "Group name must be between 2 and 30 characters")]

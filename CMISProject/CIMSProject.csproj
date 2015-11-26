@@ -174,17 +174,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\EnumToDropDownHelper.cs" />
-    <Compile Include="Migrations\201511250239571_init.cs" />
-    <Compile Include="Migrations\201511250239571_init.Designer.cs">
-      <DependentUpon>201511250239571_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511250610130_init1.cs" />
-    <Compile Include="Migrations\201511250610130_init1.Designer.cs">
-      <DependentUpon>201511250610130_init1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511250638095_init2.cs" />
-    <Compile Include="Migrations\201511250638095_init2.Designer.cs">
-      <DependentUpon>201511250638095_init2.cs</DependentUpon>
+    <Compile Include="Migrations\201511260548053_init.cs" />
+    <Compile Include="Migrations\201511260548053_init.Designer.cs">
+      <DependentUpon>201511260548053_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -980,11 +972,6 @@
     <Content Include="Scripts\flot-data.js" />
     <Content Include="Scripts\morris-data.js" />
     <Content Include="Scripts\sb-admin-2.js" />
-    <Content Include="Views\Group\Create.cshtml" />
-    <Content Include="Views\Group\Delete.cshtml" />
-    <Content Include="Views\Group\Details.cshtml" />
-    <Content Include="Views\Group\Edit.cshtml" />
-    <Content Include="Views\Group\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Create.cshtml" />
     <Content Include="Views\Permission\Index.cshtml" />
@@ -1006,6 +993,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Group\Create.cshtml" />
+    <Content Include="Views\Group\Index.cshtml" />
+    <Content Include="Views\Group\ListAllGroups.cshtml" />
+    <Content Include="Views\Group\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content-bak\bootstrap.css" />
@@ -1080,14 +1071,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511250239571_init.resx">
-      <DependentUpon>201511250239571_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511250610130_init1.resx">
-      <DependentUpon>201511250610130_init1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511250638095_init2.resx">
-      <DependentUpon>201511250638095_init2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201511260548053_init.resx">
+      <DependentUpon>201511260548053_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

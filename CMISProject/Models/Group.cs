@@ -17,12 +17,12 @@ namespace CMISProject.Models
         [ScaffoldColumn(false)]
         public int GroupId { get; set; }
 
-        [Required]
-        [Display(Name="Password")]
-        [DataType(DataType.Password)]
-        [StringLength(30, MinimumLength= 8, ErrorMessage="Password should be more than 8 character and less than 30 characters")]
-        [UIHint("Password")]
-        public string Password { get; set; }
+        //[Required]
+        //[Display(Name="Password")]
+        //[DataType(DataType.Password)]
+        //[StringLength(30, MinimumLength= 8, ErrorMessage="Password should be more than 8 character and less than 30 characters")]
+        //[UIHint("Password")]
+        //public string Password { get; set; }
         
         [Required]
         [Display(Name="Name")]
@@ -33,7 +33,7 @@ namespace CMISProject.Models
         [Required]
         [ScaffoldColumn(false)]
         [DataType(DataType.DateTime)]
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
 
         public string CreatedBy { get; set; }
 
