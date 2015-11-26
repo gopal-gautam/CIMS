@@ -53,8 +53,15 @@ namespace CMISProject.Controllers
             return View();
         }
 
-        //Get all the messages that are assigned in the userGroup that the current user falls in
         public ActionResult Index()
+        {
+            int curUserId = (int) HttpContext.Session["UserId"];
+            User currentUser = db.Users.Find(curUserId)
+            return View();
+        }
+
+        //Get all the messages that are assigned in the userGroup that the current user falls in
+        public ActionResult ListMessagesForCurrentUser()
         {
             int curUserId;
             try

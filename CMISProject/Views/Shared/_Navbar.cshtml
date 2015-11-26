@@ -9,7 +9,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        @Html.ActionLink("SB Admin v2.0", "Index", new { controller = "Home" }, new { @class = "navbar-brand" })
+        @Html.ActionLink("CIMS", "Index", new { controller = "Home" }, new { @class = "navbar-brand" })
     </div>
     <!-- /.navbar-header -->
     <ul class="nav navbar-top-links navbar-right">
@@ -223,6 +223,7 @@
         </li>
         <!-- /.dropdown -->
     </ul>
+    @Html.Partial("_LoginPartial")
     <!-- /.navbar-top-links -->
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
