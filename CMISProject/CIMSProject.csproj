@@ -1014,6 +1014,9 @@
     <Content Include="Reports and Documentations\CIMS Project\CIMS diagrams\Context Diagram.vsdx" />
     <Content Include="Reports and Documentations\CIMS Project\CIMS Project.pptx" />
     <Content Include="Reports and Documentations\CIMS Project\CIMSReport.doc" />
+    <Content Include="Reports and Documentations\CIMS Project\CIMS diagrams\Architecture of CIMS.vsdx" />
+    <Content Include="Reports and Documentations\CIMS Project\CIMS diagrams\ER Diagram.vsdx" />
+    <Content Include="Reports and Documentations\CIMS Project\CIMS diagrams\Gantt Chart.vsdx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
