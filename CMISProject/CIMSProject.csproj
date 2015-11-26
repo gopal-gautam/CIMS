@@ -195,6 +195,7 @@
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\MessageReaction.cs" />
     <Compile Include="Models\Navbar.cs" />
+    <Compile Include="Models\Period.cs" />
     <Compile Include="Models\Permission.cs" />
     <Compile Include="Models\Programme.cs" />
     <Compile Include="Models\Resource.cs" />
@@ -222,6 +223,9 @@
     <Compile Include="ViewModels\UserViewModels\UserListViewModel.cs" />
     <Compile Include="ViewModels\UserViewModels\UserViewModel.cs" />
     <Content Include="App_Data\aspnet-CMISProject-20151018105347.mdf" />
+    <Content Include="App_Data\aspnet-CMISProject-20151018105347_log.ldf">
+      <DependentUpon>aspnet-CMISProject-20151018105347.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\CMISProject.DAL.CIMSEntities.mdf" />
     <Content Include="bower_components\bootstrap-social\bootstrap-social.css" />
     <Content Include="bower_components\bootstrap\.bower.json" />
