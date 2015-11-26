@@ -1,0 +1,12 @@
+﻿@model CMISProject.Models.SelectRoleEditorViewModel
+
+@Html.HiddenFor(m=>m.RoleName)
+<tr class="form-group">
+    <td style="text-align:center">
+        @Html.CheckBoxFor(m => m.Selected, new { @class = "form-control" })
+    </td>
+    <td>
+        @Html.DisplayFor(m => m.RoleName, new { @class = "col-md-2 control-label" })
+    </td>
+</tr>
+
