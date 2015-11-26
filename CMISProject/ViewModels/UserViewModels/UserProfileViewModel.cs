@@ -11,6 +11,7 @@ namespace CMISProject.ViewModels.UserViewModels
     public class UserProfileViewModel
     {
         [Required]
+        [Display(Name="Name")]
         [Remote("doesUserNameExist", "User", ErrorMessage = "This username is not available. Please use another username.")]
         [StringLength(30, MinimumLength = 2, ErrorMessage = "UserName must be between 2 and 30 characters")]
         [UIHint("Username")]
@@ -24,13 +25,16 @@ namespace CMISProject.ViewModels.UserViewModels
         //public string Password { get; set; }
 
         [Required]
+        [Display(Name="First Name")]
         [StringLength(20, MinimumLength = 2, ErrorMessage = "First Name must be between 2 and 20 characters")]
-        [UIHint("First Name")]
+        [UIHint("Middle Name")]
         public string FirstName { get; set; }
+        [Display(Name="Last Name")]
         [StringLength(20, MinimumLength = 2, ErrorMessage = "Middle Name must be between 2 and 20 characters")]
         [UIHint("Middle Name")]
         public string MiddleName { get; set; }
         [Required]
+        [Display(Name="Last Name")]
         [StringLength(20, MinimumLength = 2, ErrorMessage = "Last Name must be between 2 and 20 characters")]
         [UIHint("Last Name")]
         public string LastName { get; set; }
@@ -46,6 +50,7 @@ namespace CMISProject.ViewModels.UserViewModels
         public string Address { get; set; }
 
         [DataType(DataType.PhoneNumber)]
+        [Display(Name="Phone Number")]
         [UIHint("Phone No.")]
         public string PhoneNumber { get; set; }
 
@@ -73,9 +78,11 @@ namespace CMISProject.ViewModels.UserViewModels
         [UIHint("Upload ImgFile")]
         public HttpPostedFileBase ImageFile { get; set; }
 
+        [Display(Name="Blood Group")]
         [UIHint("Blood Group")]
         public BloodGroup BloodGroup { get; set; }
 
+        [Display(Name="Citizenship Number")]
         [UIHint("Citizenship No.")]
         public string CitizenShipNumber { get; set; }
 
