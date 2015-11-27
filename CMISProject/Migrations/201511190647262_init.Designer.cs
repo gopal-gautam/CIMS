@@ -13,7 +13,7 @@ namespace CMISProject.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201511260818395_init"; }
+            get { return "201511190647262_init"; }
         }
         
         string IMigrationMetadata.Source

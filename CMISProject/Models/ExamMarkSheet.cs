@@ -52,7 +52,7 @@ namespace CMISProject.Models
         public int UserId { get; set; }
 
         [ForeignKey("UserId")]
-        public virtual Student Student { get; set; }
+        public virtual User Student { get; set; }
 
         [Required]
         public int SubjectId { get; set; }

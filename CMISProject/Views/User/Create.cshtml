@@ -7,7 +7,7 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "User", FormMethod.Post, new { enctype="multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -29,6 +29,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Password)
                 @Html.ValidationMessageFor(model => model.Password)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Sex, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CustomEnumDropDownListFor(model => model.Sex, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Sex)
             </div>
         </div>
 
@@ -111,6 +119,65 @@
                 @Html.ValidationMessageFor(model => model.CitizenShipNumber)
             </div>
         </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BloodGroup, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CustomEnumDropDownListFor(model => model.BloodGroup, new { @class="form-control"})
+                @Html.ValidationMessageFor(model => model.BloodGroup)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Semester, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CustomEnumDropDownListFor(model => model.Semester, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Semester)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Guardian1Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Guardian1Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Guardian1Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Guardian1PhoneNumber, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Guardian1PhoneNumber, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Guardian1PhoneNumber)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Guardian2Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Guardian2Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Guardian2Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Guardian2PhoneNumber, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Guardian2PhoneNumber, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Guardian2PhoneNumber)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImageFile, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.ImageFile, new { @Type="file"})
+                @Html.ValidationMessageFor(model => model.CitizenShipNumber)
+            </div>
+        </div>
+
+
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

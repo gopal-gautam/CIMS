@@ -16,17 +16,35 @@ namespace sb_admin_2.Web1.Controllers
         {
             var data = new Data();
             var navBarItems = data.navbarItems().ToList();
+            int totalNavItem = data.navbarItems().Count();
             if(User.Identity.IsAuthenticated)
             {
-                int curUserId = (int) HttpContext.Session["UserId"];
                 var db = new CMISProject.DAL.CIMSEntities();
-                int totalNavItem = data.navbarItems().Count();
-                var groupsUsers = db.Users.Join(db.GroupUserRelations.Where(s => s.UserId == curUserId), o => o.UserId, i => i.UserId, (c, o) => new { c, o });
-                foreach( var groupUser in groupsUsers)
+                if ((bool)Session["isAdmin"])
                 {
-                    Group group = groupUser.o.Group;
-                    navBarItems.Add(new Navbar { Id = totalNavItem+1, nameOption = group.GroupName, controller = "Group", action = "Create", status = true, isParent = false, parentId = 19 });
+                    foreach (var group in db.Groups)
+                    {
+                        navBarItems.Add(new Navbar { Id = totalNavItem + 1, nameOption = group.GroupName, status = true, isParent = false, parentId = 19 });
+                        totalNavItem++;
+                    }
+                    foreach (var user in db.Users)
+                    {
+                        navBarItems.Add(new Navbar { Id = totalNavItem + 1, nameOption = user.UserName, status = true, isParent = false, parentId = 23 });
+                        totalNavItem++;
+                    }
+                }
+                else
+                {
 
+                    int curUserId = (int)HttpContext.Session["UserId"];
+
+                    var groupsUsers = db.Users.Join(db.GroupUserRelations.Where(s => s.UserId == curUserId), o => o.UserId, i => i.UserId, (c, o) => new { c, o });
+                    foreach (var groupUser in groupsUsers)
+                    {
+                        Group group = groupUser.o.Group;
+                        navBarItems.Add(new Navbar { Id = totalNavItem + 1, nameOption = group.GroupName, status = true, isParent = false, parentId = 19 });
+                        totalNavItem++;
+                    }
                 }
 
             }

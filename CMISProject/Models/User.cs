@@ -50,8 +50,16 @@ namespace CMISProject.Models
     {
         Male, Female, Other
     }
+
+    public enum Semester
+    {
+        I, II, III, IV, V, VI, VII, VIII
+    }
+
+    [Table("User")]
     public class User
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required]
         [ScaffoldColumn(false)]
         public int UserId { get; set; }
@@ -80,7 +88,7 @@ namespace CMISProject.Models
         public string LastName { get; set; }
 
         [Required]
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
 
         public string CreatedBy { get; set; }
 
@@ -139,7 +147,29 @@ namespace CMISProject.Models
         [UIHint("Citizenship No.")]
         public string CitizenShipNumber { get; set; }
 
+        [Required]
+        [UIHint("Semester")]
+        public Semester Semester { get; set; }
 
+        [Required]
+        [Display(Name = "Primary Guardian Name")]
+        [UIHint("Primary Gurardian")]
+        public string Guardian1Name { get; set; }
+
+        [Required]
+        [Display(Name = "Primary Guardian Phone Number")]
+        [DataType(DataType.PhoneNumber)]
+        [UIHint("Primary Guardian Phone No.")]
+        public long Guardian1PhoneNumber { get; set; }
+
+        [Display(Name = "Secondary Guardian Name")]
+        [UIHint("Secondary Gaurdian Name")]
+        public string Guardian2Name { get; set; }
+
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Secondary Guardian Phone Number")]
+        [UIHint("Secondary Gaurdian Phone No.")]
+        public string Guardian2PhoneNumber { get; set; }
         //public User()
         //{
         //    CreatedDate = DateTime.Now;
