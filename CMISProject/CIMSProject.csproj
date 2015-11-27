@@ -1014,6 +1014,8 @@
     <Content Include="Views\Group\AddMember.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\SelectRoleEditorViewModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\SelectMemberViewModel.cshtml" />
+    <Content Include="Views\Routine\Index.cshtml" />
+    <Content Include="Views\Routine\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content-bak\bootstrap.css" />
@@ -1080,7 +1082,6 @@
     <Folder Include="Uploads\AdminLogo\" />
     <Folder Include="Uploads\UserImage\" />
     <Folder Include="Views\Message\" />
-    <Folder Include="Views\Routine\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
