@@ -1,0 +1,44 @@
+﻿@model CMISProject.ViewModels.AddMemberViewModel
+
+@{
+    ViewBag.Title = "AddMember";
+}
+
+<h2>Add Members to Group: @Html.DisplayFor(m=>m.Group.GroupName)</h2>
+
+@using (Html.BeginForm("AddMember", "Group", FormMethod.Post, new { encType = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary()
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.HiddenFor(m => m.Group.GroupId)
+            </div>
+        </div>
+
+        <h4>Select Members</h4>
+        <br />
+        <hr />
+        <table>
+            <tr>
+                <th>
+                    Select
+                </th>
+                <th>
+                    Member
+                </th>
+            </tr>
+            @Html.EditorFor(m => m.members)
+        </table>
+        <br />
+        <hr />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+

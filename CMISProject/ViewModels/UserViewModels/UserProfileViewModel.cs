@@ -25,19 +25,19 @@ namespace CMISProject.ViewModels.UserViewModels
         //public string Password { get; set; }
 
         [Required]
-        [Display(Name="First Name")]
+        [Display(Name="Full Name")]
         [StringLength(20, MinimumLength = 2, ErrorMessage = "First Name must be between 2 and 20 characters")]
-        [UIHint("Middle Name")]
-        public string FirstName { get; set; }
-        [Display(Name="Last Name")]
-        [StringLength(20, MinimumLength = 2, ErrorMessage = "Middle Name must be between 2 and 20 characters")]
-        [UIHint("Middle Name")]
-        public string MiddleName { get; set; }
-        [Required]
-        [Display(Name="Last Name")]
-        [StringLength(20, MinimumLength = 2, ErrorMessage = "Last Name must be between 2 and 20 characters")]
-        [UIHint("Last Name")]
-        public string LastName { get; set; }
+        [UIHint("Full Name")]
+        public string Name { get; set; }
+        //[Display(Name="Last Name")]
+        //[StringLength(20, MinimumLength = 2, ErrorMessage = "Middle Name must be between 2 and 20 characters")]
+        //[UIHint("Middle Name")]
+        //public string MiddleName { get; set; }
+        //[Required]
+        //[Display(Name="Last Name")]
+        //[StringLength(20, MinimumLength = 2, ErrorMessage = "Last Name must be between 2 and 20 characters")]
+        //[UIHint("Last Name")]
+        //public string LastName { get; set; }
 
         [DataType(DataType.EmailAddress)]
         //[RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z")]
@@ -76,7 +76,7 @@ namespace CMISProject.ViewModels.UserViewModels
 
         [DataType(DataType.Upload)]
         [UIHint("Upload ImgFile")]
-        public HttpPostedFileBase ImageFile { get; set; }
+        public string ImageFile { get; set; }
 
         [Display(Name="Blood Group")]
         [UIHint("Blood Group")]

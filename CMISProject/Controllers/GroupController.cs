@@ -2,6 +2,7 @@
 using CMISProject.Models;
 using CMISProject.ViewModels;
 using CMISProject.ViewModels.GroupViewModels;
+using CMISProject.ViewModels.UserViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -71,50 +72,90 @@ namespace CMISProject.Controllers
         public ActionResult ListMembers(int id)
         {
             Group group = db.Groups.Find(id);
-            List<User> users = new List<User>();
+            List<UserListViewModel> users = new List<UserListViewModel>();
             foreach (var groupUserRow in db.GroupUserRelations.Where(s => s.GroupId == group.GroupId).ToList())
             {
-                users.Add(groupUserRow.User);
+                users.Add(new UserListViewModel()
+                {
+                     Name = groupUserRow.User.FirstName + ((string.IsNullOrWhiteSpace
+                     (groupUserRow.User.MiddleName))?" ":(groupUserRow.User.MiddleName+" "))+
+                     groupUserRow.User.LastName,
+                     Address=groupUserRow.User.Address,
+                     Email = groupUserRow.User.Email,
+                     ImageFile = groupUserRow.User.ImageFile,
+                });
             }
             return View(users);
         }
 
-        public ActionResult AddMember(int id, int userId)
+        public ActionResult AddMember(int id)
         {
-            Group group = db.Groups.Find(id);
-            if (group == null)
-            {
-                return HttpNotFound();
-            }
-            if (group.CreatedBy != User.Identity.Name)
+            return View(new AddMemberViewModel(id));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddMember(AddMemberViewModel model)
+        {
+            if (model.Group.CreatedBy != User.Identity.Name || !(bool)Session["isAdmin"])
             {
                 ViewBag.ErrorMessage = "Sorry, You can't add members in this group";
                 return View("~/Views/Shared/Error.cshtml");
             }
-            User user = db.Users.Find(userId);
-            if (user == null)
+            if(ModelState.IsValid)
             {
-                return HttpNotFound();
+                foreach( var member in model.members)
+                {
+                    GroupsUsers groupsUsers = new GroupsUsers()
+                    {
+                        User = member.user,
+                        Group = model.Group,
+                    };
+                    db.GroupUserRelations.Add(groupsUsers);
+                }
             }
-            GroupsUsers groupsUsers = new GroupsUsers()
-            {
-                GroupId = id,
-                UserId = userId,
-            };
-            try
-            {
-                db.GroupUserRelations.Add(groupsUsers);
-                db.SaveChanges();
+            db.SaveChanges();
 
-                return RedirectToAction("ListMembers", new { id = id });
-            }
-            catch
-            {
-                return RedirectToAction("ListMembers", new { id = id });
-
-            }
-
+            return View("ListMembers", new { id=model.Group.GroupId });
         }
+
+        //[HttpPost]
+        //public ActionResult AddMember(int id, int userId)
+        //{
+        //    Group group = db.Groups.Find(id);
+        //    if (group == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    if (group.CreatedBy != User.Identity.Name || ! (bool)Session["isAdmin"])
+        //    {
+        //        ViewBag.ErrorMessage = "Sorry, You can't add members in this group";
+        //        return View("~/Views/Shared/Error.cshtml");
+        //    }
+        //    User user = db.Users.Find(userId);
+        //    if (user == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    GroupsUsers groupsUsers = new GroupsUsers()
+        //    {
+        //        GroupId = id,
+        //        UserId = userId,
+        //    };
+        //    try
+        //    {
+        //        db.GroupUserRelations.Add(groupsUsers);
+        //        db.SaveChanges();
+
+        //        return RedirectToAction("ListMembers", new { id = id });
+        //    }
+        //    catch
+        //    {
+        //        return RedirectToAction("ListMembers", new { id = id });
+
+        //    }
+
+        //}
 
         public ActionResult DeleteMember(int id, int userid)
         {
@@ -285,19 +326,23 @@ namespace CMISProject.Controllers
 
                     };
                     db.Groups.Add(group);
-                    db.SaveChanges();
-                    GroupsUsers groupsUsers = new GroupsUsers()
+                    //db.SaveChanges();
+                    if (!(bool)Session["isAdmin"])
                     {
-                        GroupId = group.GroupId,
-                        UserId = (int)HttpContext.Session["UserName"],
-                    };
-                    db.GroupUserRelations.Add(groupsUsers);
+                        GroupsUsers groupsUsers = new GroupsUsers()
+                        {
+                            GroupId = group.GroupId,
+                            UserId = (int)HttpContext.Session["UserId"],
+                        };
+                        db.GroupUserRelations.Add(groupsUsers);
+                    }
+                    
                     db.SaveChanges();
 
                     //IdentityManager im = new IdentityManager();
                     //ApplicationUser user = new ApplicationUser() { UserName = group.GroupName, };
                     //im.CreateUser(user, group.Password);
-                    return RedirectToAction("Index");
+                    return RedirectToAction("AddMember", new { id=group.GroupId});
                 }
                 return View(groupViewModel);
 

@@ -92,6 +92,7 @@ namespace CMISProject.Controllers
                 // TODO: Add insert logic here
                 if (ModelState.IsValid)
                 {
+                    string UniqFileName = DateTime.Now.ToString("yyyymmddMMss") + adminViewModel.LogoFile.FileName;
                     Admin admin = new Admin()
                     {
                         AdminName = adminViewModel.AdminName,
@@ -102,7 +103,7 @@ namespace CMISProject.Controllers
                         DateOfEstablishment = adminViewModel.DateOfEstablishment,
                         Email = adminViewModel.Email,
                         FaxNumber = adminViewModel.FaxNumber,
-                        LogoFile = Path.GetFileName(adminViewModel.LogoFile.FileName),
+                        LogoFile = UniqFileName,
                         //ModifiedDate = adminViewModel.ModifiedDate,
                         //ModifiedBy = adminViewModel.ModifiedBy,
                         OrganizationName = adminViewModel.OrganizationName,
@@ -113,7 +114,7 @@ namespace CMISProject.Controllers
                         Website = adminViewModel.Website,
 
                     };
-                    string logoFilePath = Path.Combine(Server.MapPath("~/Uploads/AdminLogo"), adminViewModel.LogoFile.FileName);
+                    string logoFilePath = Path.Combine(Server.MapPath("~/Uploads/AdminLogo"), UniqFileName);
                     adminViewModel.LogoFile.SaveAs(logoFilePath);
                     db.Admins.Add(admin);
                     db.SaveChanges();
@@ -276,8 +277,33 @@ namespace CMISProject.Controllers
             //var user = System.Web.Security.Membership.GetUser(AdminName);
 
             //return Json(user == null);
-            var result = db.Users.Where(s => s.UserName == AdminName).Count() == 0;
+            var result = db.Users.Where(s => s.UserName == AdminName).Count() + db.Admins.Where(s => s.AdminName == AdminName).Count() == 0;
             return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult UserProfile()
+        {
+            int curUserId = (int)HttpContext.Session["UserId"];
+            Admin admin = db.Admins.Find(curUserId);
+            AdminProfile adminProfile = new AdminProfile() {
+                AdminName = admin.AdminName,
+                Address = admin.Address,
+                //CreatedBy = admin.CreatedBy,
+                CreatedDate = admin.CreatedDate,
+                DateOfEstablishment = admin.DateOfEstablishment,
+                Email = admin.Email,
+                FaxNumber = admin.FaxNumber,
+                LogoFile = admin.LogoFile,
+                //ModifiedDate = admin.ModifiedDate,
+                //ModifiedBy = admin.ModifiedBy,
+                OrganizationName = admin.OrganizationName,
+                PanNo = admin.PanNo,
+                PhoneNumbers = admin.PhoneNumbers,
+                POBoxNumber = admin.POBoxNumber,
+                VatNo = admin.VatNo,
+                Website = admin.Website,
+            };
+            return View(adminProfile);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace CMISProject.Models
     /// </summary>
     public enum Type
     {
-        Syllabus, Question, Note, Ebook, Assignment
+        Syllabus, Question, Note, Ebook, Assignment, Image
     }
     public class Resource
     {
