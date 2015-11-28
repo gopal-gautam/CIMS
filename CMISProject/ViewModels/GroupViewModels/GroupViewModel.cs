@@ -48,4 +48,31 @@ namespace CMISProject.ViewModels
         public string GroupName { get; set; }
         public Status Status { get; set; }
     }
+
+    public class AddMemberViewModel
+    {
+        public List<SelectMemberViewModel> members { get; set; }
+        public Group Group { get; set; }
+
+        public AddMemberViewModel(int id)
+        {
+            var db = new CMISProject.DAL.CIMSEntities();
+            var u = db.Users;
+            Group = db.Groups.Find(id);
+            foreach (var user in u)
+            {
+                this.members.Add(new SelectMemberViewModel() { user = user });
+            }
+            foreach (var groupUser in db.GroupUserRelations.Where(s => s.GroupId == Group.GroupId).ToList())
+            {
+                var mem = this.members.Find(s => s.user == groupUser.User);
+                mem.selected = true;
+            }
+        }
+    }
+    public class SelectMemberViewModel
+    {
+        public User user { get; set; }
+        public bool selected { get; set; }
+    }
 }

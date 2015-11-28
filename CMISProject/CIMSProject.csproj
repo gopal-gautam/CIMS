@@ -29,6 +29,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\CMISProject.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -175,9 +176,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\EnumToDropDownHelper.cs" />
-    <Compile Include="Migrations\201511260818395_init.cs" />
-    <Compile Include="Migrations\201511260818395_init.Designer.cs">
-      <DependentUpon>201511260818395_init.cs</DependentUpon>
+    <Compile Include="Migrations\201511270526396_init.cs" />
+    <Compile Include="Migrations\201511270526396_init.Designer.cs">
+      <DependentUpon>201511270526396_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511270544255_init1.cs" />
+    <Compile Include="Migrations\201511270544255_init1.Designer.cs">
+      <DependentUpon>201511270544255_init1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -198,6 +203,7 @@
     <Compile Include="Models\Navbar.cs" />
     <Compile Include="Models\Period.cs" />
     <Compile Include="Models\Permission.cs" />
+    <Compile Include="Models\ProfilePicture.cs" />
     <Compile Include="Models\Programme.cs" />
     <Compile Include="Models\Resource.cs" />
     <Compile Include="Models\Routine.cs" />
@@ -210,6 +216,7 @@
     <Compile Include="Models\UserMessage.cs" />
     <Compile Include="Models\UserPermission.cs" />
     <Compile Include="Models\UserResource.cs" />
+    <Compile Include="ViewModels\AdminViewModels\AdminProfile.cs" />
     <Compile Include="ViewModels\AdminViewModels\AdminViewModel.cs" />
     <Compile Include="ViewModels\AdminViewModels\AdminListViewModel.cs" />
     <Compile Include="ViewModels\CustomGroupPropertyViewModels\CustomGroupPropertyViewModel.cs" />
@@ -1002,6 +1009,14 @@
     <Content Include="Views\Group\Index.cshtml" />
     <Content Include="Views\Group\ListAllGroups.cshtml" />
     <Content Include="Views\Group\Delete.cshtml" />
+    <Content Include="Views\User\UserProfile.cshtml" />
+    <Content Include="Views\Admin\UserProfile.cshtml" />
+    <Content Include="Views\Group\ListMembers.cshtml" />
+    <Content Include="Views\Group\AddMember.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SelectRoleEditorViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SelectMemberViewModel.cshtml" />
+    <Content Include="Views\Routine\Index.cshtml" />
+    <Content Include="Views\Routine\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content-bak\bootstrap.css" />
@@ -1066,8 +1081,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\AdminLogo\" />
+    <Folder Include="Uploads\UserImage\" />
     <Folder Include="Views\Message\" />
-    <Folder Include="Views\Routine\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -1077,8 +1092,11 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511260818395_init.resx">
-      <DependentUpon>201511260818395_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201511270526396_init.resx">
+      <DependentUpon>201511270526396_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511270544255_init1.resx">
+      <DependentUpon>201511270544255_init1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -35,7 +35,7 @@ namespace CMISProject.Models
         public int UserId { get; set; }
 
         [ForeignKey("UserId")]
-        public virtual Student Student { get; set; }
+        public virtual User Student { get; set; }
 
         [UIHint("Total Marks")]
         public int TotalMarks { get; set; }
@@ -43,7 +43,7 @@ namespace CMISProject.Models
         [UIHint("Percentage")]
         public int Percentage { get; set; }
      /* [Required]
-        // // [ForeignKey("ExamMarkSheet")]
+        // // [ForeignKey("ExamMarkSheets
         [Column("Marks")]
         public virtual  ExamMarkSheet Marks { get; set; }
         */       

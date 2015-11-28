@@ -16,7 +16,7 @@ namespace CMISProject.DAL
         public DbSet<CustomUserProperty> CustomUserProperties { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<CustomGroupProperty> CustomGroupProperties { get; set; }
-        public DbSet<Student> Students { get; set; }
+        // public DbSet<Student> Students { get; set; }
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<GroupPermission> GroupPermissions { get; set; }
         public DbSet<UserPermission> UserPermissions { get; set; }

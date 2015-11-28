@@ -1,0 +1,12 @@
+﻿@model CMISProject.ViewModels.SelectMemberViewModel
+
+@Html.HiddenFor(m => m.user.UserId)
+<tr class="form-group">
+    <td style="text-align:center">
+        @Html.CheckBoxFor(m => m.selected, new { @class = "form-control" })
+    </td>
+    <td>
+        @Html.DisplayFor(m => m.user.UserName, new { @class = "col-md-2 control-label" })
+    </td>
+</tr>
+

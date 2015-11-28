@@ -24,7 +24,7 @@ namespace CMISProject.Controllers
         private List<UserListViewModel> viewModels = new List<UserListViewModel>();
 
         [Authorize(Roles = "SuperAdmin")]
-        public ActionResult ListAllUsers()
+        public JsonResult ListAllUsers()
         {
             foreach (var user in db.Users)
             {
@@ -51,7 +51,7 @@ namespace CMISProject.Controllers
                 };
                 viewModels.Add(viewModel);
             }
-            return View();
+            return Json(viewModels,JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Index()
@@ -111,6 +111,30 @@ namespace CMISProject.Controllers
             return View(viewMessagesModel.ToList());
         }
 
+        public ActionResult UserProfile()
+        {
+            if((bool) HttpContext.Session["isAdmin"])
+            {
+                return RedirectToAction("UserProfile", "Admin");
+            }
+            int curUserId = (int)HttpContext.Session["UserId"];
+            User user = db.Users.Find(curUserId);
+            UserProfileViewModel userProfile = new UserProfileViewModel() {
+                Address = user.Address,
+                BloodGroup = user.BloodGroup,
+                CitizenShipNumber = user.CitizenShipNumber,
+                DateOfBirth = user.DateOfBirth,
+                Email = user.Email,
+                UserName = user.UserName,
+                Name = user.FirstName + " "+ ((string.IsNullOrWhiteSpace(user.MiddleName))?" ":(user.MiddleName+" ")) + user.LastName,
+                Nationality = user.Nationality,
+                PhoneNumber = user.PhoneNumber,
+                Religion = user.PhoneNumber,
+                Sex = user.Sex,
+                ImageFile = user.ImageFile,
+            };
+            return View(userProfile);
+        }
         //
         // GET: /User/Details/5
         public ActionResult Details(int? id)
@@ -147,6 +171,7 @@ namespace CMISProject.Controllers
                 // TODO: Add insert logic here
                 if (ModelState.IsValid)
                 {
+                    string UniqFileName = DateTime.Now.ToString("yyyymmddMMss") + userViewModel.ImageFile.FileName;
                     User user = new User()
                     {
                         Address = userViewModel.Address,
@@ -156,7 +181,7 @@ namespace CMISProject.Controllers
                         //CreatedDate = userViewModel.CreatedDate,
                         DateOfBirth = userViewModel.DateOfBirth,
                         Email = userViewModel.Email,
-                        ImageFile = userViewModel.ImageFile.ToString(),
+                        ImageFile = UniqFileName,
                         //ModifiedBy = userViewModel.ModifiedBy,
                         //ModifiedDate = userViewModel.ModifiedDate,
                         Nationality = userViewModel.Nationality,
@@ -168,7 +193,15 @@ namespace CMISProject.Controllers
                         FirstName = userViewModel.FirstName,
                         MiddleName = userViewModel.MiddleName,
                         LastName = userViewModel.LastName,
+                        Semester = userViewModel.Semester,
+                        Guardian1Name = userViewModel.Guardian1Name,
+                        Guardian1PhoneNumber = userViewModel.Guardian1PhoneNumber,
+                        Guardian2Name = userViewModel.Guardian2Name,
+                        Guardian2PhoneNumber = userViewModel.Guardian2PhoneNumber,
+                        //Sex = userViewModel.Sex,
                     };
+                    string ImageFilePath = System.IO.Path.Combine(Server.MapPath("~/Uploads/UserImage"), UniqFileName);
+                    userViewModel.ImageFile.SaveAs(ImageFilePath);
                     db.Users.Add(user);
                     db.SaveChanges();
 
@@ -419,9 +452,9 @@ namespace CMISProject.Controllers
         public JsonResult doesUserNameExist(string UserName)
         {
 
-            var user = Membership.GetUser(UserName);
+            var result = db.Users.Where(s => s.UserName == UserName).Count() + db.Admins.Where(s => s.AdminName == UserName).Count() == 0;
+            return Json(result, JsonRequestBehavior.AllowGet);
 
-            return Json(user == null);
         }
 
     }
