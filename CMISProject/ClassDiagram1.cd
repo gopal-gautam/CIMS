@@ -1,0 +1,615 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CMISProject.BundleConfig">
+    <Position X="20" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\BundleConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.FilterConfig">
+    <Position X="13" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\FilterConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.RouteConfig">
+    <Position X="16.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Startup">
+    <Position X="9.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAgAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\Startup.Auth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.MvcApplication">
+    <Position X="16.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Controllers.AccountController">
+    <Position X="7.75" Y="0.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="CMISProject.Controllers.AccountController.ManageMessageId" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Controllers\AccountController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Class Name="CMISProject.Controllers.AccountController.ChallengeResult" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Controllers\AccountController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAACAQCAAAgABAAEAEgEAAAEBICoCAEEVAAQkAAA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Controllers.AdminController">
+    <Position X="11.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAARAAAAAAAAAAAAAAEQAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\AdminController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Controllers.GroupController">
+    <Position X="16.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAERAQAAAAAAAACAAQUAAEACAAUAAABAABA=</HashCode>
+      <FileName>Controllers\GroupController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Controllers.HomeController">
+    <Position X="13" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEACAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Controllers.MessageController">
+    <Position X="11.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAARAIAAAAAAAAEAAAEAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\MessageController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Controllers.PermissionController">
+    <Position X="21.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAARAAAAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\PermissionController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Controllers.RoutineController">
+    <Position X="20" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAARAAAAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\RoutineController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Controllers.SubjectController">
+    <Position X="14.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAARAAAAAAAAAAAAAAGAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\SubjectController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Controllers.UserController">
+    <Position X="20" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAARAAAAQAAAAAAAAAWQAEACAAEABAAAAAA=</HashCode>
+      <FileName>Controllers\UserController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.DAL.CIMSEntities">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQIABGAEIBAAAgAAEAAAAQASMAAAQIABUgAAAQEQAAE=</HashCode>
+      <FileName>DAL\CIMSEntities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Filters.Permit">
+    <Position X="9.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Filters\Permit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Helpers.EnumToDropDownHelper">
+    <Position X="20" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Helpers\EnumToDropDownHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Migrations.init" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201511260818395_init.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CMISProject.Migrations.Configuration">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Migrations\Configuration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.ExternalLoginConfirmationViewModel">
+    <Position X="9.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.ManageUserViewModel">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAEAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.LoginViewModel">
+    <Position X="21.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAAAAAgAAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.RegisterViewModel">
+    <Position X="13" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEQAAAAAAIAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.EditUserViewModel">
+    <Position X="18.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.SelectRoleEditorViewModel">
+    <Position X="21.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAI=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.SelectUserRolesViewModel">
+    <Position X="5.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.Admin">
+    <Position X="9.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIQCAAAEKAAgBAAAAAAQAAIQgAAIAACAgAEAAAAAAE=</HashCode>
+      <FileName>Models\Admin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.CustomGroupProperty">
+    <Position X="11.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAEAAAAAAAAAAAAAAAAAAAAAAAAAAAgCQAAAAA=</HashCode>
+      <FileName>Models\CustomGroupProperty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.CustomUserProperty">
+    <Position X="14.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAoAQAAAAA=</HashCode>
+      <FileName>Models\CustomUserProperty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.ExamMarkSheet">
+    <Position X="21.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAUACAAAAAIIgAQAgAAAAAAAAAAAQAQAAEAAA=</HashCode>
+      <FileName>Models\ExamMarkSheet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.ExamRank">
+    <Position X="7.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAQAgAAAAAAAgAAAgAAAwAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ExamRank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.Faculty">
+    <Position X="11.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAACAAAAEAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Models\Faculty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.Group">
+    <Position X="14.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAEAAAAAAAAAAAAAAAAAgAAAAAAAgAAAAAAAAE=</HashCode>
+      <FileName>Models\Group.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.GroupMessage">
+    <Position X="20" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAEAAAAAAAAAAAAAAAgAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Models\GroupMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.GroupPermission">
+    <Position X="21.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAEAAAAAAAAAAAEABAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\GroupPermission.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.GroupResource">
+    <Position X="5.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAEAEIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\GroupResource.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.GroupsUsers">
+    <Position X="9.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAEAEAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\GroupsUsers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.ApplicationUser">
+    <Position X="18.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\IdentityModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.ApplicationDbContext">
+    <Position X="16.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\IdentityModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.IdentityManager">
+    <Position X="14.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQCAA=</HashCode>
+      <FileName>Models\IdentityModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.InactiveUser">
+    <Position X="16.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAACAAAIAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\InactiveUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.Level">
+    <Position X="20" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Level.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.Message">
+    <Position X="9.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCAAAAIAEAAAAAAAAAAAAAgAABAAEAgAAAAAAAAE=</HashCode>
+      <FileName>Models\Message.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.MessageReaction">
+    <Position X="14.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAAAAAQAAAAAAAAgAAAAAAAAEAAAAIAAAAAA=</HashCode>
+      <FileName>Models\MessageReaction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.Period">
+    <Position X="18.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACEQAAAAIAAAAAAAABAAAAAAIAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Period.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.Permission">
+    <Position X="20" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAASAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Permission.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.Programme">
+    <Position X="11.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Models\Programme.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.Resource">
+    <Position X="14.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgACAAAEAAAwAAAAIAAQAAAAgAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Models\Resource.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.Routine">
+    <Position X="18.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAADEAFBAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Models\Routine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.Student">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAIAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.SubGroup">
+    <Position X="11.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\SubGroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.Subject">
+    <Position X="13" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAEEAAQAAJAAAEAAAEAAAAAAgAAAAAAACAAAAA=</HashCode>
+      <FileName>Models\Subject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.User">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hAAACEAAACAABEAAAAAQQAgQAgAQAAACAwAAAAAACAk=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.UserMessage">
+    <Position X="5.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAkAAAAAAAAAAAAAAgAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Models\UserMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.UserPermission">
+    <Position X="9.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAQEAAgAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\UserPermission.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.Models.UserResource">
+    <Position X="13" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgBAAAAIAAAAAAAAAAABAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\UserResource.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.ViewModels.AdminViewModels.AdminListViewModel">
+    <Position X="13" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAIAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AdminViewModels\AdminListViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.ViewModels.AdminViewModels.AdminViewModel">
+    <Position X="14.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIQAAAAAKAAgBAAAAAAQAAIQAAAIAACAAAEAAAAAAA=</HashCode>
+      <FileName>ViewModels\AdminViewModels\AdminViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.ViewModels.CustomUserPropertyViewModel">
+    <Position X="16.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAgAQAAAAA=</HashCode>
+      <FileName>ViewModels\CustomeUserPropertyViewModels\CustomUserPropertyViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.ViewModels.CustomGroupPropertyViewModel">
+    <Position X="13" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAEAAAAAAAAAAAAAAAAAAAAAAAAAAAgAQAAAAA=</HashCode>
+      <FileName>ViewModels\CustomGroupPropertyViewModels\CustomGroupPropertyViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.ViewModels.GroupViewModel">
+    <Position X="11.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>ViewModels\GroupViewModels\GroupViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.ViewModels.ChangeStatusViewModel">
+    <Position X="21.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>ViewModels\GroupViewModels\GroupViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.ViewModels.UserViewModel">
+    <Position X="14.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hAAAAEAAACAABEAAAAAQQAAQAAAQAAACAQAAAAAACAg=</HashCode>
+      <FileName>ViewModels\UserViewModels\UserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.ViewModels.GroupViewModels.GroupListViewModel">
+    <Position X="18.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>ViewModels\GroupViewModels\GroupListViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.ViewModels.MessageViewModels.MessageListViewModel">
+    <Position X="13" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\MessageViewModels\MessageListViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.ViewModels.MessageViewModels.MessageViewModel">
+    <Position X="3" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\MessageViewModels\MessageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.ViewModels.MessageViewModels.SendMessageViewModel">
+    <Position X="0.75" Y="2" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\MessageViewModels\MessageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.ViewModels.MessageViewModels.GroupMessageViewModel">
+    <Position X="3" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\MessageViewModels\MessageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.ViewModels.MessageViewModels.ViewMessageViewModel">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAQAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\MessageViewModels\MessageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.ViewModels.PermissionViewModels.PermissionViewModel">
+    <Position X="5.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAASAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\PermissionViewModels\PermissionViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.ViewModels.SubjectViewModels.SubjectListViewModel">
+    <Position X="16.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAABAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>ViewModels\SubjectViewModels\SubjectListViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.ViewModels.SubjectViewModels.SubjectViewModel">
+    <Position X="18.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAQAAJAAAAAAAEAAAAAAgAAAAAAACAAAAA=</HashCode>
+      <FileName>ViewModels\SubjectViewModels\SubjectViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.ViewModels.UserViewModels.UserListViewModel">
+    <Position X="21.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAACAAAAAAAAAAAAQAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\UserViewModels\UserListViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMISProject.ViewModels.UserViewModels.UserProfileViewModel">
+    <Position X="11.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hAAAAEAAACAABEAAAAAQQAAQAAAQAAACAQAAAAAACAg=</HashCode>
+      <FileName>ViewModels\UserViewModels\UserProfileViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="CMISProject.Models.SemesterGradePointAverage">
+    <Position X="20" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAgAAAAAAAIAAAAAAAAAAAAAAAAAAtAEAAAA=</HashCode>
+      <FileName>Models\ExamMarkSheet.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CMISProject.Models.ExamType">
+    <Position X="9.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIAAAAAQAAAIAAAAAECIAgQAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Models\ExamMarkSheet.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CMISProject.Models.Status">
+    <Position X="5.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAg=</HashCode>
+      <FileName>Models\Group.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CMISProject.Models.MessageType">
+    <Position X="13" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAABCAAgIEAAAgAAAAAAAAgAA=</HashCode>
+      <FileName>Models\Message.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CMISProject.Models.MessageMode">
+    <Position X="11.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAEMAAAAAAA=</HashCode>
+      <FileName>Models\Message.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CMISProject.Models.React">
+    <Position X="16.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Models\MessageReaction.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CMISProject.Models.Mode">
+    <Position X="14.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Period.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CMISProject.Models.Type">
+    <Position X="9.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAEAAAAAAEIIAA=</HashCode>
+      <FileName>Models\Resource.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CMISProject.Models.Semester">
+    <Position X="18.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAACAQAgE=</HashCode>
+      <FileName>Models\Student.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CMISProject.Models.BloodGroup">
+    <Position X="5.25" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAIAAAAgAAAAAABAAAAAQAAACAAAAAAIAAEAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CMISProject.Models.Sex">
+    <Position X="21.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
