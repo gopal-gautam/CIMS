@@ -1071,6 +1071,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Reports and Documentations\CIMSFinalReport\" />
+    <Folder Include="Reports and Documentations\Diagrams\" />
     <Folder Include="Uploads\AdminLogo\" />
     <Folder Include="Uploads\UserImage\" />
     <Folder Include="Views\Message\" />
