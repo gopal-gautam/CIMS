@@ -59,9 +59,9 @@ namespace CMISProject.Models
     [Table("User")]
     public class User
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required]
-        [ScaffoldColumn(false)]
+        //[ScaffoldColumn(false)]
         public int UserId { get; set; }
 
         [Required]
