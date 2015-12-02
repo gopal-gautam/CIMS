@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CMISProject.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -22,6 +23,11 @@ namespace CMISProject.ViewModels.UserViewModels
         //[RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z")]
         [UIHint("E-mail Id")]
         public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Type of User")]
+        [UIHint("Type")]
+        public UserType Type { get; set; }
 
         [DataType(DataType.Upload)]
         [UIHint("Upload ImgFile")]

@@ -42,10 +42,10 @@ namespace CMISProject.Models
     {
         APositive, ANegative, BPositive, BNegative, ABPositive, ABNegative, OPositive, ONegative
     }
-    //public enum UserType
-    //{
-    //    Staff, Student
-    //}
+    public enum UserType
+    {
+       Student, Teacher, Staff
+    }
     public enum Sex
     {
         Male, Female, Other
@@ -170,6 +170,11 @@ namespace CMISProject.Models
         [Display(Name = "Secondary Guardian Phone Number")]
         [UIHint("Secondary Gaurdian Phone No.")]
         public string Guardian2PhoneNumber { get; set; }
+
+        [Required]
+        [Display(Name="Type of User")]
+        [UIHint("Type")]
+        public UserType Type { get; set; } 
         //public User()
         //{
         //    CreatedDate = DateTime.Now;
