@@ -1029,12 +1029,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Notes\ImplementModifiedDate.gnotes" />
-    <Content Include="Reports and Documentations\CIMS Project\CIMS diagrams\Context Diagram.vsdx" />
-    <Content Include="Reports and Documentations\CIMS Project\CIMS Project.pptx" />
-    <Content Include="Reports and Documentations\CIMS Project\CIMSReport.doc" />
-    <Content Include="Reports and Documentations\CIMS Project\CIMS diagrams\Architecture of CIMS.vsdx" />
-    <Content Include="Reports and Documentations\CIMS Project\CIMS diagrams\ER Diagram.vsdx" />
-    <Content Include="Reports and Documentations\CIMS Project\CIMS diagrams\Gantt Chart.vsdx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1080,6 +1074,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Reports and Documentations\CIMSFinalReport\" />
     <Folder Include="Uploads\AdminLogo\" />
     <Folder Include="Uploads\UserImage\" />
     <Folder Include="Views\Message\" />
